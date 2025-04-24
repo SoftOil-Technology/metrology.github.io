@@ -7,7 +7,7 @@ const NAVIGATION_LINKS = [
 ];
 ---
 
-<header class="fixed top-0 z-60 w-screen bg-primary  pb-6 backdrop-blur-md">
+<header class="fixed top-0 z-60 w-screen bg-primary pb-6 backdrop-blur-md">
   <nav
     class="mx-auto flex max-w-6xl items-center justify-between px-4 py-6 pb-0 uppercase lg:px-8"
   >
@@ -64,50 +64,57 @@ const NAVIGATION_LINKS = [
     </div>
   </nav>
   <dialog
-    class="bg-primary z-50 h-full w-full max-w-full translate-x-0 transition-discrete duration-300 lg:hidden starting:-translate-x-full [&:not([open])]:-translate-x-full"
+    class="bg-primary z-50 h-full w-full max-w-full translate-x-0 transition-discrete duration-300 lg:hidden starting:-translate-x-full [&:not([open])]:-translate-x-full min-h-screen"
     id="mobile-menu"
     role="dialog"
     aria-modal="true"
   >
-    <div class="z-10 overflow-y-auto px-6 py-6">
-      <div class="flex items-center justify-between">
-        <div class="flex flex-1">
-          <button
-            type="button"
-            id="close-menu-button"
-            class="-m-2.5 cursor-pointer p-2.5 text-white transition-all duration-300 ease-in will-change-transform hover:scale-150"
-          >
-            <span class="sr-only">Cerrar Menú</span>
-            <svg
-              class="size-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              aria-hidden="true"
-              data-slot="icon"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M6 18 18 6M6 6l12 12"></path>
-            </svg>
-          </button>
+  <div class="z-10 h-screen flex flex-col px-6 py-6">
+    <div class="flex items-center justify-between">
+      <a href="/" class="flex items-center">
+        <div class="bg-white p-2 rounded-lg w-fit">
+          <img
+            src="/logo-kepler-metrology.png"
+            alt="Kepler Metrology Logo"
+            class="h-8"
+          />
         </div>
-      </div>
-      <div class="mt-6 space-y-2">
-        {
-          NAVIGATION_LINKS.map(({ href, text }) => (
-            <a
-              href={href}
-              class="hover:text-primary-light border-primary-light -mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/10"
-            >
-              {text}
-            </a>
-          ))
-        }
-      </div>
+      </a>
+      <button
+        type="button"
+        id="close-menu-button"
+        class="-m-2.5 cursor-pointer p-2.5 text-white transition-all duration-300 ease-in will-change-transform hover:scale-150"
+      >
+        <span class="sr-only">Cerrar Menú</span>
+        <svg
+          class="size-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          aria-hidden="true"
+          data-slot="icon"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 18 18 6M6 6l12 12"></path>
+        </svg>
+      </button>
     </div>
+    <div class="flex-1 flex flex-col items-center justify-center space-y-6">
+      {
+        NAVIGATION_LINKS.map(({ href, text }) => (
+          <a
+            href={href}
+            class="hover:text-primary-light border-primary-light -mx-3 block rounded-lg px-3 py-2 text-xl font-semibold text-white hover:bg-white/10 text-center w-3/4"
+          >
+            {text}
+          </a>
+        ))
+      }
+    </div>
+  </div>
   </dialog>
 </header>
 
