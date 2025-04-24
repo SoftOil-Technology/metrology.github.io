@@ -1,9 +1,20 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import Hero from "@/sections/hero.astro";
+import { FlickeringGrid } from "@/components/FlickeringGrid";
 ---
 
 <MainLayout>
+	<FlickeringGrid
+		client:load
+		className="z-0 fixed"
+		squareSize={20}
+		gridGap={12}
+		color="#b7312c"
+		maxOpacity={0.08}
+		flickerChance={0.15}
+	/>
+
 	<Hero />
 
 	<section class="h-[3000px] max-w-6xl mx-auto">
