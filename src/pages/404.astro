@@ -1,0 +1,49 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout
+  title="Página no encontrada | Kepler Metrology"
+  description="Lo sentimos, la página que buscas no existe o ha sido movida."
+>
+  <div class="min-h-[70vh] flex items-center justify-center px-4 py-16">
+    <div class="text-center">
+      <h1 class="text-9xl font-bold text-blue-600">404</h1>
+
+      <div class="mt-4 mb-8">
+        <div class="h-1 w-16 bg-blue-600 mx-auto"></div>
+      </div>
+
+      <h2 class="text-3xl font-semibold mb-4">¡Ups! Página no encontrada</h2>
+
+      <p class="text-gray-600 text-lg mb-8">
+        Lo sentimos, la página que estás buscando no existe, ha sido movida o no
+        está disponible temporalmente.
+      </p>
+
+      <div class="flex flex-col md:flex-row gap-4 justify-center">
+        <a
+          href="/"
+          class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+        >
+          Volver al inicio
+        </a>
+
+        <a
+          href="/contacto"
+          class="px-6 py-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
+        >
+          Contactar soporte
+        </a>
+      </div>
+
+      <div class="mt-12">
+        <img
+          src="/logo-kepler-metrology.png"
+          alt="Kepler Metrology Logo"
+          class="h-16 mx-auto opacity-50"
+        />
+      </div>
+    </div>
+  </div>
+</MainLayout>
