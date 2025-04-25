@@ -1,0 +1,30 @@
+---
+import Section from "@/components/Section.astro";
+
+const MISION =
+  "Proveer servicios técnicos especializados en la Calibración y Medición como Laboratorio, solucionando las necesidades de nuestros clientes asociadas a requerimientos normativos del sector energía e industrial, esto con la pasión, calidad e imparcialidad que nos caracteriza. ";
+
+const VISION =
+  "Ser la empresa numero 1 a nivel nacional y latinoamérica como Laboratorio en el Sector Energía e Industrial. Reconocidos por nuestra capacidad intelectual, tecnología y excelencia, esto a fin de potenciar a nuestros clientes en sus líneas de negocio.";
+---
+
+<Section title="MISIÓN Y VISIÓN">
+  <div class="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-10">
+    <div
+      class="bg-white p-4 sm:p-6 md:p-8 rounded-lg shadow-lg border-l-4 border-primary"
+    >
+      <h2 class="text-2xl sm:text-3xl font-bold text-primary mb-4 sm:mb-6">
+        MISIÓN
+      </h2>
+      <p class="text-sm sm:text-base text-gray-700 leading-relaxed">
+        {MISION}
+      </p>
+    </div>
+    <div class="bg-primary p-4 sm:p-6 md:p-8 rounded-lg shadow-lg text-white">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">VISIÓN</h2>
+      <p class="text-sm sm:text-base leading-relaxed">
+        {VISION}
+      </p>
+    </div>
+  </div>
+</Section>

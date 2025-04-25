@@ -1,0 +1,59 @@
+---
+import Section from "@/components/Section.astro";
+import CheckIcon from "@/components/icons/CheckIcon.astro";
+
+const POLITICAS = [
+  {
+    numero: 1,
+    titulo:
+      "Implementación impecable del Sistema de Gestión de Calidad por el Director General y el personal en la operación del Laboratorio.",
+  },
+  {
+    numero: 2,
+    titulo:
+      "Aplicación de un sistema Integral de la calidad a través de la inspección, control de calidad y aseguramiento de la calidad",
+  },
+  {
+    numero: 3,
+    titulo:
+      "Aplicación de normas nacionales y estándares internacionales con métodos normalizados",
+  },
+  {
+    numero: 4,
+    titulo:
+      "Certificación de competencias del personal como palanca de valor para nuestra empresa y clientes",
+  },
+];
+---
+
+<Section 
+  title="POLÍTICA DE LABORATORIO" 
+  bgColor="bg-gray-100"
+>
+  <div class="bg-white p-4 sm:p-6 md:p-8 rounded-lg shadow-lg">
+    <p
+      class="text-sm sm:text-base text-gray-700 leading-relaxed mb-4 sm:mb-6"
+    >
+      En Kepler Metrology estamos comprometidos a satisfacer las necesidades
+      del sector energía e industrial mediante servicios de calibración y
+      medición confiables, imparciales y especializados, respaldados por
+      nuestro Sistema de Gestión de Calidad que cumple con los requerimientos
+      del estándar ISO/IEC 17025:2017 y la NMX-EC-17025-IMNC-2018. Estamos
+      orientados a asegurar el cumplimiento de las normativas nacionales e
+      internacionales aplicables, enfocándonos siempre en la mejora continua.
+    </p>
+
+    <div class="grid sm:grid-cols-2 gap-4 sm:gap-6 mt-6 sm:mt-8">
+      {
+        POLITICAS.map(({ titulo }) => (
+          <div class="flex items-start">
+            <div class="bg-primary text-white rounded-full p-1 mr-3 sm:mr-4 mt-1 shrink-0">
+              <CheckIcon class="size-7" />
+            </div>
+            <p class="text-sm sm:text-base text-gray-700">{titulo}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</Section>

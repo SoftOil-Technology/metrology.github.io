@@ -1,0 +1,61 @@
+---
+import Section from "@/components/Section.astro";
+
+const VALORES = [
+  {
+    numero: "1",
+    titulo: "COMPROMISO",
+    descripcion:
+      "Tenemos un compromiso personal y colectivo para darle a nuestro cliente un servicio de excelencia, ya que para nosotros el cliente es nuestra razón de ser.",
+  },
+  {
+    numero: "2",
+    titulo: "CONFIANZA",
+    descripcion:
+      "Lo más importante para Kepler Metrology es que el cliente se sienta cómodo con la relación que formamos. A través de la confianza queremos brindarle la mejor experiencia.",
+  },
+  {
+    numero: "3",
+    titulo: "CALIDAD",
+    descripcion:
+      "Mantenemos con calidad nuestras acciones y la excelencia de nuestros servicios, para nosotros el cliente merece lo mejor.",
+  },
+  {
+    numero: "4",
+    titulo: "PASIÓN",
+    descripcion:
+      "Trabajamos día a día brindando nuestro máximo esfuerzo para hacer de Kepler Metrology una empresa de excelencia.",
+  },
+  {
+    numero: "5",
+    titulo: "AUTOLIDERAZGO",
+    descripcion:
+      "Coordinamos nuestras actitudes con nuestras acciones para desarrollar constantemente habilidades y el orden necesario para brindar al cliente lo mejor de Kepler en cada acercamiento.",
+  },
+];
+---
+
+<Section 
+  title="VALORES" 
+  bgColor="bg-gray-100"
+>
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {
+      VALORES.map((valor) => (
+        <div class="bg-white p-4 sm:p-6 rounded-lg shadow-lg border-t-4 border-primary hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+          <div class="flex items-center mb-3 sm:mb-4">
+            <div class="bg-primary text-white rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-lg sm:text-xl font-bold mr-3 sm:mr-4 shrink-0">
+              {valor.numero}
+            </div>
+            <h3 class="text-lg sm:text-xl font-bold text-primary leading-tight">
+              {valor.titulo}
+            </h3>
+          </div>
+          <p class="text-sm sm:text-base text-gray-700 flex-grow leading-relaxed">
+            {valor.descripcion}
+          </p>
+        </div>
+      ))
+    }
+  </div>
+</Section>

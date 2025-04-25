@@ -3,84 +3,13 @@ import MainLayout from "../layouts/MainLayout.astro";
 import Hero from "@/sections/Hero.astro";
 import Contacto from "@/sections/Contacto.astro";
 import { FlickeringGrid } from "@/components/FlickeringGrid";
-import ValoresCard from "@/components/ValoresCard.astro";
-import ServiceCard from "@/components/ServiceCard.astro";
-import ContactForm from "@/components/ContactForm.astro";
+import Magnitudes from "@/sections/Magnitudes.astro";
+import MisionVision from "@/sections/MisionVision.astro";
+import Valores from "@/sections/Valores.astro";
+import Servicios from "@/sections/Servicios.astro";
+import PoliticaLaboratorio from "@/sections/PoliticaLaboratorio.astro";
 
 // Magnitudes acreditadas
-const MAGNITUDES = [
-  {
-    titulo: "Presión",
-    icono: "presion",
-    descripcion: "Calibración de instrumentos de medición de presión con trazabilidad al CENAM."
-  },
-  {
-    titulo: "Temperatura",
-    icono: "temperatura",
-    descripcion: "Servicios de calibración para equipos de medición de temperatura."
-  },
-  {
-    titulo: "Flujo",
-    icono: "flujo",
-    descripcion: "Calibración de medidores de flujo para aplicaciones en el sector Oil & Gas."
-  },
-  {
-    titulo: "Volumen",
-    icono: "volumen",
-    descripcion: "Calibración de instrumentos volumétricos con precisión certificada."
-  },
-  {
-    titulo: "Dimensional",
-    icono: "dimensional",
-    descripcion: "Calibración de medidores de nivel y otros instrumentos dimensionales."
-  },
-  {
-    titulo: "Masa",
-    icono: "masa",
-    descripcion: "Servicios de calibración para instrumentos de pesaje y medición de masa."
-  }
-];
-
-const VALORES = [
-  {
-    numero: "1",
-    titulo: "COMPROMISO",
-    descripcion: "Tenemos un compromiso personal y colectivo para darle a nuestro cliente un servicio de excelencia, ya que para nosotros el cliente es nuestra razón de ser."
-  },
-  {
-    numero: "2",
-    titulo: "CONFIANZA",
-    descripcion: "Lo más importante para Kepler Metrology es que el cliente se sienta cómodo con la relación que formamos. A través de la confianza queremos brindarle la mejor experiencia."
-  },
-  {
-    numero: "3",
-    titulo: "CALIDAD",
-    descripcion: "Mantenemos con calidad nuestras acciones y la excelencia de nuestros servicios, para nosotros el cliente merece lo mejor."
-  },
-  {
-    numero: "4",
-    titulo: "PASIÓN",
-    descripcion: "Trabajamos día a día brindando nuestro máximo esfuerzo para hacer de Kepler Metrology una empresa de excelencia."
-  },
-  {
-    numero: "5",
-    titulo: "AUTOLIDERAZGO",
-    descripcion: "Coordinamos nuestras actitudes con nuestras acciones para desarrollar constantemente habilidades y el orden necesario para brindar al cliente lo mejor de Kepler en cada acercamiento."
-  }
-];
-
-const SERVICIOS = [
-  {
-    titulo: "Calibración de Instrumentos",
-    descripcion: "Servicios especializados de calibración para instrumentos de medición en el sector de hidrocarburos.",
-    icono: "calibracion"
-  },
-  {
-    titulo: "Verificación Normativa",
-    descripcion: "Evaluación de conformidad con las normas asociadas al sector de hidrocarburos.",
-    icono: "verificacion"
-  },
-];
 ---
 
 <MainLayout>
@@ -98,205 +27,20 @@ const SERVICIOS = [
 	<Hero />
 
 	<!-- Magnitudes Acreditadas -->
-	<section id="magnitudes" class="py-12 sm:py-16 md:py-20">
-		<div class="max-w-6xl mx-auto px-4">
-			<h2 class="text-3xl sm:text-4xl font-bold text-primary mb-2 text-center">MAGNITUDES ACREDITADAS</h2>
-			<div class="w-16 sm:w-20 h-1 bg-secondary mx-auto mb-3 sm:mb-4"></div>
-			<p class="text-center text-sm sm:text-base text-gray-700 mb-8 sm:mb-12 max-w-3xl mx-auto">
-				Nuestro laboratorio cuenta con acreditación ante la Entidad Mexicana de Acreditación (EMA) y trazabilidad al Centro Nacional de Metrología (CENAM) en las siguientes magnitudes:
-			</p>
-			
-			<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-				{MAGNITUDES.map(magnitud => (
-					<div class="bg-white p-4 sm:p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-primary">
-						<div class="flex flex-row items-center sm:flex-col sm:items-center mb-3 sm:mb-4">
-							<div class="hexagon-container border-2 border-secondary mr-4 sm:mr-0">
-								<img 
-									src={`/images/${magnitud.icono}.avif`} 
-									alt={magnitud.titulo}
-									class="hexagon-image"
-								/>
-							</div>
-							<h3 class="text-lg sm:text-xl font-bold text-primary md:ml-0 ml-3 mb-0 sm:mb-2 sm:text-center">{magnitud.titulo}</h3>
-						</div>
-						<p class="text-sm sm:text-base text-gray-700">{magnitud.descripcion}</p>
-					</div>
-				))}
-			</div>
-		</div>
-	</section>
-
-	<style>
-	  .hexagon-container {
-	    width: 60px;
-	    height: 60px;
-	    position: relative;
-	    overflow: hidden;
-	    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-	    background-color: #f3f4f6;
-	    margin: 0;
-	    sm:margin: 0 auto;
-	    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-	    /* Efecto de borde con pseudo-elemento para mantener el hexágono */
-	    position: relative;
-	  }
-	  
-	  .hexagon-container::before {
-	    content: '';
-	    position: absolute;
-	    top: -3px;
-	    left: -3px;
-	    right: -3px;
-	    bottom: -3px;
-	    background-color: var(--color-secondary, #f59e0b);
-	    z-index: -1;
-	    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-	  }
-	
-	  .hexagon-image {
-	    width: 100%;
-	    height: 100%;
-	    object-fit: cover;
-	    transition: transform 0.3s ease;
-	  }
-	
-	  .hexagon-container:hover .hexagon-image {
-	    transform: scale(1.1);
-	  }
-	
-	  @media (max-width: 640px) {
-	    .hexagon-container {
-	      width: 60px;
-	      height: 60px;
-	    }
-	  }
-	  
-	  @media (min-width: 640px) {
-	    .hexagon-container {
-	      width: 100px;
-	      height: 100px;
-	      margin: 0 auto;
-	    }
-	  }
-	  
-	  @media (min-width: 1024px) {
-	    .hexagon-container {
-	      width: 150px;
-	      height: 150px;
-	      margin: 0 auto;
-	    }
-	  }
-	</style>
+	<Magnitudes />
 
 	<!-- Política de Laboratorio -->
-	<section class="py-12 sm:py-16 md:py-20 bg-gray-100">
-		<div class="max-w-6xl mx-auto px-4">
-			<h2 class="text-3xl sm:text-4xl font-bold text-primary mb-2 text-center">POLÍTICA DE LABORATORIO</h2>
-			<div class="w-16 sm:w-20 h-1 bg-secondary mx-auto mb-8 sm:mb-12"></div>
-			
-			<div class="bg-white p-4 sm:p-6 md:p-8 rounded-lg shadow-lg">
-				<p class="text-sm sm:text-base text-gray-700 leading-relaxed mb-4 sm:mb-6">
-					En Kepler Metrology estamos comprometidos a satisfacer las necesidades del sector energía e industrial mediante servicios de calibración y medición confiables, imparciales y especializados, respaldados por nuestro Sistema de Gestión de Calidad que cumple con los requerimientos del estándar ISO/IEC 17025:2017 y la NMX-EC-17025-IMNC-2018. Estamos orientados a asegurar el cumplimiento de las normativas nacionales e internacionales aplicables, enfocándonos siempre en la mejora continua.
-				</p>
-				
-				<div class="grid sm:grid-cols-2 gap-4 sm:gap-6 mt-6 sm:mt-8">
-					<div class="flex items-start">
-						<div class="bg-primary text-white rounded-full p-1.5 sm:p-2 mr-3 sm:mr-4 mt-1 shrink-0">
-							<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-							</svg>
-						</div>
-						<p class="text-sm sm:text-base text-gray-700">Implementación impecable del Sistema de Gestión de Calidad por el Director General y el personal en la operación del Laboratorio.</p>
-					</div>
-					
-					<!-- Repite el mismo patrón para los otros items -->
-					<div class="flex items-start">
-						<div class="bg-primary text-white rounded-full p-2 mr-4 mt-1">
-							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-							</svg>
-						</div>
-						<p class="text-gray-700">Aplicación de un sistema Integral de la calidad a través de la inspección, control de calidad y aseguramiento de la calidad.</p>
-					</div>
-					
-					<div class="flex items-start">
-						<div class="bg-primary text-white rounded-full p-2 mr-4 mt-1">
-							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-							</svg>
-						</div>
-						<p class="text-gray-700">Aplicación de normas nacionales y estándares internacionales con métodos normalizados.</p>
-					</div>
-					
-					<div class="flex items-start">
-						<div class="bg-primary text-white rounded-full p-2 mr-4 mt-1">
-							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-							</svg>
-						</div>
-						<p class="text-gray-700">Certificación de competencias del personal como palanca de valor para nuestra empresa y clientes.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+	<PoliticaLaboratorio />
 
 	<!-- Misión y Visión -->
-	<section class="py-12 sm:py-16 md:py-20">
-		<div class="max-w-6xl mx-auto px-4">
-			<div class="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-10">
-				<div class="bg-white p-4 sm:p-6 md:p-8 rounded-lg shadow-lg border-l-4 border-primary">
-					<h2 class="text-2xl sm:text-3xl font-bold text-primary mb-4 sm:mb-6">MISIÓN</h2>
-					<p class="text-sm sm:text-base text-gray-700 leading-relaxed">
-						Proveer servicios técnicos especializados en la Calibración y Medición como Laboratorio, solucionando las necesidades de nuestros clientes asociadas a requerimientos normativos del sector energía e industrial, esto con la pasión, calidad e imparcialidad que nos caracteriza.
-					</p>
-				</div>
-				<div class="bg-primary p-4 sm:p-6 md:p-8 rounded-lg shadow-lg text-white">
-					<h2 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">VISIÓN</h2>
-					<p class="text-sm sm:text-base leading-relaxed">
-						Ser la empresa número 1 a nivel nacional y latinoamérica como Laboratorio en el Sector Energía e Industrial. Reconocidos por nuestra capacidad intelectual, tecnología y excelencia, esto a fin de potenciar a nuestros clientes en sus líneas de negocio.
-					</p>
-				</div>
-			</div>
-		</div>
-	</section>
+	<MisionVision />
 
 	<!-- Valores -->
-	<section class="py-20 bg-gray-100">
-		<div class="max-w-6xl mx-auto px-4">
-			<h2 class="text-4xl font-bold text-primary mb-2 text-center">VALORES</h2>
-			<div class="w-20 h-1 bg-secondary mx-auto mb-12"></div>
-			
-			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-				{VALORES.map(valor => (
-					<ValoresCard 
-						numero={valor.numero}
-						titulo={valor.titulo}
-						descripcion={valor.descripcion}
-					/>
-				))}
-			</div>
-		</div>
-	</section>
+	<Valores />
 
 	<!-- Servicios -->
-	<section class="py-12 sm:py-16 md:py-20">
-		<div class="max-w-6xl mx-auto px-4">
-			<h2 class="text-3xl sm:text-4xl font-bold text-primary mb-2 text-center">NUESTROS SERVICIOS</h2>
-			<div class="w-16 sm:w-20 h-1 bg-secondary mx-auto mb-8 sm:mb-12"></div>
-			
-			<div class="grid md:grid-cols-2 gap-6 sm:gap-8">
-				{SERVICIOS.map(servicio => (
-					<ServiceCard 
-						titulo={servicio.titulo}
-						descripcion={servicio.descripcion}
-						icono={servicio.icono}
-					/>
-				))}
-			</div>
-		</div>
-	</section>
+	<Servicios />
 
-	<!-- Componente de Contacto -->
+	<!-- Contacto -->
 	<Contacto />
 </MainLayout>

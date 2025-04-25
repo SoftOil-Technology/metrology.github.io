@@ -2,27 +2,30 @@
 const HERO_IMAGES = [
   {
     src: "/hero/slider-1.webp",
-    alt: "Calibración de instrumentos de precisión"
+    alt: "Calibración de instrumentos de precisión",
   },
   {
     src: "/hero/slider-2.jpg",
-    alt: "Soluciones de Metrología Avanzada"
+    alt: "Soluciones de Metrología Avanzada",
   },
   {
     src: "/hero/slider-3.jpg",
-    alt: "Tecnología de Medición Certificada"
-  }
+    alt: "Tecnología de Medición Certificada",
+  },
 ];
 
 const TRANSITION_TIME = 5000;
 ---
 
-<section class="relative min-h-[90vh] w-full flex flex-col items-center justify-center overflow-hidden">
-  <!-- Hero Principal con Carrusel Integrado -->
+<section
+  class="relative h-[100vh] w-full flex flex-col items-center justify-center overflow-hidden"
+>
   <div class="relative w-full h-screen flex items-center justify-center">
-    <div class="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/70 z-10"></div>
-    
-    <!-- Carrusel de imágenes integrado en el fondo -->
+    <div
+      class="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/70 z-10"
+    >
+    </div>
+
     {
       HERO_IMAGES.map((image, index) => (
         <div
@@ -37,54 +40,79 @@ const TRANSITION_TIME = 5000;
         </div>
       ))
     }
-    
+
     <div class="max-w-6xl mx-auto px-4 relative z-20 text-center">
       <!-- Logo integrado -->
-      <div class="mb-4 sm:mb-6 md:mb-8 flex justify-center">
-        <img 
-          src="/logo-kepler-metrology.png" 
-          alt="Kepler Metrology" 
+      <div class="mb-4 sm:mb-6 md:mb-8 hidden md:flex justify-center">
+        <img
+          src="/logo-kepler-metrology.png"
+          alt="Kepler Metrology"
           class="h-16 sm:h-20 md:h-24 lg:h-32 drop-shadow-xl bg-white/90 p-2 sm:p-3 rounded-lg"
         />
       </div>
-      
-      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold text-white mb-3 sm:mb-4 md:mb-6 drop-shadow-xl tracking-tight leading-tight">
-        <span class="bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent">Laboratorio de Calibración</span>
+
+      <h1
+        class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold text-white mb-3 sm:mb-4 md:mb-6 drop-shadow-xl tracking-tight leading-tight md:mt-0 mt-8"
+      >
+        <span
+          class="bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent"
+          >Laboratorio de Calibración</span
+        >
         <span class="block mt-1 sm:mt-2 text-secondary">Acreditado</span>
       </h1>
-      
-      <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-white mb-6 sm:mb-8 md:mb-10 max-w-3xl mx-auto font-light leading-relaxed drop-shadow-lg">
-        Especialistas en metrología para el sector Oil & Gas con acreditación ante la 
-        <span class="font-semibold">Entidad Mexicana de Acreditación (EMA)</span>
+
+      <p
+        class="text-base sm:text-lg md:text-xl lg:text-2xl text-white mb-6 sm:mb-8 md:mb-10 max-w-3xl mx-auto font-light leading-relaxed drop-shadow-lg"
+      >
+        Especialistas en metrología para el sector Oil & Gas con acreditación
+        ante la
+        <span class="font-semibold">Entidad Mexicana de Acreditación (EMA)</span
+        >
       </p>
-      
-      <!-- Indicadores del carrusel -->
+
       <div class="flex justify-center gap-2 mb-6 sm:mb-8 md:mb-10">
         {
           HERO_IMAGES.map((_, index) => (
-            <button 
+            <button
               class="carousel-indicator w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-white/50 hover:bg-white/80 transition-colors"
               data-index={index}
               aria-label={`Slide ${index + 1}`}
-            ></button>
+            />
           ))
         }
       </div>
-      
-      <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-        <a href="#magnitudes" class="bg-white text-primary font-bold py-3 sm:py-4 px-6 sm:px-8 md:px-10 rounded-lg hover:bg-gray-100 transition-colors shadow-lg text-base sm:text-lg">
+
+      <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:mt-0 mt-12">
+        <a
+          href="#magnitudes"
+          class="bg-white text-primary font-bold py-3 sm:py-4 px-6 sm:px-8 md:px-10 rounded-lg hover:bg-gray-100 transition-colors shadow-lg text-base sm:text-lg"
+        >
           Nuestras Magnitudes
         </a>
-        <a href="#contacto" class="bg-secondary text-white font-bold py-3 sm:py-4 px-6 sm:px-8 md:px-10 rounded-lg hover:bg-secondary/80 transition-colors shadow-lg text-base sm:text-lg">
+        <a
+          href="#contacto"
+          class="bg-secondary text-white font-bold py-3 sm:py-4 px-6 sm:px-8 md:px-10 rounded-lg hover:bg-secondary/80 transition-colors shadow-lg text-base sm:text-lg"
+        >
           Solicitar Servicio
         </a>
       </div>
     </div>
-    
-    <!-- Indicador de scroll reposicionado -->
-    <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+
+    <div
+      class="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce z-20"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="size-8 md:size-10 text-white"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
       </svg>
     </div>
   </div>
@@ -94,23 +122,23 @@ const TRANSITION_TIME = 5000;
   .hero-slide {
     z-index: 0;
   }
-  
+
   .hero-slide.active {
     opacity: 1;
     z-index: 1;
   }
-  
+
   .carousel-indicator.active {
     background-color: rgba(255, 255, 255, 1);
     width: 1.5rem;
   }
-  
+
   @media (max-width: 640px) {
     .carousel-indicator.active {
       width: 1rem;
     }
   }
-  
+
   /* Animación para el texto */
   @keyframes fadeInUp {
     from {
@@ -122,21 +150,21 @@ const TRANSITION_TIME = 5000;
       transform: translateY(0);
     }
   }
-  
-  h1, p {
+
+  h1,
+  p {
     animation: fadeInUp 0.8s ease-out forwards;
   }
-  
+
   p {
     animation-delay: 0.3s;
   }
-  
-  /* Mejoras para pantallas muy pequeñas */
+
   @media (max-width: 360px) {
     h1 {
       font-size: 1.75rem;
     }
-    
+
     p {
       font-size: 0.875rem;
     }
@@ -144,19 +172,19 @@ const TRANSITION_TIME = 5000;
 </style>
 
 <script define:vars={{ TRANSITION_TIME }}>
-  const slides = document.querySelectorAll('.hero-slide');
-  const indicators = document.querySelectorAll('.carousel-indicator');
+  const slides = document.querySelectorAll(".hero-slide");
+  const indicators = document.querySelectorAll(".carousel-indicator");
   let currentSlide = 0;
   let slideInterval;
 
   function showSlide(index) {
     // Actualizar slides
-    slides.forEach(slide => slide.classList.remove('active'));
-    slides[index].classList.add('active');
-    
+    slides.forEach((slide) => slide.classList.remove("active"));
+    slides[index].classList.add("active");
+
     // Actualizar indicadores
-    indicators.forEach(indicator => indicator.classList.remove('active'));
-    indicators[index].classList.add('active');
+    indicators.forEach((indicator) => indicator.classList.remove("active"));
+    indicators[index].classList.add("active");
   }
 
   function nextSlide() {
@@ -166,7 +194,7 @@ const TRANSITION_TIME = 5000;
 
   // Configurar los indicadores
   indicators.forEach((indicator, index) => {
-    indicator.addEventListener('click', () => {
+    indicator.addEventListener("click", () => {
       clearInterval(slideInterval);
       currentSlide = index;
       showSlide(currentSlide);
