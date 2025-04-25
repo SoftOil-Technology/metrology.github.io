@@ -6,6 +6,7 @@ export interface Props {
   bgColor?: string;
   className?: string;
   titleClassName?: string;
+  noPadding?: boolean;
 }
 
 const {
@@ -15,16 +16,17 @@ const {
   bgColor = "",
   className = "",
   titleClassName = "",
+  noPadding = false,
 } = Astro.props;
 
 // Clases base para la sección
-const sectionClasses = `py-12 sm:py-16 md:py-20 ${bgColor} ${className}`;
+const sectionClasses = `py-12 sm:py-16 md:py-20 ${!noPadding ? 'px-4' : ''} ${bgColor} ${className}`;
 // Clases para el título
 const titleClasses = `text-3xl sm:text-4xl font-bold text-primary mb-2 text-center ${titleClassName}`;
 ---
 
 <section id={id} class={sectionClasses}>
-  <div class="max-w-6xl mx-auto px-4">
+  <div class="max-w-6xl mx-auto">
     <h2 class={titleClasses}>
       {title}
     </h2>

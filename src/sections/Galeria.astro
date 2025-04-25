@@ -1,0 +1,234 @@
+---
+import { galleryImages } from "@/consts/galleryImages";
+import { Image } from "astro:assets";
+import Section from "@/components/Section.astro";
+---
+
+<Section title="GALERÍA" id="gallery" bgColor="bg-gray-100" noPadding>
+  <section>
+    <div class="mx-auto max-w-6xl" id="gallery">
+      <ul
+        id="slider-mobile"
+        class="flex snap-x snap-mandatory overflow-x-auto p-10 md:hidden [&>*:nth-child(even)]:rotate-2 [&>*:nth-child(odd)]:rotate-[-2deg]"
+      >
+        {
+          galleryImages.map(({ image, alt, thumb }, index) => (
+            <li
+              class="aspect-9/10 w-72 shrink-0 cursor-pointer snap-center rounded-md shadow-sm transition-transform duration-300 will-change-transform"
+              id={thumb + "slider"}
+              data-index={index}
+            >
+              <Image
+                src={image}
+                alt={alt}
+                width={950}
+                height={900}
+                data-thumbID={thumb + "slider"}
+                class="h-full w-full rounded-md object-cover"
+                loading="lazy"
+              />
+            </li>
+          ))
+        }
+      </ul>
+
+      <ul
+        class="hidden grid-cols-1 gap-8 sm:grid-cols-2 md:grid md:grid-cols-3 lg:grid-cols-4 [&>*:nth-child(even)]:rotate-2 [&>*:nth-child(n)]:hover:scale-105 [&>*:nth-child(n)]:hover:shadow-xl [&>*:nth-child(odd)]:rotate-[-2deg]"
+      >
+        {
+          galleryImages.map(({ image, alt, thumb }, index) => (
+            <li
+              id={thumb}
+              class="aspect-9/10 cursor-pointer rounded-md shadow-sm transition-transform duration-300 will-change-transform"
+              data-index={index}
+            >
+              <Image
+                src={image}
+                alt={alt}
+                width={950}
+                height={900}
+                data-thumbID={thumb}
+                class="h-full w-full rounded-md object-cover"
+                loading="lazy"
+              />
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <div
+      class="pointer-events-none fixed inset-0 flex cursor-pointer items-center justify-center p-4 opacity-0 transition-opacity duration-300 ease-in-out"
+      role="dialog"
+      aria-modal="true"
+      id="lightbox"
+    >
+      <div class="relative w-full max-w-5xl p-4">
+        <button
+          type="button"
+          id="close-lightbox"
+          class="absolute top-1 -right-16 z-[999999] cursor-pointer rounded-full bg-white p-2.5 text-gray-700 transition-all duration-300 ease-in will-change-transform hover:scale-125 sm:top-6 sm:right-6 md:top-8 md:right-8"
+        >
+          <span class="sr-only">Cerrar Galería</span>
+          <svg
+            class="size-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            aria-hidden="true"
+            data-slot="icon"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18 18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+
+        <figure id="light-box-content"></figure>
+      </div>
+    </div>
+  </section>
+</Section>
+
+<script>
+  const galleryItems = Array.from(
+    document.querySelectorAll("#gallery li img"),
+  ) as HTMLImageElement[];
+  const lightBox = document.getElementById("lightbox") as HTMLDivElement;
+  const lightBoxImgContainer = document.getElementById(
+    "light-box-content",
+  ) as HTMLDivElement;
+  const btnCloseLightBox = document.getElementById(
+    "close-lightbox",
+  ) as HTMLButtonElement;
+
+  let currentIndex = 0;
+
+  const openLightBox = (index: number) => {
+    if (index < 0 || index >= galleryItems.length) return;
+    currentIndex = index;
+    const image = galleryItems[index] as HTMLImageElement;
+
+    const previousImage = lightBoxImgContainer.querySelector(
+      "img",
+    ) as HTMLImageElement;
+    if (previousImage) {
+      const galleryParentID = previousImage.getAttribute("data-thumbID");
+      const galleryParent = document.getElementById(
+        `${galleryParentID}`,
+      ) as HTMLLIElement;
+      galleryParent.appendChild(previousImage);
+    }
+    // Evitamos el error de dupliacado de viewTransitionName
+    galleryItems.forEach((img) => (img.style.viewTransitionName = "none"));
+    image.style.viewTransitionName = "selected-img";
+
+    lightBoxImgContainer.appendChild(image);
+    lightBox.classList.remove("opacity-0", "pointer-events-none");
+    lightBox.classList.add(
+      "bg-[#041e42a4]",
+      "z-[9999]",
+      "opacity-100",
+      "pointer-events-auto",
+      "backdrop-blur-[10px]",
+    );
+
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeLightBox = (image: HTMLImageElement) => {
+    lightBox.classList.add("opacity-0", "pointer-events-none");
+    lightBox.classList.remove(
+      "bg-[#041e42a4]",
+      "z-[9999]",
+      "opacity-100",
+      "pointer-events-auto",
+      "backdrop-blur-[10px]",
+    );
+    const galleryParentID = image.getAttribute("data-thumbID");
+
+    const galleryParent = document.getElementById(
+      `${galleryParentID}`,
+    ) as HTMLLIElement;
+    galleryParent.appendChild(image);
+    document.body.style.overflow = ""; // Restaurar scroll
+  };
+
+  galleryItems.forEach((image, index) => {
+    image.addEventListener("click", () => {
+      if (!document.startViewTransition) {
+        openLightBox(index);
+        return;
+      }
+
+      galleryItems.forEach((img) => {
+        img.style.viewTransitionName = "";
+      });
+
+      image.style.viewTransitionName = "selected-img";
+
+      document.startViewTransition(() => {
+        openLightBox(index);
+      });
+    });
+  });
+
+  const handleClose = async () => {
+    const image = lightBoxImgContainer.querySelector("img") as HTMLImageElement;
+    if (!image) return;
+
+    if (!document.startViewTransition) {
+      closeLightBox(image);
+      return;
+    }
+
+    const animation = document.startViewTransition(() => {
+      closeLightBox(image);
+    });
+
+    await animation.finished;
+    image.style.viewTransitionName = "none";
+  };
+
+  lightBox.addEventListener("click", handleClose);
+  btnCloseLightBox.addEventListener("click", (event) => {
+    event.stopPropagation();
+    handleClose();
+  });
+
+  const slider = document.getElementById("slider-mobile") as HTMLDivElement;
+  const sliderItems = Array.from(slider.children) as HTMLElement[];
+
+  if (slider) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            (entry.target as HTMLElement).style.transform = "scale(1)";
+          } else {
+            (entry.target as HTMLElement).style.transform = "scale(0.8)";
+          }
+        });
+      },
+      {
+        root: slider,
+        threshold: 0.9,
+      },
+    );
+
+    sliderItems.forEach((item) => {
+      observer.observe(item);
+    });
+  }
+</script>
+
+<style>
+  #slider-mobile {
+    scrollbar-width: none;
+  }
+
+  #slider-mobile::-webkit-scrollbar {
+    display: none;
+  }
+</style>

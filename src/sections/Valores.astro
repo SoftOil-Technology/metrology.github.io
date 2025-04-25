@@ -4,33 +4,43 @@ import Section from "@/components/Section.astro";
 const VALORES = [
   {
     numero: "1",
-    titulo: "COMPROMISO",
+    titulo: "DESARROLLO HUMANO",
     descripcion:
-      "Tenemos un compromiso personal y colectivo para darle a nuestro cliente un servicio de excelencia, ya que para nosotros el cliente es nuestra razón de ser.",
+      "Fomentamos el crecimiento personal y profesional de nuestro equipo, reconociendo que el desarrollo de cada individuo fortalece a toda la organización.",
+    color: "bg-blue-500", // Color azul como en la imagen
+    borderColor: "border-blue-500",
   },
   {
     numero: "2",
-    titulo: "CONFIANZA",
+    titulo: "RESPETO",
     descripcion:
-      "Lo más importante para Kepler Metrology es que el cliente se sienta cómodo con la relación que formamos. A través de la confianza queremos brindarle la mejor experiencia.",
+      "Valoramos y reconocemos la dignidad de cada persona, promoviendo un ambiente de trabajo inclusivo y colaborativo basado en el respeto mutuo.",
+    color: "bg-green-500", // Color verde como en la imagen
+    borderColor: "border-green-500",
   },
   {
     numero: "3",
-    titulo: "CALIDAD",
+    titulo: "SERVICIO",
     descripcion:
-      "Mantenemos con calidad nuestras acciones y la excelencia de nuestros servicios, para nosotros el cliente merece lo mejor.",
+      "Nos dedicamos a satisfacer las necesidades de nuestros clientes con excelencia, ofreciendo soluciones que superan sus expectativas.",
+    color: "bg-orange-500", // Color naranja como en la imagen
+    borderColor: "border-orange-500",
   },
   {
     numero: "4",
-    titulo: "PASIÓN",
+    titulo: "HONESTIDAD",
     descripcion:
-      "Trabajamos día a día brindando nuestro máximo esfuerzo para hacer de Kepler Metrology una empresa de excelencia.",
+      "Actuamos con integridad y transparencia en todas nuestras operaciones, construyendo relaciones de confianza con nuestros clientes y colaboradores.",
+    color: "bg-gray-500", // Color gris como en la imagen
+    borderColor: "border-gray-500",
   },
   {
     numero: "5",
-    titulo: "AUTOLIDERAZGO",
+    titulo: "CONTRIBUCIÓN SOCIAL",
     descripcion:
-      "Coordinamos nuestras actitudes con nuestras acciones para desarrollar constantemente habilidades y el orden necesario para brindar al cliente lo mejor de Kepler en cada acercamiento.",
+      "Estamos comprometidos con el bienestar de nuestra comunidad, buscando generar un impacto positivo a través de nuestras acciones y servicios.",
+    color: "bg-yellow-500", // Color amarillo como en la imagen
+    borderColor: "border-yellow-500",
   },
 ];
 ---
@@ -42,9 +52,9 @@ const VALORES = [
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
     {
       VALORES.map((valor) => (
-        <div class="bg-white p-4 sm:p-6 rounded-lg shadow-lg border-t-4 border-primary hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+        <div class={`bg-white p-4 sm:p-6 rounded-lg shadow-lg border-t-4 ${valor.borderColor} hover:shadow-xl transition-all duration-300 flex flex-col h-full`}>
           <div class="flex items-center mb-3 sm:mb-4">
-            <div class="bg-primary text-white rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-lg sm:text-xl font-bold mr-3 sm:mr-4 shrink-0">
+            <div class={`${valor.color} text-white rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-lg sm:text-xl font-bold mr-3 sm:mr-4 shrink-0`}>
               {valor.numero}
             </div>
             <h3 class="text-lg sm:text-xl font-bold text-primary leading-tight">
