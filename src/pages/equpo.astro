@@ -1,0 +1,104 @@
+---
+import Layout from "../layouts/MainLayout.astro";
+import Section from "@/components/Section.astro";
+
+import teamImage from "@/assets/gallery/team.webp";
+---
+
+<Layout title="Nuestro Equipo | Kepler Metrology">
+  <main>
+    <!-- Sección de Imagen del Equipo -->
+    <div class="container mx-auto px-4 my-12">
+      <div class="max-w-5xl mx-auto">
+        <img 
+          src={teamImage.src}
+          alt="Equipo de Kepler Metrology" 
+          class="w-full h-auto rounded-lg shadow-xl"
+        />
+      </div>
+    </div>
+    
+    <!-- Sección de Equipo -->
+    <Section title="NUESTRO EQUIPO">
+      <div>
+        <h2 class="text-2xl font-bold text-primary mb-4">Profesionales Certificados</h2>
+        <p class="text-gray-700 mb-6">
+          En Kepler Metrology contamos con un equipo de profesionales altamente capacitados y certificados, 
+          con amplia experiencia en el sector de metrología y calibración para la industria Oil & Gas.
+        </p>
+        <p class="text-gray-700 mb-6">
+          Nuestro personal técnico está en constante actualización para garantizar 
+          servicios de la más alta calidad y precisión, siguiendo los estándares 
+          internacionales y las mejores prácticas de la industria.
+        </p>
+        <div class="flex flex-wrap gap-3 md:gap-4 mt-4">
+          <span class="bg-primary/10 text-primary px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-semibold">
+            Certificados ISO 9001
+          </span>
+          <span class="bg-primary/10 text-primary px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-semibold">
+            Acreditados por EMA
+          </span>
+          <span class="bg-primary/10 text-primary px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-semibold">
+            Trazabilidad CENAM
+          </span>
+        </div>
+      </div>
+    </Section>
+
+    <!-- Sección de Políticas -->
+    <Section title="NUESTRAS POLÍTICAS" bgColor="bg-gray-100">
+      <div class="grid md:grid-cols-2 gap-8 py-4">
+        <div class="bg-white p-6 md:p-8 rounded-lg shadow-lg border-l-4 border-primary">
+          <h2 class="text-xl font-bold text-primary mb-4">Política de Calidad ISO-9001</h2>
+          <p class="text-gray-700">
+            En Kepler Oil & Gas estamos comprometidos a satisfacer las necesidades de los sectores productivos, 
+            mediante servicios confiables y especializados, así como en la capacidad y experiencia técnica de 
+            nuestro personal, cumpliendo con los requisitos de nuestro sistema de gestión de calidad, la 
+            normatividad vigente y enfocándonos siempre hacia la mejora continua.
+          </p>
+        </div>
+        <div class="bg-white p-6 md:p-8 rounded-lg shadow-lg border-l-4 border-secondary">
+          <h2 class="text-xl font-bold text-primary mb-4">Política de Seguridad de la Información</h2>
+          <p class="text-gray-700">
+            En Kepler Oil & Gas nos comprometemos a satisfacer las necesidades de los sectores productivos mediante servicios confiables y especializados, aprovechando la capacidad y experiencia técnica de nuestros colaboradores. Garantizamos la seguridad de la información a través de tres principios fundamentales: <strong>confidencialidad</strong>, <strong>integridad</strong> y <strong>disponibilidad</strong>, cumpliendo con los requisitos de nuestro sistema de gestión de calidad y la normatividad legal vigente, siempre enfocados en la mejora continua.
+          </p>
+        </div>
+      </div>
+    </Section>
+
+    <!-- Sección de Laboratorio -->
+    <Section title="LABORATORIO DE CALIBRACIÓN">
+      <div class="bg-white p-6 mb-8">
+        <div class="flex flex-col items-start gap-6 mb-6">
+          <div>
+            <h2 class="text-xl font-bold text-primary mb-2">Acreditado por EMA</h2>
+            <p class="text-gray-700">
+              Kepler Laboratorio es un laboratorio de calibración especializado en el sector Oil & Gas, 
+              acreditado por la Entidad Mexicana de Acreditación (EMA) y con trazabilidad al 
+              Centro Nacional de Metrología (CENAM).
+            </p>
+          </div>
+        </div>
+        
+        <h3 colds="text-lg font-semibold text-primary mb-4">Magnitudes Acreditadas:</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+          {
+            ["Presión", "Temperatura", "Flujo", "Volumen", "Dimensional (Medidores de nivel)", "Masa"].map((magnitud) => (
+              <div class="bg-gray-100 p-3 md:p-4 rounded-lg flex items-center">
+                <div class="w-3 h-3 bg-primary rounded-full mr-3"></div>
+                <span class="text-gray-800 text-sm md:text-base">{magnitud}</span>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+      
+      <div class="text-center">
+        <p class="text-gray-700 italic">
+          Nuestro compromiso es brindar servicios de calibración de la más alta calidad, 
+          garantizando precisión y confiabilidad en todas nuestras mediciones.
+        </p>
+      </div>
+    </Section>
+  </main>
+</Layout>
