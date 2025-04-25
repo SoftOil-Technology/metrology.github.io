@@ -1,0 +1,34 @@
+---
+import bg from "@/assets/bg.jpg";
+---
+
+<div class="fixed-background">
+  <div class="overlay"></div>
+</div>
+
+<style define:vars={{ bgUrl: `url(${bg.src})` }}>
+  .fixed-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: var(--bgUrl);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -2;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.75); /* Overlay blanquecino */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: -1;
+  }
+</style>

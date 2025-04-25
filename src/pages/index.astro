@@ -2,25 +2,17 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import Hero from "@/sections/Hero.astro";
 import Contacto from "@/sections/Contacto.astro";
-import { FlickeringGrid } from "@/components/FlickeringGrid";
 import Magnitudes from "@/sections/Magnitudes.astro";
 import MisionVision from "@/sections/MisionVision.astro";
 import Valores from "@/sections/Valores.astro";
 import Servicios from "@/sections/Servicios.astro";
 import PoliticaLaboratorio from "@/sections/PoliticaLaboratorio.astro";
 import Galeria from "@/sections/Galeria.astro";
+import Background from "@/components/Background.astro";
 ---
 
 <MainLayout>
-	<FlickeringGrid
-		client:load
-		className="-z-10 fixed"
-		squareSize={20}
-		gridGap={12}
-		color="#0a3b76"
-		maxOpacity={0.05}
-		flickerChance={0.15}
-	/>
+	<Background />
 
 	<!-- Hero Integrado -->
 	<Hero />
