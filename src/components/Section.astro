@@ -1,7 +1,7 @@
 ---
 export interface Props {
   id?: string;
-  title: string;
+  title?: string;
   subtitle?: string;
   bgColor?: string;
   className?: string;
@@ -11,7 +11,7 @@ export interface Props {
 
 const {
   id,
-  title,
+  title = "",
   subtitle,
   bgColor = "",
   className = "",
@@ -20,24 +20,30 @@ const {
 } = Astro.props;
 
 // Clases base para la sección
-const sectionClasses = `py-12 sm:py-16 md:py-20 ${!noPadding ? 'px-4' : ''} ${bgColor} ${className}`;
+const sectionClasses = `py-12 sm:py-16 md:py-20 ${!noPadding ? "px-4" : ""} ${bgColor} ${className}`;
 // Clases para el título
 const titleClasses = `text-3xl sm:text-4xl font-bold text-primary mb-2 text-center ${titleClassName}`;
 ---
 
 <section id={id} class={sectionClasses}>
   <div class="max-w-6xl mx-auto">
-    <h2 class={titleClasses}>
-      {title}
-    </h2>
-    <div class="w-28 sm:w-32 h-1.5 bg-secondary mx-auto mb-8 sm:mb-12"></div>
-    
-    {subtitle && (
-      <p class="text-center text-sm sm:text-base text-gray-700 mb-8 sm:mb-12 max-w-3xl mx-auto">
-        {subtitle}
-      </p>
-    )}
-    
+    {
+      title && (
+        <div>
+          <h2 class={titleClasses}>{title}</h2>
+          <div class="w-28 sm:w-32 h-1.5 bg-secondary mx-auto mb-8 sm:mb-12" />
+        </div>
+      )
+    }
+
+    {
+      subtitle && (
+        <p class="text-center text-sm sm:text-base text-gray-700 mb-8 sm:mb-12 max-w-3xl mx-auto">
+          {subtitle}
+        </p>
+      )
+    }
+
     <slot />
   </div>
 </section>
