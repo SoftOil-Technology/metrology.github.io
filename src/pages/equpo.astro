@@ -6,14 +6,15 @@ import teamImage from "@/assets/gallery/team.webp";
 ---
 
 <Layout title="Nuestro Equipo | Kepler Metrology">
+  <div class="h-24 md:h-28"></div> <!-- Espaciador fijo para compensar el header -->
+  
   <main>
-    <!-- Sección de Imagen del Equipo -->
     <div class="container mx-auto px-4 my-12">
       <div class="max-w-5xl mx-auto">
         <img 
           src={teamImage.src}
           alt="Equipo de Kepler Metrology" 
-          class="w-full h-auto rounded-lg shadow-xl"
+          class="w-full h-auto rounded-lg shadow-xl aspect-video object-cover"
         />
       </div>
     </div>
