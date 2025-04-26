@@ -9,8 +9,6 @@ const HERO_IMAGES = [
     alt: "Calibración de instrumentos de precisión",
   },
 ];
-
-const TRANSITION_TIME = 10000;
 ---
 
 <section
@@ -111,11 +109,6 @@ const TRANSITION_TIME = 10000;
     z-index: 1;
   }
 
-  .carousel-indicator.active {
-    background-color: rgba(255, 255, 255, 1);
-    width: 1.5rem;
-  }
-
   @media (max-width: 640px) {
     .carousel-indicator.active {
       width: 1rem;
@@ -154,40 +147,32 @@ const TRANSITION_TIME = 10000;
   }
 </style>
 
-<script define:vars={{ TRANSITION_TIME }}>
-  const slides = document.querySelectorAll(".hero-slide");
-  const indicators = document.querySelectorAll(".carousel-indicator");
-  let currentSlide = 0;
-  let slideInterval;
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const TRANSITION_TIME = 5000;
+    const slides = document.querySelectorAll(".hero-slide");
+    let currentSlide = 0;
+    let slideInterval;
 
-  function showSlide(index) {
-    // Actualizar slides
-    slides.forEach((slide) => slide.classList.remove("active"));
-    slides[index].classList.add("active");
+    function showSlide(index:number) {
+      slides.forEach((slide) => slide.classList.remove("active"));
+      slides[index].classList.add("active");
+    }
 
-    // Actualizar indicadores
-    indicators.forEach((indicator) => indicator.classList.remove("active"));
-    indicators[index].classList.add("active");
-  }
-
-  function nextSlide() {
-    currentSlide = (currentSlide + 1) % slides.length;
-    showSlide(currentSlide);
-  }
-
-  // Configurar los indicadores
-  indicators.forEach((indicator, index) => {
-    indicator.addEventListener("click", () => {
-      clearInterval(slideInterval);
-      currentSlide = index;
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
       showSlide(currentSlide);
-      slideInterval = setInterval(nextSlide, TRANSITION_TIME);
-    });
+    }
+
+    // Limpiar cualquier intervalo existente
+    if (slideInterval) {
+      clearInterval(slideInterval);
+    }
+
+    // Mostrar la primera imagen
+    showSlide(0);
+
+    // Iniciar el intervalo para cambiar las imágenes
+    slideInterval = setInterval(nextSlide, TRANSITION_TIME);
   });
-
-  // Mostrar la primera imagen
-  showSlide(0);
-
-  // Iniciar el intervalo para cambiar las imágenes
-  slideInterval = setInterval(nextSlide, TRANSITION_TIME);
 </script>
