@@ -56,13 +56,16 @@ const NAVIGATION_LINKS = [
     </div>
 
     <div class="flex flex-1 justify-end">
-      <div class="relative flex flex-col items-end">
+      <div class="relative flex gap-4 items-end">
+        <div class="-mt-2">
+          <LanguageSelector />
+        </div>
         <a href="/" class="flex items-center">
           <div class="bg-white p-2 rounded-lg w-fit">
             <img
               src="/logo-kepler-metrology.png"
               alt="Kepler Metrology Logo"
-              class="h-10"
+              class="h-7"
             />
           </div>
         </a>
@@ -119,7 +122,6 @@ const NAVIGATION_LINKS = [
             </a>
           ))
         }
-        <LanguageSelector />
       </div>
     </div>
   </dialog>
@@ -128,31 +130,34 @@ const NAVIGATION_LINKS = [
 <div id="backdrop"></div>
 
 <script>
-  // Get the menu elements
-  const mobileMenu = document.getElementById(
-    "mobile-menu",
-  ) as HTMLDialogElement;
-  const openMenuButton = document.getElementById("open-menu-button");
-  const closeMenuButton = document.getElementById("close-menu-button");
-  const mobileItems = mobileMenu.querySelectorAll("a");
+  document.addEventListener("astro:page-load", () => {
+    const mobileMenu = document.getElementById(
+      "mobile-menu",
+    ) as HTMLDialogElement;
+    const openMenuButton = document.getElementById("open-menu-button");
+    const closeMenuButton = document.getElementById("close-menu-button");
+    const mobileItems = mobileMenu.querySelectorAll("a");
 
-  const toggleMenu = () => {
-    mobileMenu.open ? mobileMenu.close() : mobileMenu.showModal();
-  };
+    const toggleMenu = () => {
+      mobileMenu.open ? mobileMenu.close() : mobileMenu.showModal();
+    };
 
-  openMenuButton?.addEventListener("click", toggleMenu);
-  closeMenuButton?.addEventListener("click", toggleMenu);
+    openMenuButton?.addEventListener("click", toggleMenu);
+    closeMenuButton?.addEventListener("click", toggleMenu);
 
-  document.addEventListener("click", (event) => {
-    const isClickInsideMenu = mobileMenu.contains(event.target as Node);
-    const isClickInsideButton = openMenuButton?.contains(event.target as Node);
+    document.addEventListener("click", (event) => {
+      const isClickInsideMenu = mobileMenu.contains(event.target as Node);
+      const isClickInsideButton = openMenuButton?.contains(
+        event.target as Node,
+      );
 
-    if (isClickInsideMenu && !isClickInsideButton) {
-      mobileMenu.close();
-    }
+      if (isClickInsideMenu && !isClickInsideButton) {
+        mobileMenu.close();
+      }
+    });
+
+    mobileItems?.forEach((item) => item.addEventListener("click", toggleMenu));
   });
-
-  mobileItems?.forEach((item) => item.addEventListener("click", toggleMenu));
 </script>
 
 <style>
