@@ -1,11 +1,11 @@
 ---
 const HERO_IMAGES = [
   {
-    src: "/hero/slider-1.webp",
+    src: "/hero/slider-1.jpg",
     alt: "Calibración de instrumentos de precisión",
   },
   {
-    src: "/hero/slider-2.webp",
+    src: "/hero/slider-2.jpg",
     alt: "Calibración de instrumentos de precisión",
   },
 ];
@@ -31,14 +31,14 @@ const TRANSITION_TIME = 10000;
           <img
             src={image.src}
             alt={image.alt}
-            class="absolute inset-0 w-full h-full object-cover"
+            class="absolute inset-0 w-full h-full object-cover md:object-center object-right"
           />
         </div>
       ))
     }
 
-    <div class="max-w-6xl mx-auto px-4 relative z-20 text-center mt-0 md:mt-6">
-      <div class="mb-4 sm:mb-6 md:mb-8 hidden md:flex justify-center">
+    <div class="w-full max-w-7xl mx-auto px-4 relative z-20 md:text-left text-center mt-0 md:mt-6 md:pl-8">
+      <div class="mb-4 sm:mb-6 md:mb-8 hidden md:flex md:justify-start justify-center">
         <img
           src="/logo-kepler-metrology.png"
           alt="Kepler Metrology"
@@ -47,17 +47,17 @@ const TRANSITION_TIME = 10000;
       </div>
 
       <h1
-        class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold text-white mb-3 sm:mb-4 md:mb-6 drop-shadow-xl tracking-tight leading-tight md:mt-0 mt-8"
+        class="text-5xl md:text-5xl lg:text-7xl font-extrabold text-white mb-3 sm:mb-4 md:mb-6 drop-shadow-xl tracking-tight leading-tight md:mt-0 mt-8"
       >
         <span
           class="bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent"
           >Laboratorio de Calibración</span
         >
-        <span class="block mt-1 sm:mt-2 text-secondary">Acreditado</span>
+        <span class="block mt-1 sm:mt-2 text-orange-600">Acreditado</span>
       </h1>
 
       <p
-        class="text-base sm:text-lg md:text-xl lg:text-2xl text-white mb-6 sm:mb-8 md:mb-10 max-w-3xl mx-auto font-light leading-relaxed drop-shadow-lg"
+        class="text-base sm:text-lg md:text-xl lg:text-2xl text-white mb-6 sm:mb-8 md:mb-10 md:max-w-xl max-w-3xl mx-auto md:mx-0 font-light leading-relaxed drop-shadow-lg"
       >
         Especialistas en metrología para el sector Oil & Gas con acreditación
         ante la
@@ -65,19 +65,7 @@ const TRANSITION_TIME = 10000;
         >
       </p>
 
-      <div class="flex justify-center gap-2 mb-6 sm:mb-8 md:mb-10">
-        {
-          HERO_IMAGES.map((_, index) => (
-            <button
-              class="carousel-indicator w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-white/50 hover:bg-white/80 transition-colors"
-              data-index={index}
-              aria-label={`Slide ${index + 1}`}
-            />
-          ))
-        }
-      </div>
-
-      <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:mt-0 mt-12">
+      <div class="flex flex-col sm:flex-row md:justify-start justify-center gap-3 sm:gap-4 md:mt-0 mt-12">
         <a
           href="#servicios"
           class="bg-white text-primary font-bold py-3 sm:py-4 px-6 sm:px-8 md:px-10 rounded-lg hover:bg-gray-100 transition-colors shadow-lg text-base sm:text-lg"
