@@ -1,0 +1,177 @@
+---
+import Layout from "../layouts/MainLayout.astro";
+import Section from "@/components/Section.astro";
+
+import teamImage from "@/assets/gallery/team.webp";
+---
+
+<Layout title="Nuestro Equipo | Kepler Metrology">
+  <div class="h-20 md:h-16"></div>
+  <Section title="ACREDITADOS POR LA EMA">
+    <div
+      class="flex md:flex-row flex-col gap-4 md:gap-8 items-center bg-white rounded-xl md:p-6 p-4 shadow-xl border border-neutral-300"
+    >
+      <div class="flex justify-center">
+        <img
+          src="/images/logo_ema.webp"
+          alt="Logo de la Entidad Mexicana de Acreditación (EMA)"
+          class="w-[200px] md:w-[800px] object-contain"
+        />
+      </div>
+
+      <div class="text-center md:text-left">
+        <p class="text-gray-700 mb-6 md:text-lg">
+          Ema cuenta con los máximos reconocimientos internacionales por el Foro
+          Internacional de Acreditación (IAF) y la Cooperación Internacional de
+          Acreditación de Laboratorios (ILAC), lo anterior confirma que nuestro
+          laboratorio trabaja con apego a las normas nacionales e
+          internacionales.
+        </p>
+        <a
+          href="/acreditacion"
+          class="inline-block bg-primary text-white py-3 px-6 rounded-md text-base font-medium hover:bg-primary/90 transition-colors duration-300"
+        >
+          Ver Acreditación
+        </a>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Sección de Equipo -->
+  <Section title="NUESTRO EQUIPO">
+    <img
+      src={teamImage.src}
+      alt="Imagen del equipo de Kepler Metrology"
+      class="w-full mx-auto rounded-xl shadow-xl mb-4 aspect-video object-cover"
+    />
+
+    <div
+      class="md:p-6 p-4 rounded-xl border border-neutral-300 shadow-xl bg-white"
+    >
+      <p class="text-gray-700 mb-6 md:text-lg">
+        En Kepler Metrology contamos con un equipo de profesionales altamente
+        capacitados y certificados, con amplia experiencia en el sector de
+        metrología y calibración para la industria Oil & Gas.
+      </p>
+      <p class="text-gray-700 mb-6 md:text-lg">
+        Nuestro personal técnico está en constante actualización para garantizar
+        servicios de la más alta calidad y precisión, siguiendo los estándares
+        internacionales y las mejores prácticas de la industria.
+      </p>
+    </div>
+  </Section>
+
+  <!-- Sección de Políticas -->
+  <Section title="NUESTRAS POLÍTICAS" bgColor="bg-gray-100">
+    <div class="grid md:grid-cols-2 gap-8 py-4">
+      <div
+        class="bg-white p-6 md:p-8 rounded-xl shadow-xl border-l-4 border-primary relative"
+      >
+        <!-- Imagen absoluta (visible solo en desktop) -->
+        <div
+          class="absolute -right-0.5 -top-8 size-32 bg-white rounded-full items-center justify-center opacity-90 z-10 shadow-lg hidden md:flex"
+        >
+          <img
+            src="/images/ISO_9001.png"
+            alt="ISO 9001"
+            class="w-20 h-20 object-contain"
+          />
+        </div>
+        <div class="relative z-0">
+          <!-- Título con imagen para móvil -->
+          <div class="flex items-center gap-3 mb-4">
+            <img
+              src="/images/ISO_9001.png"
+              alt="ISO 9001"
+              class="w-10 h-10 object-contain md:hidden"
+            />
+            <h2 class="text-xl font-bold text-primary text-balance">
+              Política de Calidad ISO-9001
+            </h2>
+          </div>
+          <p class="text-gray-700 md:pr-16">
+            Nos comprometemos a brindar servicios confiables y especializados
+            con los más altos estándares de calidad. Nuestro enfoque se basa en:
+          </p>
+          <ul class="mt-3 space-y-2 text-gray-700">
+            <li class="flex items-start">
+              <span class="text-primary mr-2">✓</span>
+              <span>Satisfacer las necesidades de los sectores productivos</span
+              >
+            </li>
+            <li class="flex items-start">
+              <span class="text-primary mr-2">✓</span>
+              <span>Contar con personal técnico altamente capacitado</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-primary mr-2">✓</span>
+              <span>Cumplir con la normatividad vigente</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-primary mr-2">✓</span>
+              <span>Mantener un enfoque de mejora continua</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="bg-white p-6 md:p-8 rounded-xl shadow-xl border-l-4 border-secondary relative"
+      >
+        <!-- Imagen absoluta (visible solo en desktop) -->
+        <div
+          class="absolute -right-0.5 -top-8 size-32 bg-white rounded-full items-center justify-center opacity-90 z-10 shadow-lg hidden md:flex"
+        >
+          <img
+            src="/images/ISO_27001.png"
+            alt="ISO 27001"
+            class="w-20 h-20 object-contain"
+          />
+        </div>
+        <div class="relative z-0">
+          <!-- Título con imagen para móvil -->
+          <div class="flex items-center gap-3 mb-4">
+            <img
+              src="/images/ISO_27001.png"
+              alt="ISO 27001"
+              class="w-10 h-10 object-contain md:hidden"
+            />
+            <h2 class="text-xl font-bold text-primary text-balance">
+              Política de seguridad de la información
+            </h2>
+          </div>
+          <p class="text-gray-700 md:pr-16">
+            Garantizamos la protección de la información a través de tres
+            principios fundamentales:
+          </p>
+          <ul class="mt-3 space-y-2 text-gray-700">
+            <li class="flex items-start">
+              <span class="text-secondary mr-2">✓</span>
+              <span
+                ><strong>Confidencialidad:</strong> Protección contra accesos no
+                autorizados</span
+              >
+            </li>
+            <li class="flex items-start">
+              <span class="text-secondary mr-2">✓</span>
+              <span
+                ><strong>Integridad:</strong> Asegurar que la información no sea
+                alterada indebidamente</span
+              >
+            </li>
+            <li class="flex items-start">
+              <span class="text-secondary mr-2">✓</span>
+              <span
+                ><strong>Disponibilidad:</strong> Garantizar el acceso a la información
+                cuando sea necesario</span
+              >
+            </li>
+            <li class="flex items-start">
+              <span class="text-secondary mr-2">✓</span>
+              <span>Cumplimiento de normatividad legal vigente</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </Section>
+</Layout>
