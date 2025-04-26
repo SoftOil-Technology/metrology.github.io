@@ -1,0 +1,63 @@
+---
+import Layout from "../../layouts/MainLayout.astro";
+import Section from "@/components/Section.astro";
+import { SERVICIOS } from "@/data/servicios.js";
+
+// Obtener todos los IDs de servicios para la generación estática
+export function getStaticPaths() {
+  return SERVICIOS.map(servicio => ({
+    params: { id: servicio.id },
+    props: { servicio },
+  }));
+}
+
+// Obtener los datos del servicio actual
+const { servicio } = Astro.props;
+---
+
+<Layout title={`Servicio de Calibración de ${servicio.titulo} | Kepler Metrology`}>
+  <div class="h-20 md:h-16"></div> <!-- Espaciador para el header -->
+  
+  <!-- Contenido principal -->
+  <Section>
+    <!-- Imagen dentro de la sección -->
+    <div class="mb-8 rounded-xl overflow-hidden shadow-xl">
+      <img 
+        src={servicio.imagen} 
+        alt={`Servicio de calibración de ${servicio.titulo}`} 
+        class="w-full h-auto max-h-[30vh] object-cover"
+        transition:name={servicio.imagen}
+      />
+      <div class="bg-primary text-white py-4 px-6">
+        <h1 transition:name={servicio.titulo} class="text-2xl md:text-4xl font-bold">
+          Calibración de {servicio.titulo}
+        </h1>
+      </div>
+    </div>
+    
+    <div class="bg-white p-6 md:p-8 rounded-xl shadow-xl border border-neutral-200">
+      <h2 class="text-2xl font-bold text-primary mb-6">Descripción del Servicio</h2>
+      
+      <p class="text-gray-700 mb-8 text-lg">
+        {servicio.descripcion}
+      </p>
+      
+      <div class="mb-8">
+        <h3 class="text-xl font-semibold text-secondary mb-4">Servicios que ofrecemos:</h3>
+        <p class="text-gray-700 mb-4">
+          {servicio.servicio}
+        </p>
+        
+        <ul class="space-y-2 mt-4">
+          {servicio.detalles.map(detalle => (
+            <li class="flex items-start">
+              <span class="text-primary mr-2 mt-1">✓</span>
+              <span class="text-gray-700">{detalle}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+    
+  </Section>
+</Layout>

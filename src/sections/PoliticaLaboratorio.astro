@@ -47,7 +47,7 @@ const POLITICAS = [
       {
         POLITICAS.map(({ titulo }) => (
           <div class="flex items-start">
-            <div class="bg-primary text-white rounded-full p-1 mr-3 sm:mr-4 mt-1 shrink-0">
+            <div class="bg-primary text-white p-1 mr-3 sm:mr-4 mt-1 shrink-0 clip-path-hexagon">
               <CheckIcon class="size-7" />
             </div>
             <p class="text-sm sm:text-base text-gray-700">{titulo}</p>
@@ -57,3 +57,13 @@ const POLITICAS = [
     </div>
   </div>
 </Section>
+
+<style>
+  .clip-path-hexagon {
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    padding:0.5rem 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>

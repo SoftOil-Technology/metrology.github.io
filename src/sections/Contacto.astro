@@ -15,7 +15,7 @@ import EmailIcon from "@/components/icons/EmailIcon.astro";
       <div class="space-y-3 sm:space-y-4">
         <div class="flex items-start">
           <div
-            class="bg-primary p-2 sm:p-3 rounded-full text-white mr-3 sm:mr-4 shrink-0"
+            class="bg-primary text-white mr-3 sm:mr-4 shrink-0 clip-path-hexagon"
           >
             <LocationIcon class="h-5 w-5 sm:h-6 sm:w-6" />
           </div>
@@ -31,7 +31,7 @@ import EmailIcon from "@/components/icons/EmailIcon.astro";
 
         <div class="flex items-start">
           <div
-            class="bg-primary p-2 sm:p-3 rounded-full text-white mr-3 sm:mr-4 shrink-0"
+            class="bg-primary text-white mr-3 sm:mr-4 shrink-0 clip-path-hexagon"
           >
             <EmailIcon class="h-5 w-5 sm:h-6 sm:w-6" />
           </div>
@@ -47,7 +47,7 @@ import EmailIcon from "@/components/icons/EmailIcon.astro";
 
         <div class="flex items-start">
           <div
-            class="bg-primary p-2 sm:p-3 rounded-full text-white mr-3 sm:mr-4 shrink-0"
+            class="bg-primary text-white mr-3 sm:mr-4 shrink-0 clip-path-hexagon"
           >
             <PhoneIcon class="h-5 w-5 sm:h-6 sm:w-6" />
           </div>
@@ -76,3 +76,13 @@ import EmailIcon from "@/components/icons/EmailIcon.astro";
     <ContactForm />
   </div>
 </Section>
+
+<style>
+  .clip-path-hexagon {
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    padding: 0.5rem 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>

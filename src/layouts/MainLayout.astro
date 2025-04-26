@@ -1,11 +1,12 @@
 ---
-import SEOLayout from './SEOLayout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import BackToTop from '@/components/BackToTop.astro';
+import SEOLayout from "./SEOLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import BackToTop from "@/components/BackToTop.astro";
 
-import "@/styles/global.css"
-import Background from '@/components/Background.astro';
+import "@/styles/global.css";
+import Background from "@/components/Background.astro";
+import Contacto from "@/sections/Contacto.astro";
 
 interface Props {
   title?: string;
@@ -15,16 +16,16 @@ interface Props {
   keywords?: string[];
 }
 
-const { 
+const {
   title = "Kepler Metrology",
   description = "Soluciones avanzadas de metrología para la industria",
   image,
   canonicalURL,
-  keywords
+  keywords,
 } = Astro.props;
 ---
 
-<SEOLayout 
+<SEOLayout
   title={title}
   description={description}
   image={image}
@@ -32,13 +33,16 @@ const {
   keywords={keywords}
 >
   <div class="flex flex-col min-h-screen">
-    <Header/>
+    <Header />
     <Background />
-    
+
     <main class="flex-grow">
       <slot />
     </main>
-    
+
+    <!-- Contacto -->
+    <Contacto />
+
     <Footer />
     <BackToTop />
   </div>
