@@ -1,7 +1,7 @@
 ---
 import { ClientRouter } from "astro:transitions";
+import { getLangFromUrl } from "@/i18n/utils";
 
-// Props para SEO
 interface Props {
   title?: string;
   description?: string;
@@ -15,7 +15,6 @@ interface Props {
   siteName?: string;
 }
 
-// Valores por defecto
 const {
   title = "Kepler Metrology",
   description = "Soluciones avanzadas de metrología para la industria",
@@ -27,9 +26,11 @@ const {
   locale = "es_ES",
   siteName = "Kepler Metrology"
 } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
 ---
 
-<html lang="es" class="scroll-smooth">
+<html lang={lang} class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />

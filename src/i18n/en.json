@@ -1,0 +1,119 @@
+{
+  "SEO_TITLE_1": "Kepler Metrology",
+  "SEO_TITLE_2": "- Accredited Calibration Laboratory",
+  "SEO_DESCRIPTION": "Specialists in metrology for the Oil & Gas sector with accreditation from the Mexican Accreditation Entity (EMA)",
+  "SEO": {
+    "HOME_TITLE": "Kepler Metrology - Accredited Calibration Laboratory",
+    "HOME_DESCRIPTION": "Specialists in metrology for the Oil & Gas sector with accreditation from the Mexican Accreditation Entity (EMA)",
+    "TEAM_TITLE": "Our Team - Kepler Metrology",
+    "TEAM_DESCRIPTION": "Meet our team of professionals specialized in metrology and calibration",
+    "SERVICES_TITLE": "Calibration Services - Kepler Metrology",
+    "SERVICES_DESCRIPTION": "We offer specialized calibration services for measuring instruments in the Oil & Gas sector",
+    "CONTACT_TITLE": "Contact - Kepler Metrology",
+    "CONTACT_DESCRIPTION": "Get in touch with us to request our accredited calibration services"
+  },
+  "HEADER": {
+    "OPEN_MENU": "Open Main Menu",
+    "CLOSE_MENU": "Close Menu",
+    "LOGO_ALT": "Kepler Metrology Logo"
+  },
+  "HERO": {
+    "TITLE": "Calibration Laboratory",
+    "SUBTITLE": "Accredited",
+    "DESCRIPTION": "Specialists in metrology for the Oil & Gas sector with accreditation from the Mexican Accreditation Entity (EMA)",
+    "SERVICES_BUTTON": "Our Services",
+    "CONTACT_BUTTON": "Contact"
+  },
+  "SERVICES": {
+    "TITLE": "OUR SERVICES",
+    "DESCRIPTION": "Kepler Laboratory is a calibration laboratory specialized in the Oil & Gas sector as it has the following magnitudes, which are accredited by the Mexican Accreditation Entity (EMA) and with traceability to the National Metrology Center (CENAM).",
+    "MORE_DETAILS": "More details",
+    "SERVICE_DESCRIPTION": "Service Description",
+    "SERVICES_WE_OFFER": "Services we offer:"
+  },
+  "ABOUT": {
+    "TITLE": "ABOUT US",
+    "DESCRIPTION": "We are a laboratory specialized in metrology for the Oil & Gas sector",
+    "MISSION_TITLE": "MISSION",
+    "MISSION_DESCRIPTION": "KEPLER METROLOGY works in its environment to be a center of solutions in the area of Metrology aimed at generating well-being for our clients, partners, community and for our family, prioritizing our commitment, our integrity and our values.",
+    "VISION_TITLE": "VISION",
+    "VISION_DESCRIPTION": "Deliver high-value calibration and measurement services to our customers, collaborating with them and with society to have a better quality of life with high-quality products and services.",
+    "VALUES_TITLE": "VALUES",
+    "VALUES": {
+      "ACCURACY": "Accuracy",
+      "RELIABILITY": "Reliability",
+      "EXCELLENCE": "Excellence",
+      "INTEGRITY": "Integrity",
+      "INNOVATION": "Innovation"
+    }
+  },
+  "POLICY": {
+    "TITLE": "LABORATORY POLICY",
+    "DESCRIPTION": "At Kepler Metrology we are committed to satisfying the needs of the energy and industrial sector through reliable, impartial and specialized calibration and measurement services, supported by our Quality Management System that complies with the requirements of the ISO/IEC 17025:2017 standard and NMX-EC-17025-IMNC-2018. We are oriented to ensure compliance with applicable national and international regulations, always focusing on continuous improvement.",
+    "POLICIES": [
+      "Impeccable implementation of the Quality Management System by the General Director and staff in the operation of the Laboratory.",
+      "Application of a comprehensive quality system through inspection, quality control and quality assurance",
+      "Application of national standards and international standards with standardized methods",
+      "Certification of staff competencies as a value lever for our company and clients"
+    ]
+  },
+  "CONTACT": {
+    "TITLE": "CONTACT US",
+    "DESCRIPTION": "We are at your disposal to meet your calibration needs",
+    "INFO_TITLE": "Contact Information",
+    "ADDRESS_TITLE": "Address",
+    "ADDRESS": "Mexico City, Mexico",
+    "EMAIL_TITLE": "Email",
+    "EMAIL": "contacto@keplermetrology.com",
+    "PHONE_TITLE": "Phone",
+    "PHONE": "+52 (55) 1234 5678",
+    "FORM": {
+      "NAME": "Name",
+      "EMAIL": "Email",
+      "PHONE": "Phone",
+      "MESSAGE": "Message",
+      "SUBMIT": "Submit",
+      "SUCCESS": "Message sent successfully",
+      "ERROR": "Error sending message"
+    }
+  },
+  "TEAM": {
+    "TITLE": "OUR TEAM",
+    "DESCRIPTION": "Meet our professionals specialized in metrology and calibration",
+    "ACCREDITATION_TITLE": "ACCREDITED BY EMA",
+    "ACCREDITATION_DESCRIPTION": "EMA has the highest international recognitions from the International Accreditation Forum (IAF) and the International Laboratory Accreditation Cooperation (ILAC), which confirms that our laboratory works in accordance with national and international standards.",
+    "VIEW_ACCREDITATION": "View Accreditation",
+    "TEAM_DESCRIPTION_1": "At Kepler Metrology we have a team of highly trained and certified professionals with extensive experience in the metrology and calibration sector for the Oil & Gas industry.",
+    "TEAM_DESCRIPTION_2": "Our technical staff is constantly updating to ensure services of the highest quality and precision, following international standards and industry best practices.",
+    "POLICIES_TITLE": "OUR POLICIES",
+    "POLICY_ISO9001_TITLE": "ISO-9001 Quality Policy",
+    "POLICY_ISO9001_DESCRIPTION": "We are committed to providing reliable and specialized services with the highest quality standards. Our approach is based on:",
+    "POLICY_ISO9001_ITEMS": [
+      "Meeting the needs of productive sectors",
+      "Having highly trained technical staff",
+      "Complying with current regulations",
+      "Maintaining a continuous improvement approach"
+    ],
+    "POLICY_ISO27001_TITLE": "Information Security Policy",
+    "POLICY_ISO27001_DESCRIPTION": "We guarantee the protection of information through three fundamental principles:",
+    "POLICY_ISO27001_ITEMS": [
+      "Confidentiality: Protection against unauthorized access",
+      "Integrity: Ensuring that information is not improperly altered",
+      "Availability: Guaranteeing access to information when necessary",
+      "Compliance with current legal regulations"
+    ]
+  },
+  "GALLERY": {
+    "TITLE": "GALLERY"
+  },
+  "FOOTER": {
+    "CONTACT_US": "Contact us:",
+    "FOLLOW_US": "Follow us:",
+    "COPYRIGHT": "All rights reserved",
+    "LEGAL": {
+      "TERMS": "Terms and Conditions",
+      "PRIVACY": "Privacy Policy",
+      "COOKIES": "Cookie Policy"
+    }
+  }
+}

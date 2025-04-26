@@ -1,12 +1,28 @@
 ---
 import LanguageSelector from "./LanguageSelector.astro";
+import { getI18N } from "@/i18n";
+import {
+  getLangFromUrl,
+  useTranslations,
+  useTranslatedPath,
+} from "@/i18n/utils";
+
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
 
 const NAVIGATION_LINKS = [
-  { href: "/#top", text: "Inicio" },
-  { href: "/#servicios", text: "Servicios" },
-  { href: "/#nosotros", text: "Nosotros" },
-  { href: "/#contacto", text: "Contacto" },
-  { href: "/equipo", text: "Nuestro Equipo" },
+  { href: translatePath(t("nav.home.href")), text: t("nav.home.title") },
+  {
+    href: translatePath(t("nav.services.href")),
+    text: t("nav.services.title"),
+  },
+  { href: translatePath(t("nav.about.href")), text: t("nav.about.title") },
+  { href: translatePath(t("nav.contact.href")), text: t("nav.contact.title") },
+  { href: translatePath(t("nav.team.href")), text: t("nav.team.title") },
 ];
 ---
 
@@ -36,7 +52,7 @@ const NAVIGATION_LINKS = [
           id="open-menu-button"
           class="-m-2.5 inline-flex cursor-pointer items-center justify-center rounded-md p-2.5 text-white transition-all duration-300 will-change-transform hover:scale-150"
         >
-          <span class="sr-only">Abrir Menú Principal</span>
+          <span class="sr-only">{i18n.HEADER.OPEN_MENU}</span>
           <svg
             class="size-6"
             fill="none"
@@ -57,14 +73,14 @@ const NAVIGATION_LINKS = [
 
     <div class="flex flex-1 justify-end">
       <div class="relative flex gap-4 items-end">
-        <div class="-mt-2">
+        <div class="-mt-2 flex items-center md:hidden">
           <LanguageSelector />
         </div>
         <a href="/" class="flex items-center">
           <div class="bg-white p-2 rounded-lg w-fit">
             <img
               src="/logo-kepler-metrology.png"
-              alt="Kepler Metrology Logo"
+              alt={i18n.HEADER.LOGO_ALT}
               class="h-7"
             />
           </div>
@@ -84,7 +100,7 @@ const NAVIGATION_LINKS = [
           <div class="bg-white p-2 rounded-lg w-fit">
             <img
               src="/logo-kepler-metrology.png"
-              alt="Kepler Metrology Logo"
+              alt={i18n.HEADER.LOGO_ALT}
               class="h-8"
             />
           </div>
@@ -94,7 +110,7 @@ const NAVIGATION_LINKS = [
           id="close-menu-button"
           class="-m-2.5 cursor-pointer p-2.5 text-white transition-all duration-300 ease-in will-change-transform hover:scale-150"
         >
-          <span class="sr-only">Cerrar Menú</span>
+          <span class="sr-only">{i18n.HEADER.CLOSE_MENU}</span>
           <svg
             class="size-6"
             fill="none"

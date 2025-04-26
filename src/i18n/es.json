@@ -1,0 +1,119 @@
+{
+  "SEO_TITLE_1": "Kepler Metrology",
+  "SEO_TITLE_2": "- Laboratorio de Calibración Acreditado",
+  "SEO_DESCRIPTION": "Especialistas en metrología para el sector Oil & Gas con acreditación ante la Entidad Mexicana de Acreditación (EMA)",
+  "SEO": {
+    "HOME_TITLE": "Kepler Metrology - Laboratorio de Calibración Acreditado",
+    "HOME_DESCRIPTION": "Especialistas en metrología para el sector Oil & Gas con acreditación ante la Entidad Mexicana de Acreditación (EMA)",
+    "TEAM_TITLE": "Nuestro Equipo - Kepler Metrology",
+    "TEAM_DESCRIPTION": "Conoce a nuestro equipo de profesionales especializados en metrología y calibración",
+    "SERVICES_TITLE": "Servicios de Calibración - Kepler Metrology",
+    "SERVICES_DESCRIPTION": "Ofrecemos servicios especializados de calibración para instrumentos de medición en el sector Oil & Gas",
+    "CONTACT_TITLE": "Contacto - Kepler Metrology",
+    "CONTACT_DESCRIPTION": "Ponte en contacto con nosotros para solicitar nuestros servicios de calibración acreditados"
+  },
+  "HEADER": {
+    "OPEN_MENU": "Abrir Menú Principal",
+    "CLOSE_MENU": "Cerrar Menú",
+    "LOGO_ALT": "Kepler Metrology Logo"
+  },
+  "HERO": {
+    "TITLE": "Laboratorio de Calibración",
+    "SUBTITLE": "Acreditado",
+    "DESCRIPTION": "Especialistas en metrología para el sector Oil & Gas con acreditación ante la Entidad Mexicana de Acreditación (EMA)",
+    "SERVICES_BUTTON": "Nuestros Servicios",
+    "CONTACT_BUTTON": "Contacto"
+  },
+  "SERVICES": {
+    "TITLE": "NUESTROS SERVICIOS",
+    "DESCRIPTION": "Kepler Laboratorio es un laboratorio de calibración especializado en el sector Oil & Gas ya que cuenta con las siguientes magnitudes, las cuales están acreditadas ante la Entidad Mexicana de Acreditación (EMA) y con trazabilidad al Centro Nacional de Metrología (CENAM).",
+    "MORE_DETAILS": "Más detalles",
+    "SERVICE_DESCRIPTION": "Descripción del Servicio",
+    "SERVICES_WE_OFFER": "Servicios que ofrecemos:"
+  },
+  "ABOUT": {
+    "TITLE": "NOSOTROS",
+    "DESCRIPTION": "Somos un laboratorio especializado en metrología para el sector Oil & Gas",
+    "MISSION_TITLE": "MISIÓN",
+    "MISSION_DESCRIPTION": "KEPLER METROLOGY trabaja en su entorno para ser un centro de soluciones en el área de Metrología orientadas a generar bienestar en nuestros clientes, socios, comunidad y para nuestra familia, primando nuestro compromiso, nuestra integridad y nuestros valores.",
+    "VISION_TITLE": "VISIÓN",
+    "VISION_DESCRIPTION": "Entregar servicios de calibración y medición de alto valor a nuestros clientes colaborando con ellos y con la sociedad a tener una mejor calidad de vida con productos y servicios de alta calidad.",
+    "VALUES_TITLE": "VALORES",
+    "VALUES": {
+      "ACCURACY": "Precisión",
+      "RELIABILITY": "Confiabilidad",
+      "EXCELLENCE": "Excelencia",
+      "INTEGRITY": "Integridad",
+      "INNOVATION": "Innovación"
+    }
+  },
+  "POLICY": {
+    "TITLE": "POLÍTICA DE LABORATORIO",
+    "DESCRIPTION": "En Kepler Metrology estamos comprometidos a satisfacer las necesidades del sector energía e industrial mediante servicios de calibración y medición confiables, imparciales y especializados, respaldados por nuestro Sistema de Gestión de Calidad que cumple con los requerimientos del estándar ISO/IEC 17025:2017 y la NMX-EC-17025-IMNC-2018. Estamos orientados a asegurar el cumplimiento de las normativas nacionales e internacionales aplicables, enfocándonos siempre en la mejora continua.",
+    "POLICIES": [
+      "Implementación impecable del Sistema de Gestión de Calidad por el Director General y el personal en la operación del Laboratorio.",
+      "Aplicación de un sistema Integral de la calidad a través de la inspección, control de calidad y aseguramiento de la calidad",
+      "Aplicación de normas nacionales y estándares internacionales con métodos normalizados",
+      "Certificación de competencias del personal como palanca de valor para nuestra empresa y clientes"
+    ]
+  },
+  "CONTACT": {
+    "TITLE": "CONTÁCTANOS",
+    "DESCRIPTION": "Estamos a tu disposición para atender tus necesidades de calibración",
+    "INFO_TITLE": "Información de Contacto",
+    "ADDRESS_TITLE": "Dirección",
+    "ADDRESS": "Ciudad de México, México",
+    "EMAIL_TITLE": "Email",
+    "EMAIL": "contacto@keplermetrology.com",
+    "PHONE_TITLE": "Teléfono",
+    "PHONE": "+52 (55) 1234 5678",
+    "FORM": {
+      "NAME": "Nombre",
+      "EMAIL": "Correo electrónico",
+      "PHONE": "Teléfono",
+      "MESSAGE": "Mensaje",
+      "SUBMIT": "Enviar",
+      "SUCCESS": "Mensaje enviado con éxito",
+      "ERROR": "Error al enviar el mensaje"
+    }
+  },
+  "TEAM": {
+    "TITLE": "NUESTRO EQUIPO",
+    "DESCRIPTION": "Conoce a nuestros profesionales especializados en metrología y calibración",
+    "ACCREDITATION_TITLE": "ACREDITADOS POR LA EMA",
+    "ACCREDITATION_DESCRIPTION": "Ema cuenta con los máximos reconocimientos internacionales por el Foro Internacional de Acreditación (IAF) y la Cooperación Internacional de Acreditación de Laboratorios (ILAC), lo anterior confirma que nuestro laboratorio trabaja con apego a las normas nacionales e internacionales.",
+    "VIEW_ACCREDITATION": "Ver Acreditación",
+    "TEAM_DESCRIPTION_1": "En Kepler Metrology contamos con un equipo de profesionales altamente capacitados y certificados, con amplia experiencia en el sector de metrología y calibración para la industria Oil & Gas.",
+    "TEAM_DESCRIPTION_2": "Nuestro personal técnico está en constante actualización para garantizar servicios de la más alta calidad y precisión, siguiendo los estándares internacionales y las mejores prácticas de la industria.",
+    "POLICIES_TITLE": "NUESTRAS POLÍTICAS",
+    "POLICY_ISO9001_TITLE": "Política de Calidad ISO-9001",
+    "POLICY_ISO9001_DESCRIPTION": "Nos comprometemos a brindar servicios confiables y especializados con los más altos estándares de calidad. Nuestro enfoque se basa en:",
+    "POLICY_ISO9001_ITEMS": [
+      "Satisfacer las necesidades de los sectores productivos",
+      "Contar con personal técnico altamente capacitado",
+      "Cumplir con la normatividad vigente",
+      "Mantener un enfoque de mejora continua"
+    ],
+    "POLICY_ISO27001_TITLE": "Política de seguridad de la información",
+    "POLICY_ISO27001_DESCRIPTION": "Garantizamos la protección de la información a través de tres principios fundamentales:",
+    "POLICY_ISO27001_ITEMS": [
+      "Confidencialidad: Protección contra accesos no autorizados",
+      "Integridad: Asegurar que la información no sea alterada indebidamente",
+      "Disponibilidad: Garantizar el acceso a la información cuando sea necesario",
+      "Cumplimiento de normatividad legal vigente"
+    ]
+  },
+  "GALLERY": {
+    "TITLE": "GALERÍA"
+  },
+  "FOOTER": {
+    "CONTACT_US": "Contáctanos:",
+    "FOLLOW_US": "Síguenos:",
+    "COPYRIGHT": "Todos los derechos reservados",
+    "LEGAL": {
+      "TERMS": "Términos y Condiciones",
+      "PRIVACY": "Aviso de Privacidad",
+      "COOKIES": "Política de Cookies"
+    }
+  }
+}

@@ -2,46 +2,50 @@
 import EmailIcon from "./icons/EmailIcon.astro";
 import FacebookIcon from "./icons/FacebookIcon.astro";
 import LinkedInIcon from "./icons/LinkedInIcon.astro";
+import { getI18N } from "@/i18n";
+
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
 
 const currentYear = new Date().getFullYear();
 
 const CONTACT_EMAILS = [
   {
     email: "info@keplermetrology.com",
-    icon: EmailIcon
+    icon: EmailIcon,
   },
   {
     email: "soporte@keplermetrology.com",
-    icon: EmailIcon
-  }
+    icon: EmailIcon,
+  },
 ];
 
 const SOCIAL_LINKS = [
   {
     name: "Facebook",
     icon: FacebookIcon,
-    url: "#"
+    url: "#",
   },
   {
     name: "LinkedIn",
     icon: LinkedInIcon,
-    url: "#"
-  }
+    url: "#",
+  },
 ];
 
 const LEGAL_LINKS = [
   {
-    text: "Términos y Condiciones",
-    url: "/terminos-condiciones"
+    text: i18n.FOOTER.LEGAL.TERMS,
+    url: "/terminos-condiciones",
   },
   {
-    text: "Aviso de Privacidad",
-    url: "/aviso-privacidad"
+    text: i18n.FOOTER.LEGAL.PRIVACY,
+    url: "/aviso-privacidad",
   },
   {
-    text: "Política de Cookies",
-    url: "/politica-cookies"
-  }
+    text: i18n.FOOTER.LEGAL.COOKIES,
+    url: "/politica-cookies",
+  },
 ];
 ---
 
@@ -59,7 +63,7 @@ const LEGAL_LINKS = [
       </div>
 
       <div>
-        <p class="text-gray-300 font-semibold mb-2">Contáctanos:</p>
+        <p class="text-gray-300 font-semibold mb-2">{i18n.FOOTER.CONTACT_US}</p>
         <div class="flex flex-col space-y-2">
           {
             CONTACT_EMAILS.map(({ email, icon: Icon }) => (
@@ -76,7 +80,7 @@ const LEGAL_LINKS = [
       </div>
 
       <div>
-        <p class="text-gray-300 font-semibold mb-2">Síguenos:</p>
+        <p class="text-gray-300 font-semibold mb-2">{i18n.FOOTER.FOLLOW_US}</p>
         <div class="flex flex-col space-y-2">
           {
             SOCIAL_LINKS.map(({ name, icon: Icon, url }) => (
@@ -95,7 +99,7 @@ const LEGAL_LINKS = [
 
     <div class="mt-8 pt-6 border-t border-gray-700 text-center text-gray-400">
       <p>
-        &copy; {currentYear} Kepler Metrology. Todos los derechos reservados.
+        &copy; {currentYear} Kepler Metrology. {i18n.FOOTER.COPYRIGHT}
       </p>
       <div class="mt-3 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
         {

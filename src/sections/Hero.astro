@@ -1,4 +1,9 @@
 ---
+import { getI18N } from "@/i18n";
+
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+
 const HERO_IMAGES = [
   {
     src: "/hero/slider-1.jpg",
@@ -35,8 +40,12 @@ const HERO_IMAGES = [
       ))
     }
 
-    <div class="w-full max-w-7xl mx-auto px-4 relative z-20 md:text-left text-center mt-0 md:mt-6 md:pl-8">
-      <div class="mb-4 sm:mb-6 md:mb-8 hidden md:flex md:justify-start justify-center">
+    <div
+      class="w-full max-w-7xl mx-auto px-4 relative z-20 md:text-left text-center mt-0 md:mt-6 md:pl-8"
+    >
+      <div
+        class="mb-4 sm:mb-6 md:mb-8 hidden md:flex md:justify-start justify-center"
+      >
         <img
           src="/logo-kepler-metrology.png"
           alt="Kepler Metrology"
@@ -49,32 +58,33 @@ const HERO_IMAGES = [
       >
         <span
           class="bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent"
-          >Laboratorio de Calibración</span
+          >{i18n.HERO.TITLE}</span
         >
-        <span class="block mt-1 sm:mt-2 text-orange-600">Acreditado</span>
+        <span class="block mt-1 sm:mt-2 text-orange-600"
+          >{i18n.HERO.SUBTITLE}</span
+        >
       </h1>
 
       <p
         class="text-base sm:text-lg md:text-xl lg:text-2xl text-white mb-6 sm:mb-8 md:mb-10 md:max-w-xl max-w-3xl mx-auto md:mx-0 font-light leading-relaxed drop-shadow-lg"
       >
-        Especialistas en metrología para el sector Oil & Gas con acreditación
-        ante la
-        <span class="font-semibold">Entidad Mexicana de Acreditación (EMA)</span
-        >
+        {i18n.HERO.DESCRIPTION}
       </p>
 
-      <div class="flex flex-col sm:flex-row md:justify-start justify-center gap-3 sm:gap-4 md:mt-0 mt-12">
+      <div
+        class="flex flex-col sm:flex-row md:justify-start justify-center gap-3 sm:gap-4 md:mt-0 mt-12"
+      >
         <a
           href="#servicios"
           class="bg-white text-primary font-bold py-3 sm:py-4 px-6 sm:px-8 md:px-10 rounded-lg hover:bg-gray-100 transition-colors shadow-lg text-base sm:text-lg"
         >
-          Nuestros Servicios
+          {i18n.HERO.SERVICES_BUTTON}
         </a>
         <a
           href="#contacto"
           class="bg-secondary text-white font-bold py-3 sm:py-4 px-6 sm:px-8 md:px-10 rounded-lg hover:bg-secondary/80 transition-colors shadow-lg text-base sm:text-lg"
         >
-          Contacto
+          {i18n.HERO.CONTACT_BUTTON}
         </a>
       </div>
     </div>
@@ -148,13 +158,13 @@ const HERO_IMAGES = [
 </style>
 
 <script>
-  document.addEventListener('astro:page-load', () => {
+  document.addEventListener("astro:page-load", () => {
     const TRANSITION_TIME = 5000;
     const slides = document.querySelectorAll(".hero-slide");
     let currentSlide = 0;
     let slideInterval;
 
-    function showSlide(index:number) {
+    function showSlide(index: number) {
       slides.forEach((slide) => slide.classList.remove("active"));
       slides[index].classList.add("active");
     }

@@ -1,0 +1,145 @@
+---
+import Layout from "@/layouts/MainLayout.astro";
+import Section from "@/components/Section.astro";
+import { getI18N } from "@/i18n";
+
+import teamImage from "@/assets/gallery/team.webp";
+
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+---
+
+<Layout title={i18n.SEO.TEAM_TITLE}>
+  <div class="h-20 md:h-16"></div>
+  <Section title={i18n.TEAM.ACCREDITATION_TITLE}>
+    <div
+      class="flex md:flex-row flex-col gap-4 md:gap-8 items-center bg-white rounded-xl md:p-6 p-4 shadow-xl border border-neutral-300"
+    >
+      <div class="flex justify-center">
+        <img
+          src="/images/logo_ema.webp"
+          alt="Logo de la Entidad Mexicana de Acreditación (EMA)"
+          class="w-[200px] md:w-[800px] object-contain"
+        />
+      </div>
+
+      <div class="text-center md:text-left">
+        <p class="text-gray-700 mb-6 md:text-lg">
+          {i18n.TEAM.ACCREDITATION_DESCRIPTION}
+        </p>
+        <a
+          href="/acreditacion"
+          class="inline-block bg-primary text-white py-3 px-6 rounded-md text-base font-medium hover:bg-primary/90 transition-colors duration-300"
+        >
+          {i18n.TEAM.VIEW_ACCREDITATION}
+        </a>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Sección de Equipo -->
+  <Section title={i18n.TEAM.TITLE}>
+    <img
+      src={teamImage.src}
+      alt="Imagen del equipo de Kepler Metrology"
+      class="w-full mx-auto rounded-xl shadow-xl mb-4 aspect-video object-cover"
+    />
+
+    <div
+      class="md:p-6 p-4 rounded-xl border border-neutral-300 shadow-xl bg-white"
+    >
+      <p class="text-gray-700 mb-6 md:text-lg">
+        {i18n.TEAM.TEAM_DESCRIPTION_1}
+      </p>
+      <p class="text-gray-700 mb-6 md:text-lg">
+        {i18n.TEAM.TEAM_DESCRIPTION_2}
+      </p>
+    </div>
+  </Section>
+
+  <!-- Sección de Políticas -->
+  <Section title={i18n.TEAM.POLICIES_TITLE} bgColor="bg-gray-100">
+    <div class="grid md:grid-cols-2 gap-8 py-4">
+      <div
+        class="bg-white p-6 md:p-8 rounded-xl shadow-xl border-l-4 border-primary relative"
+      >
+        <!-- Imagen absoluta (visible solo en desktop) -->
+        <div
+          class="absolute -right-0.5 -top-8 size-32 bg-white rounded-full items-center justify-center opacity-90 z-10 shadow-lg hidden md:flex"
+        >
+          <img
+            src="/images/ISO_9001.png"
+            alt="ISO 9001"
+            class="w-20 h-20 object-contain"
+          />
+        </div>
+        <div class="relative z-0">
+          <!-- Título con imagen para móvil -->
+          <div class="flex items-center gap-3 mb-4">
+            <img
+              src="/images/ISO_9001.png"
+              alt="ISO 9001"
+              class="w-10 h-10 object-contain md:hidden"
+            />
+            <h2 class="text-xl font-bold text-primary text-balance">
+              {i18n.TEAM.POLICY_ISO9001_TITLE}
+            </h2>
+          </div>
+          <p class="text-gray-700 md:pr-16">
+            {i18n.TEAM.POLICY_ISO9001_DESCRIPTION}
+          </p>
+          <ul class="mt-3 space-y-2 text-gray-700">
+            {
+              i18n.TEAM.POLICY_ISO9001_ITEMS.map((item) => (
+                <li class="flex items-start">
+                  <span class="text-primary mr-2">✓</span>
+                  <span>{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+      <div
+        class="bg-white p-6 md:p-8 rounded-xl shadow-xl border-l-4 border-secondary relative"
+      >
+        <!-- Imagen absoluta (visible solo en desktop) -->
+        <div
+          class="absolute -right-0.5 -top-8 size-32 bg-white rounded-full items-center justify-center opacity-90 z-10 shadow-lg hidden md:flex"
+        >
+          <img
+            src="/images/ISO_27001.png"
+            alt="ISO 27001"
+            class="w-20 h-20 object-contain"
+          />
+        </div>
+        <div class="relative z-0">
+          <!-- Título con imagen para móvil -->
+          <div class="flex items-center gap-3 mb-4">
+            <img
+              src="/images/ISO_27001.png"
+              alt="ISO 27001"
+              class="w-10 h-10 object-contain md:hidden"
+            />
+            <h2 class="text-xl font-bold text-primary text-balance">
+              {i18n.TEAM.POLICY_ISO27001_TITLE}
+            </h2>
+          </div>
+          <p class="text-gray-700 md:pr-16">
+            {i18n.TEAM.POLICY_ISO27001_DESCRIPTION}
+          </p>
+          <ul class="mt-3 space-y-2 text-gray-700">
+            {
+              i18n.TEAM.POLICY_ISO27001_ITEMS.map((item) => (
+                <li class="flex items-start">
+                  <span class="text-secondary mr-2">✓</span>
+                  <span>{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </Section>
+</Layout>

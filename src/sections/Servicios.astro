@@ -1,12 +1,24 @@
 ---
 import Section from "@/components/Section.astro";
 import { SERVICIOS } from "@/data/servicios.js";
+import { getI18N } from "@/i18n";
+import {
+  getLangFromUrl,
+  useTranslatedPath,
+} from "@/i18n/utils";
 
-const subtitulo =
-  "Kepler Laboratorio es un laboratorio de calibración especializado en el sector Oil & Gas ya que cuenta con las siguientes magnitudes, las cuales están acreditadas ante la Entidad Mexicana de Acreditación (EMA) y con trazabilidad al Centro Nacional de Metrología (CENAM). ";
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+
+const lang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(lang);
 ---
 
-<Section id="servicios" title="NUESTROS SERVICIOS" subtitle={subtitulo}>
+<Section
+  id={currentLocale === "en" ? "services" : "servicios"}
+  title={i18n.SERVICES.TITLE}
+  subtitle={i18n.SERVICES.DESCRIPTION}
+>
   <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
     {
       SERVICIOS.map((servicio) => (
@@ -14,7 +26,7 @@ const subtitulo =
           <div class="relative h-32 overflow-hidden">
             <img
               src={servicio.imagen}
-              alt={servicio.titulo}
+              alt={servicio[lang].titulo}
               transition:name={servicio.imagen}
               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
@@ -22,16 +34,16 @@ const subtitulo =
 
           <div class="p-4 sm:p-6">
             <h4 class="text-lg font-bold text-secondary mb-2">
-              {servicio.titulo}
+              {servicio[lang].titulo}
             </h4>
             <p class="text-sm sm:text-base text-gray-700 mb-4">
-              {servicio.servicio}
+              {servicio[lang].servicio}
             </p>
             <a
-              href={`/servicios/${servicio.id}`}
+              href={translatePath(`/servicios/${servicio.id}`)}
               class="inline-block bg-primary text-white py-2 px-4 rounded-md text-sm font-medium hover:bg-primary/90 transition-colors duration-300"
             >
-              Más detalles
+              {i18n.SERVICES.MORE_DETAILS}
             </a>
           </div>
         </div>

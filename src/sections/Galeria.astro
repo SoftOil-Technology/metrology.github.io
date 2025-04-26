@@ -2,9 +2,18 @@
 import { galleryImages } from "@/consts/galleryImages";
 import { Image } from "astro:assets";
 import Section from "@/components/Section.astro";
+import { getI18N } from "@/i18n";
+
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
 ---
 
-<Section title="GALERÍA" id="gallery" bgColor="bg-gray-100" noPadding>
+<Section
+  title={i18n.GALLERY.TITLE}
+  id="gallery"
+  bgColor="bg-gray-100"
+  noPadding
+>
   <section>
     <div class="mx-auto max-w-6xl" id="gallery">
       <ul

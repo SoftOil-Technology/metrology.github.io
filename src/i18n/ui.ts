@@ -22,18 +22,30 @@ export const showDefaultLang = false;
 
 export const ui = {
   es: {
-    'nav.inicio': 'Inicio',
-    'nav.servicios': 'Servicios',
-    'nav.nosotros': 'Nosotros',
-    'nav.contacto': 'Contacto',
-    'nav.team': 'Nuestro Equipo',
+    'nav.home.title': 'Inicio',
+    'nav.services.title': 'Servicios',
+    'nav.about.title': 'Nosotros',
+    'nav.contact.title': 'Contacto',
+    'nav.team.title': 'Nuestro Equipo',
+
+    'nav.home.href': '/#top',
+    'nav.services.href': '/#servicios',
+    'nav.about.href': '/#nosotros',
+    'nav.contact.href': '/#contacto',
+    'nav.team.href': '/equipo',
   },
   en: {
-    'nav.inicio': 'Home',
-    'nav.servicios': 'Services',
-    'nav.nosotros': 'About Us',
-    'nav.contacto': 'Contact',
-    'nav.team': 'Our Team',
+    'nav.home.title': 'Home',
+    'nav.services.title': 'Services',
+    'nav.about.title': 'About Us',
+    'nav.contact.title': 'Contact',
+    'nav.team.title': 'Our Team',
+
+    'nav.home.href': '/#top',
+    'nav.services.href': '/#services',
+    'nav.about.href': '/#about',
+    'nav.contact.href': '/#contact',
+    'nav.team.href': '/equipo',
   },
 } as const;
 
