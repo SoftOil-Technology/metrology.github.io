@@ -1,4 +1,6 @@
 ---
+import LanguageSelector from "./LanguageSelector.astro";
+
 const NAVIGATION_LINKS = [
   { href: "/#top", text: "Inicio" },
   { href: "/#servicios", text: "Servicios" },
@@ -13,7 +15,7 @@ const NAVIGATION_LINKS = [
     class="mx-auto flex max-w-6xl items-center justify-between px-4 py-6 pb-0 uppercase lg:px-8"
   >
     <div class="flex">
-      <div class="hidden lg:flex lg:gap-x-12">
+      <div class="hidden lg:flex lg:gap-x-8">
         {
           NAVIGATION_LINKS.map(({ href, text }) => (
             <a
@@ -24,6 +26,9 @@ const NAVIGATION_LINKS = [
             </a>
           ))
         }
+        <div class="-mt-1">
+          <LanguageSelector />
+        </div>
       </div>
       <div class="flex lg:hidden">
         <button
@@ -114,6 +119,7 @@ const NAVIGATION_LINKS = [
             </a>
           ))
         }
+        <LanguageSelector />
       </div>
     </div>
   </dialog>
