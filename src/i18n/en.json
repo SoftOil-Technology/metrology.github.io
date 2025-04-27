@@ -115,5 +115,25 @@
       "PRIVACY": "Privacy Policy",
       "COOKIES": "Cookie Policy"
     }
+  },
+  "MARKETPLACE": {
+    "TITLE": "MARKETPLACE",
+    "SAVE_TIME": {
+      "TITLE": "Save Time",
+      "DESCRIPTION": "Avoid long waiting times for quotes and service responses. Our marketplace provides instant access to pricing, availability, and direct service booking.",
+      "CTA": "Visit Marketplace"
+    },
+    "TRANSPARENCY": {
+      "TITLE": "Service Transparency",
+      "DESCRIPTION": "Access detailed information about each service, including specifications, durations, and requirements."
+    },
+    "QUALITY": {
+      "TITLE": "Quality Guarantee",
+      "DESCRIPTION": "All our digital services maintain the same quality standards as our traditional services, with added convenience."
+    },
+    "PORTFOLIO": {
+      "TITLE": "Complete Service Portfolio",
+      "DESCRIPTION": "Our marketplace includes our full range of metrology solutions, from calibration services to specialized measurements and training."
+    }
   }
 }

@@ -1,0 +1,295 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+import Section from "@/components/Section.astro";
+import { getI18N } from "@/i18n";
+import { getLangFromUrl, useTranslatedPath } from "@/i18n/utils";
+import ClockIcon from "@/components/icons/ClockIcon.astro";
+import SearchIcon from "@/components/icons/SearchIcon.astro";
+import ShieldIcon from "@/components/icons/ShieldIcon.astro";
+import GearIcon from "@/components/icons/GearIcon.astro";
+import EmailIcon from "@/components/icons/EmailIcon.astro";
+import PhoneIcon from "@/components/icons/PhoneIcon.astro";
+
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+const lang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(lang);
+---
+
+<MainLayout title="Marketplace - Kepler Metrology">
+  <div class="h-20 md:h-16"></div>
+
+  <!-- Contenido Principal: Beneficios y Formulario -->
+  <Section title={i18n.MARKETPLACE.TITLE} className="mx-0 px-0">
+    <div class="grid md:grid-cols-2 gap-8 sm:gap-10 md:gap-12">
+      <!-- Columna 1: Formulario de Solicitud -->
+      <div>
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+          <div class="bg-primary p-6">
+            <h2 class="text-2xl font-bold text-white font-expansiva">
+              {currentLocale === "en" ? "Request Access" : "Solicitar Acceso"}
+            </h2>
+            <p class="mt-2 text-white/90 text-sm sm:text-base">
+              {
+                currentLocale === "en"
+                  ? "Fill out the form to gain access to our complete service portfolio"
+                  : "Completa el formulario para obtener acceso a nuestro portafolio completo de servicios"
+              }
+            </p>
+          </div>
+
+          <form class="p-6" id="marketplace-form">
+            <!-- Estado del formulario -->
+            <div
+              id="form-status"
+              class="hidden mb-6 p-4 rounded-lg text-sm font-medium"
+            >
+            </div>
+
+            <div class="space-y-5">
+              <!-- Nombre -->
+              <div class="group">
+                <label
+                  for="name"
+                  class="block text-sm font-medium text-gray-700 mb-2"
+                >
+                  {currentLocale === "en" ? "Full Name" : "Nombre Completo"}
+                  <span class="text-red-500">*</span>
+                </label>
+                <div class="relative">
+                  <div
+                    class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                        clip-rule="evenodd"></path>
+                    </svg>
+                  </div>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-200 bg-gray-50 focus:bg-white"
+                    placeholder={currentLocale === "en"
+                      ? "Enter your full name"
+                      : "Ingresa tu nombre completo"}
+                  />
+                </div>
+              </div>
+
+              <!-- Correo Corporativo -->
+              <div class="group">
+                <label
+                  for="email"
+                  class="block text-sm font-medium text-gray-700 mb-2"
+                >
+                  {
+                    currentLocale === "en"
+                      ? "Corporate Email"
+                      : "Correo Corporativo"
+                  }
+                  <span class="text-red-500">*</span>
+                </label>
+                <div class="relative">
+                  <div
+                    class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400"
+                  >
+                    <EmailIcon class="h-5 w-5" />
+                  </div>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-200 bg-gray-50 focus:bg-white"
+                    placeholder={currentLocale === "en"
+                      ? "company@example.com"
+                      : "empresa@ejemplo.com"}
+                  />
+                </div>
+                <p class="mt-1.5 text-sm text-gray-500 flex items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4 mr-1 text-primary"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2h-1V9z"
+                      clip-rule="evenodd"></path>
+                  </svg>
+                  {
+                    currentLocale === "en"
+                      ? "Please use your company email address"
+                      : "Por favor, utiliza el correo de tu empresa"
+                  }
+                </p>
+              </div>
+
+              <!-- Teléfono -->
+              <div class="group">
+                <label
+                  for="phone"
+                  class="block text-sm font-medium text-gray-700 mb-2"
+                >
+                  {currentLocale === "en" ? "Phone Number" : "Teléfono"}
+                  <span class="text-red-500">*</span>
+                </label>
+                <div class="relative">
+                  <div
+                    class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400"
+                  >
+                    <PhoneIcon class="h-5 w-5" />
+                  </div>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    required
+                    class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-200 bg-gray-50 focus:bg-white"
+                    placeholder={currentLocale === "en"
+                      ? "+1 (555) 123-4567"
+                      : "+52 (55) 1234-5678"}
+                  />
+                </div>
+              </div>
+
+              <!-- Botón de Envío -->
+              <div class="pt-3">
+                <button
+                  type="submit"
+                  id="submit-btn"
+                  class="w-full bg-primary text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-[1.02] focus:outline-none focus:ring-2  flex justify-center items-center"
+                >
+                  <span id="btn-text">
+                    {
+                      currentLocale === "en"
+                        ? "Submit Request"
+                        : "Enviar Solicitud"
+                    }
+                  </span>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Columna 2: Beneficios -->
+      <div>
+        <div class="grid grid-cols-1 gap-5 sm:gap-6">
+          <!-- Beneficio 1 -->
+          <div
+            class="bg-primary/90 text-white rounded-2xl shadow-lg p-6 transform transition-transform hover:-translate-y-1 hover:shadow-xl flex flex-col"
+          >
+            <div class="flex items-start gap-6">
+              <div
+                class="bg-white/20 w-14 h-14 rounded-full flex items-center justify-center shrink-0"
+              >
+                <ClockIcon class="w-7 h-7" />
+              </div>
+              <div>
+                <h3 class="text-xl font-bold font-expansiva mb-3">
+                  {i18n.MARKETPLACE.SAVE_TIME.TITLE}
+                </h3>
+                <p class="text-white/90">
+                  {i18n.MARKETPLACE.SAVE_TIME.DESCRIPTION}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Beneficio 2 -->
+          <div
+            class="bg-white/80 rounded-2xl shadow-lg p-6 transform transition-transform hover:-translate-y-1 hover:shadow-xl flex flex-col"
+          >
+            <div class="flex items-start gap-6">
+              <div
+                class="bg-primary/10 w-14 h-14 rounded-full flex items-center justify-center shrink-0"
+              >
+                <SearchIcon class="w-7 h-7 text-primary" />
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-gray-800 font-expansiva mb-3">
+                  {i18n.MARKETPLACE.TRANSPARENCY.TITLE}
+                </h3>
+                <p class="text-gray-600">
+                  {i18n.MARKETPLACE.TRANSPARENCY.DESCRIPTION}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Beneficio 3 -->
+          <div
+            class="bg-secondary/80 text-white rounded-2xl shadow-lg p-6 transform transition-transform hover:-translate-y-1 hover:shadow-xl flex flex-col"
+          >
+            <div class="flex items-start gap-6">
+              <div
+                class="bg-white/20 w-14 h-14 rounded-full flex items-center justify-center shrink-0"
+              >
+                <ShieldIcon class="w-7 h-7" />
+              </div>
+              <div>
+                <h3 class="text-xl font-bold font-expansiva mb-3">
+                  {i18n.MARKETPLACE.QUALITY.TITLE}
+                </h3>
+                <p class="text-white/90">
+                  {i18n.MARKETPLACE.QUALITY.DESCRIPTION}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Beneficio 4 -->
+          <div
+            class="bg-primary-light/80 rounded-2xl shadow-lg p-6 transform transition-transform hover:-translate-y-1 hover:shadow-xl flex flex-col"
+          >
+            <div class="flex items-start gap-6">
+              <div
+                class="bg-primary/20 w-14 h-14 rounded-full flex items-center justify-center shrink-0"
+              >
+                <GearIcon class="w-7 h-7 text-primary" />
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-gray-800 font-expansiva mb-3">
+                  {i18n.MARKETPLACE.PORTFOLIO.TITLE}
+                </h3>
+                <p class="text-gray-600">
+                  {i18n.MARKETPLACE.PORTFOLIO.DESCRIPTION}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Section>
+</MainLayout>
+
+<style>
+  /* Para asegurar que las tarjetas tengan altura completa */
+  .grid > div {
+    height: 100%;
+  }
+
+  @media (max-width: 640px) {
+    .flex.items-start.gap-6 {
+      gap: 1rem;
+    }
+
+    .w-14.h-14 {
+      width: 3rem;
+      height: 3rem;
+    }
+  }
+</style>

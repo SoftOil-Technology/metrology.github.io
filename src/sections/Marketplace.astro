@@ -14,12 +14,12 @@ const lang = getLangFromUrl(Astro.url);
 const translatePath = useTranslatedPath(lang);
 ---
 
-<Section id="marketplace" title="Marketplace">
+<Section id="marketplace" title={i18n.MARKETPLACE.TITLE}>
   <!-- Bento Grid de Beneficios -->
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
     <!-- Beneficio 1: Gran tarjeta -->
     <div
-      class="bg-gradient-to-br from-primary/90 to-primary-dark text-white rounded-2xl shadow-lg p-6 md:col-span-2 lg:col-span-2 lg:row-span-2 transform transition-transform hover:-translate-y-1 hover:shadow-xl"
+      class="bg-primary/90 text-white rounded-2xl shadow-lg p-6 md:col-span-2 lg:col-span-2 lg:row-span-2 transform transition-transform hover:-translate-y-1 hover:shadow-xl"
     >
       <div class="flex flex-col h-full">
         <div
@@ -27,30 +27,24 @@ const translatePath = useTranslatedPath(lang);
         >
           <ClockIcon class="w-8 h-8" />
         </div>
-        <h3 class="text-2xl font-bold  mb-3">
-          {currentLocale === "en" ? "Save Time" : "Ahorra Tiempo"}
+        <h3 class="text-2xl font-bold font-expansiva mb-3">
+          {i18n.MARKETPLACE.SAVE_TIME.TITLE}
         </h3>
         <p class="text-white/90 mb-6 flex-grow">
-          {
-            currentLocale === "en"
-              ? "Avoid long waiting times for quotes and service responses. Our marketplace provides instant access to pricing, availability, and direct service booking."
-              : "Evita largas esperas para cotizaciones y respuestas de servicio. Nuestro marketplace te proporciona acceso instantáneo a precios, disponibilidad y reserva directa de servicios."
-          }
+          {i18n.MARKETPLACE.SAVE_TIME.DESCRIPTION}
         </p>
 
         <a
           href={translatePath("/marketplace")}
           class="bg-white hover:bg-gray-100 text-primary font-bold py-3 px-6 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-center"
         >
-          {currentLocale === "en" ? "Visit Marketplace" : "Visitar Marketplace"}
+          {i18n.MARKETPLACE.SAVE_TIME.CTA}
         </a>
-
-        <!-- <div class="hidden md:block mt-6">
+        <!-- 
+        <div class="hidden md:block mt-6">
           <img
             src="/images/time-saving.svg"
-            alt={currentLocale === "en"
-              ? "Time saving illustration"
-              : "Ilustración de ahorro de tiempo"}
+            alt={i18n.MARKETPLACE.SAVE_TIME.TITLE}
             class="w-full h-32 object-contain"
           />
         </div> -->
@@ -66,19 +60,11 @@ const translatePath = useTranslatedPath(lang);
       >
         <SearchIcon class="w-7 h-7 text-primary" />
       </div>
-      <h3 class="text-xl font-bold text-gray-800  mb-3">
-        {
-          currentLocale === "en"
-            ? "Service Transparency"
-            : "Transparencia de Servicios"
-        }
+      <h3 class="text-xl font-bold text-gray-800 font-expansiva mb-3">
+        {i18n.MARKETPLACE.TRANSPARENCY.TITLE}
       </h3>
       <p class="text-gray-600 text-sm">
-        {
-          currentLocale === "en"
-            ? "Access detailed information about each service, including specifications, durations, and requirements."
-            : "Accede a información detallada sobre cada servicio, incluyendo especificaciones, duraciones y requisitos."
-        }
+        {i18n.MARKETPLACE.TRANSPARENCY.DESCRIPTION}
       </p>
     </div>
 
@@ -91,15 +77,11 @@ const translatePath = useTranslatedPath(lang);
       >
         <ShieldIcon class="w-7 h-7" />
       </div>
-      <h3 class="text-xl font-bold  mb-3">
-        {currentLocale === "en" ? "Quality Guarantee" : "Garantía de Calidad"}
+      <h3 class="text-xl font-bold font-expansiva mb-3">
+        {i18n.MARKETPLACE.QUALITY.TITLE}
       </h3>
       <p class="text-white/90 text-sm">
-        {
-          currentLocale === "en"
-            ? "All our digital services maintain the same quality standards as our traditional services, with added convenience."
-            : "Todos nuestros servicios digitales mantienen los mismos estándares de calidad que nuestros servicios tradicionales, con mayor comodidad."
-        }
+        {i18n.MARKETPLACE.QUALITY.DESCRIPTION}
       </p>
     </div>
 
@@ -114,19 +96,11 @@ const translatePath = useTranslatedPath(lang);
           <GearIcon class="w-7 h-7 text-primary" />
         </div>
         <div>
-          <h3 class="text-xl font-bold text-gray-800  mb-3">
-            {
-              currentLocale === "en"
-                ? "Complete Service Portfolio"
-                : "Portafolio Completo de Servicios"
-            }
+          <h3 class="text-xl font-bold text-gray-800 font-expansiva mb-3">
+            {i18n.MARKETPLACE.PORTFOLIO.TITLE}
           </h3>
           <p class="text-gray-600">
-            {
-              currentLocale === "en"
-                ? "Our marketplace includes our full range of metrology solutions, from calibration services to specialized measurements and training."
-                : "Nuestro marketplace incluye toda nuestra gama de soluciones de metrología, desde servicios de calibración hasta mediciones especializadas y capacitación."
-            }
+            {i18n.MARKETPLACE.PORTFOLIO.DESCRIPTION}
           </p>
         </div>
       </div>

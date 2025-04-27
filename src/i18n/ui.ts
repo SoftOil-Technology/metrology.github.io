@@ -58,6 +58,7 @@ export const routes = {
     volumen: 'volumen',
     dimensional: 'dimensional',
     masa: 'masa',
+    marketplace: 'marketplace',
   },
   en: {
     equipo: 'equipo',
@@ -67,5 +68,6 @@ export const routes = {
     volumen: 'volumen',
     dimensional: 'dimensional',
     masa: 'masa',
+    marketplace: 'marketplace',
   },
 };

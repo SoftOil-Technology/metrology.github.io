@@ -7,30 +7,26 @@
 </div>
 
 <a
-  class="via-theme-blue fixed right-8 bottom-8 z-40 flex h-12 w-12 flex-col items-center justify-center overflow-hidden rounded-full bg-gradient-to-r from-blue-500 to-blue-400 opacity-0 shadow-lg"
+  class="fixed right-8 bottom-8 z-40 overflow-hidden bg-gradient-to-br from-primary/90 to-primary-light opacity-0 shadow-lg transition-all duration-500 hover:shadow-xl clip-path-hexagon"
   id="back-to-top"
   href="#top"
   aria-label="Volver arriba"
 >
-  <svg viewBox="0 0 384 512" class="absolute h-5 w-4">
+  <svg viewBox="0 0 384 512" class="h-5 w-4 text-white">
     <path
-      fill="#fff"
+      fill="currentColor"
       d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"
     ></path>
   </svg>
 </a>
 
 <style>
-  a {
-    border: none;
-    border-radius: 50%;
-    transition: 500ms;
-    animation: shimmer 3s linear infinite;
-  }
-
-  a svg {
-    fill: white;
-    position: absolute;
+  .clip-path-hexagon {
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    padding: 1rem 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   a:hover svg {
