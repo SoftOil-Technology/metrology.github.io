@@ -16,6 +16,7 @@ const translatePath = useTranslatedPath(lang);
 
 <Section
   id={currentLocale === "en" ? "services" : "servicios"}
+  bgColor="bg-gray-100"
   title={i18n.SERVICES.TITLE}
   subtitle={i18n.SERVICES.DESCRIPTION}
 >
@@ -33,14 +34,14 @@ const translatePath = useTranslatedPath(lang);
           </div>
 
           <div class="p-4 sm:p-6">
-            <h4 class="text-lg font-bold text-secondary mb-2">
+            <h4 class="text-lg font-bold text-secondary mb-2 font-expansiva uppercase">
               {servicio[lang].titulo}
             </h4>
             <p class="text-sm sm:text-base text-gray-700 mb-4">
               {servicio[lang].servicio}
             </p>
             <a
-              href={translatePath(`/servicios/${servicio.id}`)}
+              href={translatePath(`/${servicio.id}`)}
               class="inline-block bg-primary text-white py-2 px-4 rounded-md text-sm font-medium hover:bg-primary/90 transition-colors duration-300"
             >
               {i18n.SERVICES.MORE_DETAILS}

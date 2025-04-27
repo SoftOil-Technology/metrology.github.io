@@ -51,9 +51,21 @@ export const ui = {
 
 export const routes = {
   es: {
-    team: 'equipo',
+    equipo: 'equipo',
+    presion: 'presion',
+    temperatura: 'temperatura',
+    flujo: 'flujo',
+    volumen: 'volumen',
+    dimensional: 'dimensional',
+    masa: 'masa',
   },
   en: {
-    team: 'team',
+    equipo: 'equipo',
+    presion: 'presion',
+    temperatura: 'temperatura',
+    flujo: 'flujo',
+    volumen: 'volumen',
+    dimensional: 'dimensional',
+    masa: 'masa',
   },
 };

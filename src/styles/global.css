@@ -11,4 +11,14 @@
   --color-theme-cyan: #61e2e5;
   --color-theme-green: #2b8364;
   --color-theme-green-light: #98d354;
+
+  --font-expansiva: "Expansiva", sans-serif;
+}
+
+@font-face {
+  font-family: "Expansiva";
+  src: url("/fonts/expansiva-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }

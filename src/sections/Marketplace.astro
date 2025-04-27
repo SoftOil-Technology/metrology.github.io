@@ -1,0 +1,142 @@
+---
+import Section from "@/components/Section.astro";
+import { getI18N } from "@/i18n";
+import { getLangFromUrl, useTranslatedPath } from "@/i18n/utils";
+import ClockIcon from "@/components/icons/ClockIcon.astro";
+import SearchIcon from "@/components/icons/SearchIcon.astro";
+import ShieldIcon from "@/components/icons/ShieldIcon.astro";
+import GearIcon from "@/components/icons/GearIcon.astro";
+
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+
+const lang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(lang);
+---
+
+<Section id="marketplace" title="Marketplace">
+  <!-- Bento Grid de Beneficios -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+    <!-- Beneficio 1: Gran tarjeta -->
+    <div
+      class="bg-gradient-to-br from-primary/90 to-primary-dark text-white rounded-2xl shadow-lg p-6 md:col-span-2 lg:col-span-2 lg:row-span-2 transform transition-transform hover:-translate-y-1 hover:shadow-xl"
+    >
+      <div class="flex flex-col h-full">
+        <div
+          class="bg-white/20 w-16 h-16 rounded-full flex items-center justify-center mb-4"
+        >
+          <ClockIcon class="w-8 h-8" />
+        </div>
+        <h3 class="text-2xl font-bold  mb-3">
+          {currentLocale === "en" ? "Save Time" : "Ahorra Tiempo"}
+        </h3>
+        <p class="text-white/90 mb-6 flex-grow">
+          {
+            currentLocale === "en"
+              ? "Avoid long waiting times for quotes and service responses. Our marketplace provides instant access to pricing, availability, and direct service booking."
+              : "Evita largas esperas para cotizaciones y respuestas de servicio. Nuestro marketplace te proporciona acceso instantáneo a precios, disponibilidad y reserva directa de servicios."
+          }
+        </p>
+
+        <a
+          href={translatePath("/marketplace")}
+          class="bg-white hover:bg-gray-100 text-primary font-bold py-3 px-6 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-center"
+        >
+          {currentLocale === "en" ? "Visit Marketplace" : "Visitar Marketplace"}
+        </a>
+
+        <!-- <div class="hidden md:block mt-6">
+          <img
+            src="/images/time-saving.svg"
+            alt={currentLocale === "en"
+              ? "Time saving illustration"
+              : "Ilustración de ahorro de tiempo"}
+            class="w-full h-32 object-contain"
+          />
+        </div> -->
+      </div>
+    </div>
+
+    <!-- Beneficio 2 -->
+    <div
+      class="bg-white/80 rounded-2xl shadow-lg p-6 transform transition-transform hover:-translate-y-1 hover:shadow-xl flex flex-col"
+    >
+      <div
+        class="bg-primary/10 w-14 h-14 rounded-full flex items-center justify-center mb-4"
+      >
+        <SearchIcon class="w-7 h-7 text-primary" />
+      </div>
+      <h3 class="text-xl font-bold text-gray-800  mb-3">
+        {
+          currentLocale === "en"
+            ? "Service Transparency"
+            : "Transparencia de Servicios"
+        }
+      </h3>
+      <p class="text-gray-600 text-sm">
+        {
+          currentLocale === "en"
+            ? "Access detailed information about each service, including specifications, durations, and requirements."
+            : "Accede a información detallada sobre cada servicio, incluyendo especificaciones, duraciones y requisitos."
+        }
+      </p>
+    </div>
+
+    <!-- Beneficio 3 -->
+    <div
+      class="bg-secondary/80 text-white rounded-2xl shadow-lg p-6 transform transition-transform hover:-translate-y-1 hover:shadow-xl flex flex-col"
+    >
+      <div
+        class="bg-white/20 w-14 h-14 rounded-full flex items-center justify-center mb-4"
+      >
+        <ShieldIcon class="w-7 h-7" />
+      </div>
+      <h3 class="text-xl font-bold  mb-3">
+        {currentLocale === "en" ? "Quality Guarantee" : "Garantía de Calidad"}
+      </h3>
+      <p class="text-white/90 text-sm">
+        {
+          currentLocale === "en"
+            ? "All our digital services maintain the same quality standards as our traditional services, with added convenience."
+            : "Todos nuestros servicios digitales mantienen los mismos estándares de calidad que nuestros servicios tradicionales, con mayor comodidad."
+        }
+      </p>
+    </div>
+
+    <!-- Beneficio 4 -->
+    <div
+      class="bg-primary-light/80 rounded-2xl shadow-lg p-6 transform transition-transform hover:-translate-y-1 hover:shadow-xl flex flex-col md:col-span-2 lg:col-span-2"
+    >
+      <div class="flex items-start gap-6">
+        <div
+          class="bg-primary/20 w-14 h-14 rounded-full flex items-center justify-center shrink-0"
+        >
+          <GearIcon class="w-7 h-7 text-primary" />
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-gray-800  mb-3">
+            {
+              currentLocale === "en"
+                ? "Complete Service Portfolio"
+                : "Portafolio Completo de Servicios"
+            }
+          </h3>
+          <p class="text-gray-600">
+            {
+              currentLocale === "en"
+                ? "Our marketplace includes our full range of metrology solutions, from calibration services to specialized measurements and training."
+                : "Nuestro marketplace incluye toda nuestra gama de soluciones de metrología, desde servicios de calibración hasta mediciones especializadas y capacitación."
+            }
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</Section>
+
+<style>
+  /* Para asegurar que las tarjetas tengan altura completa */
+  .grid > div {
+    height: 100%;
+  }
+</style>
