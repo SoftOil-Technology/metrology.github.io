@@ -4,6 +4,7 @@ import Section from "@/components/Section.astro";
 import { getI18N } from "@/i18n";
 
 import teamImage from "@/assets/gallery/team.webp";
+import SearchIcon from "../icons/SearchIcon.astro";
 
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
@@ -27,17 +28,24 @@ const i18n = getI18N({ currentLocale });
         <p class="text-gray-700 mb-6 md:text-lg">
           {i18n.TEAM.ACCREDITATION_DESCRIPTION}
         </p>
-        <a
-          href="/acreditacion"
-          class="inline-block bg-primary text-white py-3 px-6 rounded-md text-base font-medium hover:bg-primary/90 transition-colors duration-300"
-        >
-          {i18n.TEAM.VIEW_ACCREDITATION}
-        </a>
+        <div class="flex flex-col w-fit gap-2">
+          <a
+            href="https://catalogo.consultaema.mx:75/busqueda-laboratorios-de-calibracion"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block bg-primary text-white py-3 px-6 rounded-md text-base font-medium hover:bg-primary/90 transition-colors duration-300 w-fit"
+          >
+            {i18n.TEAM.VIEW_ACCREDITATION}
+          </a>
+          <span class="text-gray-700 ml-2 mt-2 text-sm flex items-center gap-2">
+            <SearchIcon class="size-4" />
+            Consultar por el nombre 'KEPLER'
+          </span>
+        </div>
       </div>
     </div>
   </Section>
-
-  <!-- Sección de Equipo -->
+  
   <Section title={i18n.TEAM.TITLE}>
     <img
       src={teamImage.src}
