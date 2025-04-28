@@ -19,12 +19,9 @@ const HERO_IMAGES = [
 <section
   class="relative h-[100vh] w-full flex flex-col items-center justify-center overflow-hidden"
 >
-  <div class="relative w-full h-screen flex items-center justify-center">
-    <div
-      class="absolute inset-0 z-10"
-    >
-    </div>
+  <div class="absolute inset-0 bg-white/30 z-10"/>
 
+  <div class="relative w-full h-screen flex items-center justify-center mt-0 md:mt-10">
     {
       HERO_IMAGES.map((image, index) => (
         <div
@@ -49,30 +46,27 @@ const HERO_IMAGES = [
         <img
           src="/logo-kepler-metrology.png"
           alt="Kepler Metrology"
-          class="h-16 sm:h-20 md:h-24 lg:h-32 drop-shadow-xl"
+          class="h-16 sm:h-20 md:h-24  drop-shadow-xl drop-shadow-neutral-400"
         />
       </div>
 
       <h1
-        class="text-5xl md:text-5xl lg:text-7xl font-extrabold mb-3 sm:mb-4 md:mb-6 tracking-tight leading-tight md:mt-0 mt-8 max-w-lg"
+        class="text-5xl md:text-5xl lg:text-6xl font-extrabold mb-3 sm:mb-4 md:mb-6 tracking-tight leading-tight md:mt-0 mt-8 max-w-lg text-neutral-700"
       >
-        <span
-          class=""
-          >{i18n.HERO.TITLE}</span
-        >
-        <span class="block mt-1 sm:mt-2 text-orange-600"
-          >{i18n.HERO.SUBTITLE}</span
-        >
+        <span class="">{i18n.HERO.TITLE}</span>
+        <span class="block text-orange-600"
+          >{i18n.HERO.SUBTITLE}
+        </span>
       </h1>
 
       <p
-        class="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 md:mb-10 md:max-w-xl max-w-3xl mx-auto md:mx-0 font-light leading-relaxed drop-shadow-lg"
+        class="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 md:mb-10 md:max-w-xl max-w-3xl mx-auto md:mx-0 font-light leading-relaxed drop-shadow-lg"
       >
         {i18n.HERO.DESCRIPTION}
       </p>
 
       <div
-        class="flex flex-col sm:flex-row md:justify-start justify-center gap-3 sm:gap-4 md:mt-0 mt-12"
+        class="flex flex-col sm:flex-row md:justify-start justify-center gap-3 sm:gap-4 md:mt-0 mt-8"
       >
         <a
           href="#servicios"
