@@ -15,9 +15,7 @@ const translatePath = useTranslatedPath(lang);
 ---
 
 <Section id="marketplace" title={i18n.MARKETPLACE.TITLE}>
-  <!-- Bento Grid de Beneficios -->
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
-    <!-- Beneficio 1: Gran tarjeta -->
     <div
       class="bg-primary/90 text-white rounded-2xl shadow-lg p-6 md:col-span-2 lg:col-span-2 lg:row-span-2 transform transition-transform hover:-translate-y-1 hover:shadow-xl"
     >
@@ -36,22 +34,13 @@ const translatePath = useTranslatedPath(lang);
 
         <a
           href={translatePath("/marketplace")}
-          class="bg-white hover:bg-gray-100 text-primary font-bold py-3 px-6 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-center"
+          class="bg-white hover:bg-gray-100 text-primary font-bold py-3 px-6 rounded-lg text-lg transition-all shadow-lg hover:shadow-xl text-center"
         >
           {i18n.MARKETPLACE.SAVE_TIME.CTA}
         </a>
-        <!-- 
-        <div class="hidden md:block mt-6">
-          <img
-            src="/images/time-saving.svg"
-            alt={i18n.MARKETPLACE.SAVE_TIME.TITLE}
-            class="w-full h-32 object-contain"
-          />
-        </div> -->
       </div>
     </div>
 
-    <!-- Beneficio 2 -->
     <div
       class="bg-white/80 rounded-2xl shadow-lg p-6 transform transition-transform hover:-translate-y-1 hover:shadow-xl flex flex-col"
     >
@@ -68,7 +57,6 @@ const translatePath = useTranslatedPath(lang);
       </p>
     </div>
 
-    <!-- Beneficio 3 -->
     <div
       class="bg-secondary/80 text-white rounded-2xl shadow-lg p-6 transform transition-transform hover:-translate-y-1 hover:shadow-xl flex flex-col"
     >
@@ -109,7 +97,6 @@ const translatePath = useTranslatedPath(lang);
 </Section>
 
 <style>
-  /* Para asegurar que las tarjetas tengan altura completa */
   .grid > div {
     height: 100%;
   }

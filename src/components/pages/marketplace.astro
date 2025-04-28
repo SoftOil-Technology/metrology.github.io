@@ -12,19 +12,15 @@ import PhoneIcon from "@/components/icons/PhoneIcon.astro";
 
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
-const lang = getLangFromUrl(Astro.url);
-const translatePath = useTranslatedPath(lang);
 ---
 
 <MainLayout title="Marketplace - Kepler Metrology">
   <div class="h-20 md:h-16"></div>
 
-  <!-- Contenido Principal: Beneficios y Formulario -->
   <Section title={i18n.MARKETPLACE.TITLE} className="mx-0 px-0">
     <div class="grid md:grid-cols-2 gap-8 sm:gap-10 md:gap-12">
-      <!-- Columna 1: Formulario de Solicitud -->
       <div>
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-neutral-500">
           <div class="bg-primary p-6">
             <h2 class="text-2xl font-bold text-white font-expansiva">
               {currentLocale === "en" ? "Request Access" : "Solicitar Acceso"}
@@ -39,7 +35,6 @@ const translatePath = useTranslatedPath(lang);
           </div>
 
           <form class="p-6" id="marketplace-form">
-            <!-- Estado del formulario -->
             <div
               id="form-status"
               class="hidden mb-6 p-4 rounded-lg text-sm font-medium"
@@ -168,7 +163,7 @@ const translatePath = useTranslatedPath(lang);
                 <button
                   type="submit"
                   id="submit-btn"
-                  class="w-full bg-primary text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-[1.02] focus:outline-none focus:ring-2  flex justify-center items-center"
+                  class="w-full bg-primary text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-[1.02] focus:outline-none focus:ring-2 flex justify-center items-center"
                 >
                   <span id="btn-text">
                     {
@@ -277,7 +272,6 @@ const translatePath = useTranslatedPath(lang);
 </MainLayout>
 
 <style>
-  /* Para asegurar que las tarjetas tengan altura completa */
   .grid > div {
     height: 100%;
   }
