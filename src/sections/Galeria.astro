@@ -18,7 +18,7 @@ const i18n = getI18N({ currentLocale });
     <div class="mx-auto max-w-6xl" id="gallery">
       <ul
         id="slider-mobile"
-        class="flex snap-x snap-mandatory overflow-x-auto p-10 md:hidden [&>*:nth-child(even)]:rotate-2 [&>*:nth-child(odd)]:rotate-[-2deg]"
+        class="flex snap-x snap-mandatory overflow-x-auto p-10 md:hidden [&>*:nth-child(even)]:rotate-2 [&>*:nth-child(odd)]:rotate-[-2deg] "
       >
         {
           galleryImages.map(({ image, alt, thumb }, index) => (
@@ -42,7 +42,7 @@ const i18n = getI18N({ currentLocale });
       </ul>
 
       <ul
-        class="hidden grid-cols-1 gap-8 sm:grid-cols-2 md:grid md:grid-cols-3 lg:grid-cols-4 [&>*:nth-child(even)]:rotate-2 [&>*:nth-child(n)]:hover:scale-105 [&>*:nth-child(n)]:hover:shadow-xl [&>*:nth-child(odd)]:rotate-[-2deg]"
+        class="hidden grid-cols-1 gap-8 sm:grid-cols-2 md:grid md:grid-cols-3 lg:grid-cols-4 [&>*:nth-child(even)]:rotate-2 [&>*:nth-child(n)]:hover:scale-105 [&>*:nth-child(n)]:hover:rotate-0 [&>*:nth-child(n)]:hover:shadow-xl [&>*:nth-child(odd)]:rotate-[-2deg]"
       >
         {
           galleryImages.map(({ image, alt, thumb }, index) => (
