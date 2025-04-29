@@ -1,7 +1,7 @@
 # Workflow name
 name: Deploy Astro Site to GitHub Pages
 
-# Define when the workflow runs
+
 on:
   # Runs on pushes to the "main" branch
   push:
