@@ -23,15 +23,16 @@ const NAVIGATION_LINKS = [
   { href: translatePath(t("nav.about.href")), text: t("nav.about.title") },
   { href: translatePath(t("nav.contact.href")), text: t("nav.contact.title") },
   { href: translatePath(t("nav.team.href")), text: t("nav.team.title") },
+  { href: 'https://kepler-marketplace.vercel.app/' , text: "Marketplace"},
 ];
 ---
 
 <header class="fixed top-0 z-60 w-screen bg-primary/95 pb-6 backdrop-blur-md">
   <nav
-    class="mx-auto flex max-w-6xl items-center justify-between px-4 py-6 pb-0 uppercase"
+    class="mx-auto flex max-w-6xl items-center justify-between px-4 md:px-0 py-6 pb-0 uppercase"
   >
     <div class="flex">
-      <div class="hidden lg:flex lg:gap-x-8">
+      <div class="hidden lg:flex lg:gap-x-6">
         {
           NAVIGATION_LINKS.map(({ href, text }) => (
             <a
