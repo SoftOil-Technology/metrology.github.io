@@ -1,60 +1,88 @@
+# Workflow name
 name: Deploy Astro Site to GitHub Pages
 
+# Define when the workflow runs
 on:
+  # Runs on pushes to the "main" branch
   push:
-    branches: ["main"] 
+    branches: ["main"]
+  # Allows manual execution from the GitHub Actions tab
   workflow_dispatch:
 
+# Define the necessary permissions for the workflow
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: read # Needed to check out the code
+  pages: write    # Needed to deploy to GitHub Pages
+  id-token: write # Needed for OIDC authentication for GitHub Pages
 
+# Configure concurrency to prevent simultaneous or outdated deployments
 concurrency:
-  group: "pages"
-  cancel-in-progress: true
+  group: "pages" # Groups runs related to 'pages'
+  cancel-in-progress: true # Cancels previous runs in the same group if a new one starts
 
+# Define the jobs to be executed
 jobs:
+  # Job to build the site
   build:
+    # The type of runner where the job will run
     runs-on: ubuntu-latest
+    # The steps that make up the build job
     steps:
+      # 1. Check out the repository code
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # 2. Setup pnpm first
+      # This makes the pnpm command globally available
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: latest # Or specify a version like '8' or '8.15.0'
+          # run_install: false # Optional: Prevent 'pnpm install' from running here if you prefer a separate step
+
+      # 3. Setup Node.js, now aware of pnpm for caching
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
+          node-version: '20.x' # Specify the Node.js version
+          cache: 'pnpm'        # Tells setup-node to configure caching for pnpm
 
-          node-version: '20.x'
-          cache: 'pnpm' 
-
-      
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v3 
-        with:
-          version: latest 
-
+      # 4. Install dependencies using pnpm (leveraging the cache)
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile # Use --frozen-lockfile for CI consistency
 
+      # 5. Build the Astro site
       - name: Build Astro site
-        run: pnpm run build
+        run: pnpm run build # Executes the build script defined in your package.json
 
+      # 6. Configure GitHub Pages to prepare for deployment
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      # 7. Upload the build artifact (from the 'dist' directory)
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist' 
+          # The path to the directory containing your built site (usually 'dist' for Astro)
+          path: './dist'
 
+  # Job to deploy the site to GitHub Pages
   deploy:
-    needs: build 
-    runs-on: ubuntu-latest
+    # This job needs the 'build' job to complete successfully
+    needs: build
+    # Define specific permissions for this job (inherited, but explicit is good practice)
+    permissions:
+      pages: write      # Permission to write to GitHub Pages
+      id-token: write   # Permission for OIDC authentication
+    # Define the deployment environment (configured in repository settings)
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}     
+      url: ${{ steps.deployment.outputs.page_url }} # The URL where the site will be deployed
+    # The type of runner where the job will run
+    runs-on: ubuntu-latest
+    # The steps that make up the deployment job
     steps:
+      # Deploy the previously uploaded artifact to GitHub Pages
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v4 # Official action for deploying to Pages
