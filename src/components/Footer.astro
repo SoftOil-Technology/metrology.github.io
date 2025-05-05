@@ -11,11 +11,11 @@ const currentYear = new Date().getFullYear();
 
 const CONTACT_EMAILS = [
   {
-    email: "info@keplermetrology.com",
+    email: "contacto@kepler-metrology.com.mx",
     icon: EmailIcon,
   },
   {
-    email: "soporte@keplermetrology.com",
+    email: "egonzalez@kepler-metrology.com.mx",
     icon: EmailIcon,
   },
 ];
@@ -24,12 +24,12 @@ const SOCIAL_LINKS = [
   {
     name: "Facebook",
     icon: FacebookIcon,
-    url: "#",
+    url: "https://www.facebook.com/share/16RJEhjhfh/?mibextid=wwXIfr",
   },
   {
     name: "LinkedIn",
     icon: LinkedInIcon,
-    url: "#",
+    url: "https://www.linkedin.com/company/kepler-oil-gas/",
   },
 ];
 
@@ -86,6 +86,8 @@ const LEGAL_LINKS = [
             SOCIAL_LINKS.map(({ name, icon: Icon, url }) => (
               <a
                 href={url}
+                target="_blank"
+                rel="noopener noreferrer"
                 class="flex items-center text-gray-300 hover:text-white hover:bg-gray-700 p-2 rounded"
               >
                 <Icon class="h-6 w-6 mr-2" />
