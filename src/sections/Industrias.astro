@@ -44,7 +44,6 @@ const images = [
   },
 ];
 
-const pauseOnHover = true;
 const repeat = 4;
 ---
 
@@ -64,13 +63,12 @@ const repeat = 4;
           <div
             class:list={[
               "flex flex-row animate-marquee shrink-0 justify-around [gap:var(--gap)]",
-              { "group-hover:[animation-play-state:paused]": pauseOnHover },
             ]}
           >
             {images.map((item) => (
-              <div class="md:h-[400px] h-[250px] cursor-pointer p-4 hover:scale-110 transition-all duration-300 rounded-xl overflow-hidden">
+              <div class="md:h-[400px] h-[250px] cursor-pointer p-4 transition-all duration-300 rounded-2xl overflow-hidden">
                 <img
-                  class="h-full w-full object-contain rounded-xl"
+                  class="h-full w-full object-contain rounded-xl scale-105"
                   alt={item.alt}
                   src={item.img}
                 />
@@ -108,9 +106,5 @@ const repeat = 4;
 
   .animate-marquee {
     animation: marquee var(--duration) infinite linear;
-  }
-
-  .group-hover\:\[animation-play-state\:paused\]:hover {
-    animation-play-state: paused;
   }
 </style>
