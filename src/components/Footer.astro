@@ -50,17 +50,27 @@ const LEGAL_LINKS = [
     <div
       class="flex flex-col md:flex-row md:items-start md:justify-between gap-6"
     >
-      <div class="bg-white p-3 rounded-lg w-fit">
+      <a
+        href="/"
+        class="font-expansiva uppercase flex items-center gap-2 scale-75 md:scale-90"
+      >
         <img
-          src="/logo-kepler-metrology.png"
-          alt="Kepler Metrology Logo"
-          class="h-10 md:h-12"
+          src="/apple-touch-icon.png"
+          alt={i18n.HEADER.LOGO_ALT}
+          width={120}
+          height={30}
+          class="h-12 w-auto"
         />
-      </div>
+        <div class="h-full flex w-[1px] bg-white/50"></div>
+        <div class="flex flex-col text-white">
+          <p class="text-3xl">Kepler</p>
+          <p class="text-sm -mt-2">Metrology</p>
+        </div>
+      </a>
 
       <div>
         <p class="text-gray-300 font-semibold mb-2">{i18n.FOOTER.CONTACT_US}</p>
-        <div class="flex flex-col space-y-2">
+        <div class="flex flex-col space-y-2 -ml-2">
           {
             CONTACT_EMAILS.map(({ email, icon: Icon }) => (
               <a
@@ -77,7 +87,7 @@ const LEGAL_LINKS = [
 
       <div>
         <p class="text-gray-300 font-semibold mb-2">{i18n.FOOTER.FOLLOW_US}</p>
-        <div class="flex flex-col space-y-2">
+        <div class="flex flex-col space-y-2 -ml-2">
           {
             SOCIAL_LINKS.map(({ name, icon: Icon, url }) => (
               <a

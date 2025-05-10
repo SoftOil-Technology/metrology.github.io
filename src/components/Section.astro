@@ -24,7 +24,7 @@ const {
 // Clases base para la sección
 const sectionClasses = `py-12 sm:py-16 md:py-20 ${!noPadding ? "px-4" : ""} ${bgColor} ${className}`;
 // Clases para el título
-const titleClasses = `text-2xl sm:text-4xl font-bold text-primary mb-2 text-center uppercase font-expansiva ${titleClassName}`;
+const titleClasses = `text-2xl sm:text-4xl font-bold text-primary mb-2 text-center uppercase font-expansiva text-balance ${titleClassName}`;
 ---
 
 <section id={id} class={sectionClasses}>
@@ -33,7 +33,7 @@ const titleClasses = `text-2xl sm:text-4xl font-bold text-primary mb-2 text-cent
       title && (
         <div>
           <h2 class={titleClasses}>{title}</h2>
-          <div class="w-28 sm:w-32 h-1.5 bg-secondary mx-auto mb-8 sm:mb-12" />
+          <div class="w-36 sm:w-64 h-1.5 bg-secondary mx-auto mb-8 sm:mb-12" />
         </div>
       )
     }

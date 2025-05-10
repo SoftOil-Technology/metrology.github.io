@@ -12,87 +12,81 @@ const i18n = getI18N({ currentLocale });
 
 const lang = getLangFromUrl(Astro.url);
 const translatePath = useTranslatedPath(lang);
+
+const marketplaceItems = [
+  {
+    title: i18n.MARKETPLACE.SAVE_TIME.TITLE,
+    titleClassName: "text-white",
+    description: i18n.MARKETPLACE.SAVE_TIME.DESCRIPTION,
+    descriptionClassName: "text-white/90",
+    icon: ClockIcon,
+    iconClassName: "text-white size-5 md:size-7",
+    color: "bg-primary/90",
+  },
+  {
+    title: i18n.MARKETPLACE.TRANSPARENCY.TITLE,
+    titleClassName: "text-black",
+    description: i18n.MARKETPLACE.TRANSPARENCY.DESCRIPTION,
+    descriptionClassName: "text-black/90",
+    icon: SearchIcon,
+    iconClassName: "text-primary size-5 md:size-7",
+    color: "bg-white/80",
+  },
+  {
+    title: i18n.MARKETPLACE.QUALITY.TITLE,
+    titleClassName: "text-white",
+    description: i18n.MARKETPLACE.QUALITY.DESCRIPTION,
+    descriptionClassName: "text-white/90",
+    icon: ShieldIcon,
+    iconClassName: "text-white size-5 md:size-7",
+    color: "bg-secondary/80",
+  },
+  {
+    title: i18n.MARKETPLACE.PORTFOLIO.TITLE,
+    titleClassName: "text-white",
+    description: i18n.MARKETPLACE.PORTFOLIO.DESCRIPTION,
+    descriptionClassName: "text-white/90",
+    icon: GearIcon,
+    iconClassName: "text-primary size-5 md:size-7",
+    color: "bg-primary-light/80",
+  },
+];
 ---
 
 <Section id="marketplace" title={i18n.MARKETPLACE.TITLE}>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
-    <div
-      class="bg-primary/90 text-white rounded-2xl shadow-lg p-6 md:col-span-2 lg:col-span-2 lg:row-span-2 transform transition-transform hover:-translate-y-1 hover:shadow-xl"
-    >
-      <div class="flex flex-col h-full">
-        <div
-          class="bg-white/20 w-16 h-16 rounded-full flex items-center justify-center mb-4"
-        >
-          <ClockIcon class="w-8 h-8" />
-        </div>
-        <h3 class="text-2xl font-bold font-expansiva mb-3">
-          {i18n.MARKETPLACE.SAVE_TIME.TITLE}
-        </h3>
-        <p class="text-white/90 mb-6 flex-grow">
-          {i18n.MARKETPLACE.SAVE_TIME.DESCRIPTION}
-        </p>
-
-        <a
-          href={translatePath("/marketplace")}
-          class="bg-white hover:bg-gray-100 text-primary font-bold py-3 px-6 rounded-lg text-lg transition-all shadow-lg hover:shadow-xl text-center"
-        >
-          {i18n.MARKETPLACE.SAVE_TIME.CTA}
-        </a>
-      </div>
+  <div class="flex flex-col gap-8 justify-center items-center">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {
+        marketplaceItems.map((item) => (
+          <div class={`${item.color} rounded-2xl shadow-lg p-4 md:p-6`}>
+            <div class="flex flex-col h-full">
+              <div class="flex flex-row md:flex-col md:items-start items-center md:gap-0 gap-4">
+                <div class="bg-white/20 size-10 md:size-14 rounded-full flex items-center justify-center mb-4">
+                  <item.icon class={item.iconClassName} />
+                </div>
+                <h3
+                  class={`text-lg md:text-xl font-bold font-expansiva mb-3 ${item.titleClassName}`}
+                >
+                  {item.title}
+                </h3>
+              </div>
+              <p
+                class={`${item.descriptionClassName} mb-6 flex-grow text-sm md:text-base`}
+              >
+                {item.description}
+              </p>
+            </div>
+          </div>
+        ))
+      }
     </div>
 
-    <div
-      class="bg-white/80 rounded-2xl shadow-lg p-6 transform transition-transform hover:-translate-y-1 hover:shadow-xl flex flex-col"
+    <a
+      href={translatePath("/marketplace")}
+      class="bg-black text-white font-bold py-3 px-6 rounded-lg text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl text-cente w-full md:w-[50%] flex justify-center items-center"
     >
-      <div
-        class="bg-primary/10 w-14 h-14 rounded-full flex items-center justify-center mb-4"
-      >
-        <SearchIcon class="w-7 h-7 text-primary" />
-      </div>
-      <h3 class="text-xl font-bold text-gray-800 font-expansiva mb-3">
-        {i18n.MARKETPLACE.TRANSPARENCY.TITLE}
-      </h3>
-      <p class="text-gray-600 text-sm">
-        {i18n.MARKETPLACE.TRANSPARENCY.DESCRIPTION}
-      </p>
-    </div>
-
-    <div
-      class="bg-secondary/80 text-white rounded-2xl shadow-lg p-6 transform transition-transform hover:-translate-y-1 hover:shadow-xl flex flex-col"
-    >
-      <div
-        class="bg-white/20 w-14 h-14 rounded-full flex items-center justify-center mb-4"
-      >
-        <ShieldIcon class="w-7 h-7" />
-      </div>
-      <h3 class="text-xl font-bold font-expansiva mb-3">
-        {i18n.MARKETPLACE.QUALITY.TITLE}
-      </h3>
-      <p class="text-white/90 text-sm">
-        {i18n.MARKETPLACE.QUALITY.DESCRIPTION}
-      </p>
-    </div>
-
-    <!-- Beneficio 4 -->
-    <div
-      class="bg-primary-light/80 rounded-2xl shadow-lg p-6 transform transition-transform hover:-translate-y-1 hover:shadow-xl flex flex-col md:col-span-2 lg:col-span-2"
-    >
-      <div class="flex items-start gap-6">
-        <div
-          class="bg-primary/20 w-14 h-14 rounded-full flex items-center justify-center shrink-0"
-        >
-          <GearIcon class="w-7 h-7 text-primary" />
-        </div>
-        <div>
-          <h3 class="text-xl font-bold text-gray-800 font-expansiva mb-3">
-            {i18n.MARKETPLACE.PORTFOLIO.TITLE}
-          </h3>
-          <p class="text-gray-600">
-            {i18n.MARKETPLACE.PORTFOLIO.DESCRIPTION}
-          </p>
-        </div>
-      </div>
-    </div>
+      {i18n.MARKETPLACE.SAVE_TIME.CTA}
+    </a>
   </div>
 </Section>
 

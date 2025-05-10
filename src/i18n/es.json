@@ -35,9 +35,12 @@
     "TITLE": "NOSOTROS",
     "DESCRIPTION": "Somos un laboratorio especializado en metrología para el sector industrial",
     "MISSION_TITLE": "MISIÓN",
-    "MISSION_DESCRIPTION": "KEPLER METROLOGY trabaja en su entorno para ser un centro de soluciones en el área de Metrología orientadas a generar bienestar en nuestros clientes, socios, comunidad y para nuestra familia, primando nuestro compromiso, nuestra integridad y nuestros valores.",
+    "MISSION_DESCRIPTION_1": "Nuestra misión es ofrecer servicios especializados enmetrología, consolidándonos como aliados estratégicos para nuestros clientes y socios.",
+    "MISSION_DESCRIPTION_2": "Proveemos soluciones eficaces, orientadas a fortalecer la calidad y el desempeño operativo en los sectores industrial, automotriz y aeroespacial.",
+    "MISSION_DESCRIPTION_3": "Todo ello, guiados por nuestro compromiso, integridad y sólidos valores, con la pasión, excelencia y profesionalismo que nos distingue.",
     "VISION_TITLE": "VISIÓN",
-    "VISION_DESCRIPTION": "Entregar servicios de calibración y medición de alto valor a nuestros clientes colaborando con ellos y con la sociedad a tener una mejor calidad de vida con productos y servicios de alta calidad.",
+    "VISION_DESCRIPTION_1": "Consolidarnos como el laboratorio de calibración y medición líder en metrología especializada, ofreciendo servicios de alto valor que fortalezcan la colaboración con nuestros clientes.",
+    "VISION_DESCRIPTION_2": "Nos enfocamos en brindar soluciones innovadoras y de alta calidad para los sectores industrial, automotriz y aeroespacial, impulsando la calidad y el desempeño operativo.",
     "VALUES_TITLE": "VALORES",
     "VALUES": {
       "ACCURACY": "Precisión",
@@ -120,7 +123,7 @@
     "TITLE": "MARKETPLACE",
     "SAVE_TIME": {
       "TITLE": "Ahorra Tiempo",
-      "DESCRIPTION": "Evita largas esperas para cotizaciones y respuestas de servicio. Nuestro marketplace te proporciona acceso instantáneo a precios, disponibilidad y reserva directa de servicios.",
+      "DESCRIPTION": "Evita largas esperas para cotizaciones y respuestas de servicio.",
       "CTA": "Visitar Marketplace"
     },
     "TRANSPARENCY": {
@@ -133,7 +136,7 @@
     },
     "PORTFOLIO": {
       "TITLE": "Portafolio Completo de Servicios",
-      "DESCRIPTION": "Nuestro marketplace incluye toda nuestra gama de soluciones de metrología, desde servicios de calibración hasta mediciones especializadas y capacitación."
+      "DESCRIPTION": "Nuestro marketplace incluye toda nuestra gama de soluciones de metrología."
     }
   }
 }

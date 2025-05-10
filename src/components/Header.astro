@@ -23,7 +23,7 @@ const NAVIGATION_LINKS = [
   { href: translatePath(t("nav.about.href")), text: t("nav.about.title") },
   { href: translatePath(t("nav.contact.href")), text: t("nav.contact.title") },
   { href: translatePath(t("nav.team.href")), text: t("nav.team.title") },
-  { href: 'https://kepler-marketplace.vercel.app/' , text: "Marketplace"},
+  { href: "https://kepler-marketplace.vercel.app/", text: "Marketplace" },
 ];
 ---
 
@@ -43,9 +43,6 @@ const NAVIGATION_LINKS = [
             </a>
           ))
         }
-        <div class="-mt-1">
-          <LanguageSelector />
-        </div>
       </div>
       <div class="flex lg:hidden">
         <button
@@ -72,21 +69,24 @@ const NAVIGATION_LINKS = [
       </div>
     </div>
 
-    <div class="flex flex-1 justify-end">
-      <div class="relative flex gap-4 items-end">
-        <div class="-mt-2 flex items-center md:hidden">
-          <LanguageSelector />
+    <div class="flex flex-1 justify-center md:justify-end">
+      <a
+        href="/"
+        class="font-expansiva uppercase flex items-center gap-2 scale-75 md:scale-90"
+      >
+        <img
+          src="/apple-touch-icon.png"
+          alt={i18n.HEADER.LOGO_ALT}
+          width={120}
+          height={30}
+          class="h-12 w-auto"
+        />
+        <div class="h-full flex w-[1px] bg-white/50"></div>
+        <div class="flex flex-col text-white">
+          <p class="text-3xl">Kepler</p>
+          <p class="text-sm -mt-2">Metrology</p>
         </div>
-        <a href="/" class="flex items-center">
-          <div class="bg-white p-2 rounded-lg w-fit">
-            <img
-              src="/logo-kepler-metrology.png"
-              alt={i18n.HEADER.LOGO_ALT}
-              class="h-7"
-            />
-          </div>
-        </a>
-      </div>
+      </a>
     </div>
   </nav>
   <dialog
@@ -95,15 +95,23 @@ const NAVIGATION_LINKS = [
     role="dialog"
     aria-modal="true"
   >
-    <div class="z-10 h-screen flex flex-col px-6 py-6">
+    <div class="z-10 h-screen flex flex-col px-4 py-6">
       <div class="flex items-center justify-between">
-        <a href="/" class="flex items-center">
-          <div class="bg-white p-2 rounded-lg w-fit">
-            <img
-              src="/logo-kepler-metrology.png"
-              alt={i18n.HEADER.LOGO_ALT}
-              class="h-8"
-            />
+        <a
+          href="/"
+          class="font-expansiva uppercase flex items-center gap-2 scale-75 md:scale-90"
+        >
+          <img
+            src="/apple-touch-icon.png"
+            alt={i18n.HEADER.LOGO_ALT}
+            width={120}
+            height={30}
+            class="h-12 w-auto"
+          />
+          <div class="h-full flex w-[1px] bg-white/50"></div>
+          <div class="flex flex-col text-white">
+            <p class="text-3xl">Kepler</p>
+            <p class="text-sm -mt-2">Metrology</p>
           </div>
         </a>
         <button
