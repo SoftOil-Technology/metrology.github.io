@@ -1,14 +1,14 @@
 {
   "SEO_TITLE_1": "Kepler Metrology",
   "SEO_TITLE_2": "- Accredited Calibration Laboratory",
-  "SEO_DESCRIPTION": "Specialists in metrology for the Oil & Gas sector with accreditation from the Mexican Accreditation Entity (EMA)",
+  "SEO_DESCRIPTION": "Specialists in metrology for the industrial sector with accreditation from the EMA",
   "SEO": {
     "HOME_TITLE": "Kepler Metrology - Accredited Calibration Laboratory",
-    "HOME_DESCRIPTION": "Specialists in metrology for the Oil & Gas sector with accreditation from the Mexican Accreditation Entity (EMA)",
+    "HOME_DESCRIPTION": "Specialists in metrology for the industrial sector with accreditation from the EMA",
     "TEAM_TITLE": "Our Team - Kepler Metrology",
     "TEAM_DESCRIPTION": "Meet our team of professionals specialized in metrology and calibration",
     "SERVICES_TITLE": "Calibration Services - Kepler Metrology",
-    "SERVICES_DESCRIPTION": "We offer specialized calibration services for measuring instruments in the Oil & Gas sector",
+    "SERVICES_DESCRIPTION": "We offer specialized calibration services for measuring instruments in the industrial sector",
     "CONTACT_TITLE": "Contact - Kepler Metrology",
     "CONTACT_DESCRIPTION": "Get in touch with us to request our accredited calibration services"
   },
@@ -20,7 +20,7 @@
   "HERO": {
     "TITLE": "Calibration Laboratory",
     "SUBTITLE": "Accredited",
-    "DESCRIPTION": "Specialists in metrology for the Oil & Gas sector with accreditation from the Mexican Accreditation Entity (EMA)",
+    "DESCRIPTION": "Specialists in metrology for the industrial sector with accreditation from the EMA",
     "SERVICES_BUTTON": "Our Services",
     "CONTACT_BUTTON": "Contact"
   },
@@ -33,7 +33,7 @@
   },
   "ABOUT": {
     "TITLE": "ABOUT US",
-    "DESCRIPTION": "We are a laboratory specialized in metrology for the Oil & Gas sector",
+    "DESCRIPTION": "We are a laboratory specialized in metrology for the industrial sector",
     "MISSION_TITLE": "MISSION",
     "MISSION_DESCRIPTION": "KEPLER METROLOGY works in its environment to be a center of solutions in the area of Metrology aimed at generating well-being for our clients, partners, community and for our family, prioritizing our commitment, our integrity and our values.",
     "VISION_TITLE": "VISION",
@@ -125,11 +125,11 @@
     },
     "TRANSPARENCY": {
       "TITLE": "Service Transparency",
-      "DESCRIPTION": "Access detailed information about each service, including specifications, durations, and requirements."
+      "DESCRIPTION": "Access detailed information about each service"
     },
     "QUALITY": {
       "TITLE": "Quality Guarantee",
-      "DESCRIPTION": "All our digital services maintain the same quality standards as our traditional services, with added convenience."
+      "DESCRIPTION": "All our digital services maintain the same quality standards as our traditional services"
     },
     "PORTFOLIO": {
       "TITLE": "Complete Service Portfolio",
