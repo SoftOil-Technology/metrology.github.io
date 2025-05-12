@@ -1,0 +1,57 @@
+---
+import InfoIcon from "../icons/InfoIcon.astro";
+
+interface Props {
+  id: string;
+  name: string;
+  label: string;
+  placeholder?: string;
+  required?: boolean;
+  value?: string;
+  rows?: number;
+  helpText?: string;
+  errorMessage?: string;
+}
+
+const {
+  id,
+  name,
+  label,
+  placeholder = "",
+  required = false,
+  value = "",
+  rows = 4,
+  helpText,
+  errorMessage,
+} = Astro.props;
+
+const textareaClass =
+  "w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary transition-all duration-200 bg-gray-50 focus:bg-white";
+---
+
+<div class="form-group">
+  <label for={id} class="block text-sm font-medium text-gray-700 mb-2">
+    {label}
+    {required && <span class="text-red-500">*</span>}
+  </label>
+  <div class="relative">
+    <textarea
+      id={id}
+      name={name}
+      placeholder={placeholder}
+      rows={rows}
+      required={required}
+      class={textareaClass}
+      aria-invalid={errorMessage ? "true" : "false"}>{value}</textarea
+    >
+  </div>
+  {errorMessage && <p class="mt-1 text-sm text-red-600">{errorMessage}</p>}
+  {
+    helpText && (
+      <p class="mt-1.5 text-sm text-gray-500 flex items-center">
+        <InfoIcon class="h-4 w-4 mr-1 text-primary" />
+        {helpText}
+      </p>
+    )
+  }
+</div>

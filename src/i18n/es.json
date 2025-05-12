@@ -70,9 +70,15 @@
     "PHONE": "+52 (55) 1234 5678",
     "FORM": {
       "NAME": "Nombre",
+      "NAME_PLACEHOLDER": "Juan",
+      "LAST_NAME": "Apellidos",
+      "LAST_NAME_PLACEHOLDER": "Pérez García",
       "EMAIL": "Correo electrónico",
+      "EMAIL_PLACEHOLDER": "juan.perez@empresa.com",
       "PHONE": "Teléfono",
+      "PHONE_PLACEHOLDER": "55-1234-5678",
       "MESSAGE": "Mensaje",
+      "MESSAGE_PLACEHOLDER": "Escribe tu mensaje aquí...",
       "SUBMIT": "Enviar",
       "SUCCESS": "Mensaje enviado con éxito",
       "ERROR": "Error al enviar el mensaje"
@@ -135,6 +141,19 @@
     "PORTFOLIO": {
       "TITLE": "Portafolio Completo de Servicios",
       "DESCRIPTION": "Nuestro marketplace incluye toda nuestra gama de soluciones de metrología."
+    },
+    "FORM": {
+      "TITLE": "Solicitar Acceso",
+      "SUBTITLE": "Completa el formulario para obtener acceso a nuestro portafolio completo de servicios",
+      "NAME": "Nombre Completo",
+      "NAME_PLACEHOLDER": "Ingresa tu nombre completo",
+      "EMAIL": "Correo Corporativo",
+      "EMAIL_PLACEHOLDER": "empresa@ejemplo.com",
+      "EMAIL_HELP": "Por favor, utiliza el correo de tu empresa",
+      "PHONE": "Teléfono",
+      "PHONE_PLACEHOLDER": "55-1234-5678",
+      "SUBMIT": "Enviar Solicitud",
+      "SUCCESS": "¡Datos del formulario registrados en la consola!"
     }
   }
 }

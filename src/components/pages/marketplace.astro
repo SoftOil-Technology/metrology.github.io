@@ -2,13 +2,12 @@
 import MainLayout from "@/layouts/MainLayout.astro";
 import Section from "@/components/Section.astro";
 import { getI18N } from "@/i18n";
-import { getLangFromUrl, useTranslatedPath } from "@/i18n/utils";
 import ClockIcon from "@/components/icons/ClockIcon.astro";
 import SearchIcon from "@/components/icons/SearchIcon.astro";
 import ShieldIcon from "@/components/icons/ShieldIcon.astro";
 import GearIcon from "@/components/icons/GearIcon.astro";
-import EmailIcon from "@/components/icons/EmailIcon.astro";
-import PhoneIcon from "@/components/icons/PhoneIcon.astro";
+import InputField from "@/components/forms/InputField.astro";
+import Button from "@/components/forms/Button.astro";
 
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
@@ -25,14 +24,10 @@ const i18n = getI18N({ currentLocale });
         >
           <div class="bg-primary p-6">
             <h2 class="text-2xl font-bold text-white font-expansiva">
-              {currentLocale === "en" ? "Request Access" : "Solicitar Acceso"}
+              {i18n.MARKETPLACE.FORM.TITLE}
             </h2>
             <p class="mt-2 text-white/90 text-sm sm:text-base">
-              {
-                currentLocale === "en"
-                  ? "Fill out the form to gain access to our complete service portfolio"
-                  : "Completa el formulario para obtener acceso a nuestro portafolio completo de servicios"
-              }
+              {i18n.MARKETPLACE.FORM.SUBTITLE}
             </p>
           </div>
 
@@ -44,149 +39,54 @@ const i18n = getI18N({ currentLocale });
             </div>
 
             <div class="space-y-5">
-              <!-- Nombre -->
-              <div class="group">
-                <label
-                  for="name"
-                  class="block text-sm font-medium text-gray-700 mb-2"
-                >
-                  {currentLocale === "en" ? "Full Name" : "Nombre Completo"}
-                  <span class="text-red-500">*</span>
-                </label>
-                <div class="relative">
-                  <div
-                    class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                        clip-rule="evenodd"></path>
-                    </svg>
-                  </div>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-200 bg-gray-50 focus:bg-white"
-                    placeholder={currentLocale === "en"
-                      ? "Enter your full name"
-                      : "Ingresa tu nombre completo"}
-                  />
-                </div>
-              </div>
+              <InputField
+                id="name"
+                name="name"
+                type="text"
+                label={i18n.MARKETPLACE.FORM.NAME}
+                required={true}
+                placeholder={i18n.MARKETPLACE.FORM.NAME_PLACEHOLDER}
+                iconName="user"
+              />
 
-              <!-- Correo Corporativo -->
-              <div class="group">
-                <label
-                  for="email"
-                  class="block text-sm font-medium text-gray-700 mb-2"
-                >
-                  {
-                    currentLocale === "en"
-                      ? "Corporate Email"
-                      : "Correo Corporativo"
-                  }
-                  <span class="text-red-500">*</span>
-                </label>
-                <div class="relative">
-                  <div
-                    class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400"
-                  >
-                    <EmailIcon class="h-5 w-5" />
-                  </div>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-200 bg-gray-50 focus:bg-white"
-                    placeholder={currentLocale === "en"
-                      ? "company@example.com"
-                      : "empresa@ejemplo.com"}
-                  />
-                </div>
-                <p class="mt-1.5 text-sm text-gray-500 flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4 mr-1 text-primary"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2h-1V9z"
-                      clip-rule="evenodd"></path>
-                  </svg>
-                  {
-                    currentLocale === "en"
-                      ? "Please use your company email address"
-                      : "Por favor, utiliza el correo de tu empresa"
-                  }
-                </p>
-              </div>
+              <InputField
+                id="email"
+                name="email"
+                type="email"
+                label={i18n.MARKETPLACE.FORM.EMAIL}
+                required={true}
+                placeholder={i18n.MARKETPLACE.FORM.EMAIL_PLACEHOLDER}
+                iconName="email"
+                helpText={i18n.MARKETPLACE.FORM.EMAIL_HELP}
+              />
 
-              <!-- Teléfono -->
-              <div class="group">
-                <label
-                  for="phone"
-                  class="block text-sm font-medium text-gray-700 mb-2"
-                >
-                  {currentLocale === "en" ? "Phone Number" : "Teléfono"}
-                  <span class="text-red-500">*</span>
-                </label>
-                <div class="relative">
-                  <div
-                    class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400"
-                  >
-                    <PhoneIcon class="h-5 w-5" />
-                  </div>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    required
-                    class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-200 bg-gray-50 focus:bg-white"
-                    placeholder={currentLocale === "en"
-                      ? "+1 (555) 123-4567"
-                      : "+52 (55) 1234-5678"}
-                  />
-                </div>
-              </div>
+              <InputField
+                id="phone"
+                name="phone"
+                type="tel"
+                label={i18n.MARKETPLACE.FORM.PHONE}
+                required={true}
+                placeholder={i18n.MARKETPLACE.FORM.PHONE_PLACEHOLDER}
+                iconName="phone"
+              />
 
-              <!-- Botón de Envío -->
               <div class="pt-3">
-                <button
+                <Button
                   type="submit"
-                  id="submit-btn"
-                  class="w-full bg-primary text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-[1.02] focus:outline-none focus:ring-2 flex justify-center items-center"
-                >
-                  <span id="btn-text">
-                    {
-                      currentLocale === "en"
-                        ? "Submit Request"
-                        : "Enviar Solicitud"
-                    }
-                  </span>
-                </button>
+                  text={i18n.MARKETPLACE.FORM.SUBMIT}
+                  variant="primary"
+                  fullWidth={true}
+                />
               </div>
             </div>
           </form>
         </div>
       </div>
 
-      <!-- Columna 2: Beneficios -->
       <div>
         <div class="grid grid-cols-1 gap-5 sm:gap-6">
-          <!-- Beneficio 1 -->
           <div
-            class="bg-primary/90 text-white rounded-2xl shadow-lg p-6 transform transition-transform hover:-translate-y-1 hover:shadow-xl flex flex-col"
+            class="bg-primary/90 text-white rounded-2xl shadow-lg p-6 flex flex-col"
           >
             <div class="flex items-start gap-6">
               <div
@@ -205,10 +105,7 @@ const i18n = getI18N({ currentLocale });
             </div>
           </div>
 
-          <!-- Beneficio 2 -->
-          <div
-            class="bg-white/80 rounded-2xl shadow-lg p-6 transform transition-transform hover:-translate-y-1 hover:shadow-xl flex flex-col"
-          >
+          <div class="bg-white/80 rounded-2xl shadow-lg p-6 flex flex-col">
             <div class="flex items-start gap-6">
               <div
                 class="bg-primary/10 w-14 h-14 rounded-full flex items-center justify-center shrink-0"
@@ -226,9 +123,8 @@ const i18n = getI18N({ currentLocale });
             </div>
           </div>
 
-          <!-- Beneficio 3 -->
           <div
-            class="bg-secondary/80 text-white rounded-2xl shadow-lg p-6 transform transition-transform hover:-translate-y-1 hover:shadow-xl flex flex-col"
+            class="bg-secondary/80 text-white rounded-2xl shadow-lg p-6 flex flex-col"
           >
             <div class="flex items-start gap-6">
               <div
@@ -247,9 +143,8 @@ const i18n = getI18N({ currentLocale });
             </div>
           </div>
 
-          <!-- Beneficio 4 -->
           <div
-            class="bg-primary-light/80 rounded-2xl shadow-lg p-6 transform transition-transform hover:-translate-y-1 hover:shadow-xl flex flex-col"
+            class="bg-primary-light/80 rounded-2xl shadow-lg p-6 flex flex-col"
           >
             <div class="flex items-start gap-6">
               <div
@@ -289,3 +184,31 @@ const i18n = getI18N({ currentLocale });
     }
   }
 </style>
+
+<script define:vars={{ i18n }}>
+  // Simple form submission script
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("marketplace-form");
+    const statusDiv = document.getElementById("form-status");
+
+    if (!form || !statusDiv || !(form instanceof HTMLFormElement)) return;
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      // Get form data
+      const formData = new FormData(form);
+      const formValues = Object.fromEntries(formData.entries());
+
+      // Log form data to console
+      console.log("Form submitted with values:", formValues);
+
+      // Show success message
+      statusDiv.classList.remove("hidden", "bg-red-100", "text-red-700");
+      statusDiv.classList.add("bg-green-100", "text-green-700");
+
+      // Get success message from i18n
+      statusDiv.textContent = i18n.MARKETPLACE.FORM.SUCCESS;
+    });
+  });
+</script>

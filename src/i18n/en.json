@@ -70,9 +70,15 @@
     "PHONE": "+52 (55) 1234 5678",
     "FORM": {
       "NAME": "Name",
+      "NAME_PLACEHOLDER": "John",
+      "LAST_NAME": "Last Name",
+      "LAST_NAME_PLACEHOLDER": "Smith",
       "EMAIL": "Email",
+      "EMAIL_PLACEHOLDER": "john.smith@company.com",
       "PHONE": "Phone",
+      "PHONE_PLACEHOLDER": "55-1234-5678",
       "MESSAGE": "Message",
+      "MESSAGE_PLACEHOLDER": "Write your message here...",
       "SUBMIT": "Submit",
       "SUCCESS": "Message sent successfully",
       "ERROR": "Error sending message"
@@ -135,6 +141,19 @@
     "PORTFOLIO": {
       "TITLE": "Complete Service Portfolio",
       "DESCRIPTION": "Our marketplace includes our full range of metrology solutions."
+    },
+    "FORM": {
+      "TITLE": "Request Access",
+      "SUBTITLE": "Fill out the form to gain access to our complete service portfolio",
+      "NAME": "Full Name",
+      "NAME_PLACEHOLDER": "Enter your full name",
+      "EMAIL": "Corporate Email",
+      "EMAIL_PLACEHOLDER": "company@example.com",
+      "EMAIL_HELP": "Please use your company email address",
+      "PHONE": "Phone Number",
+      "PHONE_PLACEHOLDER": "55-1234-5678",
+      "SUBMIT": "Submit Request",
+      "SUCCESS": "Form data logged to console!"
     }
   }
 }
