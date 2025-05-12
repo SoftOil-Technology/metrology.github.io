@@ -1,0 +1,33 @@
+---
+import { getI18N } from "@/i18n";
+
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+
+interface LogoProps {
+  size?: "small" | "medium" | "large";
+}
+
+const { size = "medium" }: LogoProps = Astro.props;
+---
+
+<a
+  href="/"
+  class:list={[
+    "font-expansiva uppercase flex items-center gap-2 scale-75 md:scale-90",
+    size === "small" ? "scale-75" : size === "large" ? "scale-90" : "",
+  ]}
+>
+  <img
+    src="/apple-touch-icon.png"
+    alt={i18n.HEADER.LOGO_ALT}
+    width={120}
+    height={30}
+    class="h-12 w-auto"
+  />
+  <div class="h-full flex w-[1px] bg-white/50"></div>
+  <div class="flex flex-col text-white">
+    <p class="text-3xl">Kepler</p>
+    <p class="text-sm -mt-2">Metrology</p>
+  </div>
+</a>

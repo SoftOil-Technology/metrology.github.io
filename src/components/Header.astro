@@ -6,6 +6,7 @@ import {
   useTranslations,
   useTranslatedPath,
 } from "@/i18n/utils";
+import Logo from "./Logo.astro";
 
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
@@ -70,23 +71,7 @@ const NAVIGATION_LINKS = [
     </div>
 
     <div class="flex flex-1 justify-center md:justify-end">
-      <a
-        href="/"
-        class="font-expansiva uppercase flex items-center gap-2 scale-75 md:scale-90"
-      >
-        <img
-          src="/apple-touch-icon.png"
-          alt={i18n.HEADER.LOGO_ALT}
-          width={120}
-          height={30}
-          class="h-12 w-auto"
-        />
-        <div class="h-full flex w-[1px] bg-white/50"></div>
-        <div class="flex flex-col text-white">
-          <p class="text-3xl">Kepler</p>
-          <p class="text-sm -mt-2">Metrology</p>
-        </div>
-      </a>
+      <Logo />
     </div>
   </nav>
   <dialog
@@ -97,23 +82,7 @@ const NAVIGATION_LINKS = [
   >
     <div class="z-10 h-screen flex flex-col px-4 py-6">
       <div class="flex items-center justify-between">
-        <a
-          href="/"
-          class="font-expansiva uppercase flex items-center gap-2 scale-75 md:scale-90"
-        >
-          <img
-            src="/apple-touch-icon.png"
-            alt={i18n.HEADER.LOGO_ALT}
-            width={120}
-            height={30}
-            class="h-12 w-auto"
-          />
-          <div class="h-full flex w-[1px] bg-white/50"></div>
-          <div class="flex flex-col text-white">
-            <p class="text-3xl">Kepler</p>
-            <p class="text-sm -mt-2">Metrology</p>
-          </div>
-        </a>
+        <Logo />
         <button
           type="button"
           id="close-menu-button"

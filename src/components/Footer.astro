@@ -3,6 +3,7 @@ import EmailIcon from "./icons/EmailIcon.astro";
 import FacebookIcon from "./icons/FacebookIcon.astro";
 import LinkedInIcon from "./icons/LinkedInIcon.astro";
 import { getI18N } from "@/i18n";
+import Logo from "./Logo.astro";
 
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
@@ -50,23 +51,7 @@ const LEGAL_LINKS = [
     <div
       class="flex flex-col md:flex-row md:items-start md:justify-between gap-6"
     >
-      <a
-        href="/"
-        class="font-expansiva uppercase flex items-center gap-2 scale-75 md:scale-90"
-      >
-        <img
-          src="/apple-touch-icon.png"
-          alt={i18n.HEADER.LOGO_ALT}
-          width={120}
-          height={30}
-          class="h-12 w-auto"
-        />
-        <div class="h-full flex w-[1px] bg-white/50"></div>
-        <div class="flex flex-col text-white">
-          <p class="text-3xl">Kepler</p>
-          <p class="text-sm -mt-2">Metrology</p>
-        </div>
-      </a>
+      <Logo size="small" />
 
       <div>
         <p class="text-gray-300 font-semibold mb-2">{i18n.FOOTER.CONTACT_US}</p>

@@ -1,27 +1,4 @@
-// Datos de todos los servicios de calibración, con soporte para internacionalización
-interface Servicio {
-  id: string;
-  imagen: string;
-  detalles: {
-    es: string[];
-    en: string[];
-  };
-}
-
-interface ServicioTraducciones {
-  es: {
-    titulo: string;
-    descripcion: string;
-    servicio: string;
-  };
-  en: {
-    titulo: string;
-    descripcion: string;
-    servicio: string;
-  };
-}
-
-export const SERVICIOS: (Servicio & ServicioTraducciones)[] = [
+export const SERVICIOS = [
   {
     id: "presion",
     imagen: "/images/servicios/presion.jpg",
