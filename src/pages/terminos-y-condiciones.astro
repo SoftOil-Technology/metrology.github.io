@@ -1,0 +1,100 @@
+---
+import Layout from "@/layouts/MainLayout.astro";
+import Section from "@/components/Section.astro";
+import { getI18N } from "@/i18n";
+
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+---
+
+<Layout title="Términos y Condiciones | Kepler Metrology">
+  <div class="h-20 md:h-16"></div>
+  <Section title="TÉRMINOS Y CONDICIONES" className="mt-6 md:mt-16">
+    <div
+      class="md:p-6 p-4 rounded-xl border border-neutral-300 shadow-xl bg-white"
+    >
+      <p class="text-gray-700 mb-6 md:text-lg">
+        La presente constituye la información de la empresa, para con los
+        consumidores destinada a regular las operaciones de compraventa que sean
+        celebradas por los usuarios con KEPLER OIL & GAS S.A. DE C.V.
+      </p>
+
+      <h3 class="text-xl font-bold text-primary mb-4">MERCANCÍAS</h3>
+
+      <ul class="space-y-4 text-gray-700">
+        <li class="flex items-start">
+          <span class="text-primary mr-2">•</span>
+          <span
+            >La totalidad de las mercancías ofrecidos por KEPLER OIL & GAS S.A.
+            DE C.V., se encuentran sujetos a disponibilidad, previamente a la
+            confirmación de compra deberá verificar la fecha probable de entrega
+            de la mercancía, considerando que la aceptación de compra,
+            constituye la aceptación de la fecha probable de entrega.</span
+          >
+        </li>
+
+        <li class="flex items-start">
+          <span class="text-primary mr-2">•</span>
+          <span
+            >Las imágenes de las mercancías son exclusivamente de forma
+            ilustrativa, pudiendo variar el color presentado en la pantalla.</span
+          >
+        </li>
+
+        <li class="flex items-start">
+          <span class="text-primary mr-2">•</span>
+          <span
+            >Las medidas son presentadas en sistema métrico decimal, por lo que
+            previamente a la confirmación de compra, se recomienda verificar el
+            formulario de identificación de medidas localizado.</span
+          >
+        </li>
+
+        <li class="flex items-start">
+          <span class="text-primary mr-2">•</span>
+          <span
+            >Los productos ofrecidos como promocionales, se encuentran sujetos a
+            disponibilidad.</span
+          >
+        </li>
+
+        <li class="flex items-start">
+          <span class="text-primary mr-2">•</span>
+          <span
+            >Los precios son señalados en pesos mexicanos pudiendo variar en
+            caso de presentación de una devaluación en el tipo de cambio. A los
+            cuales se les encuentra adicionado el importe que corresponde al
+            Impuesto al valor Agregado.</span
+          >
+        </li>
+
+        <li class="flex items-start">
+          <span class="text-primary mr-2">•</span>
+          <span
+            >Los descuentos son aplicados sobre el precio regular al público,
+            menos la promoción que corresponda en ese momento.</span
+          >
+        </li>
+
+        <li class="flex items-start">
+          <span class="text-primary mr-2">•</span>
+          <span
+            >Deberá ser consultado en forma previa a la aceptación de compra,
+            los bancos, tarjetas bancarias participantes y meses sin intereses
+            aplicables.</span
+          >
+        </li>
+      </ul>
+
+      <h3 class="text-xl font-bold text-primary mt-8 mb-4">
+        INFORMACIÓN CONTENIDA EN EL PORTAL WEB
+      </h3>
+
+      <p class="text-gray-700 md:text-lg">
+        El contenido del presente portal web, su texto, gráficas, imágenes, e
+        información solo tiene propósitos informativos, no pudiendo ser
+        considerado como asesoría especializada
+      </p>
+    </div>
+  </Section>
+</Layout>
