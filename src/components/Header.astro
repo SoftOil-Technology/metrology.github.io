@@ -33,7 +33,7 @@ const NAVIGATION_LINKS = [
     class="mx-auto flex max-w-6xl items-center justify-between px-4 md:px-0 py-6 pb-0 uppercase"
   >
     <div class="flex">
-      <div class="hidden lg:flex lg:gap-x-6">
+      <div class="hidden lg:flex lg:gap-x-6 items-center">
         {
           NAVIGATION_LINKS.map(({ href, text }) => (
             <a
@@ -44,6 +44,8 @@ const NAVIGATION_LINKS = [
             </a>
           ))
         }
+
+        <LanguageSelector />
       </div>
       <div class="flex lg:hidden">
         <button

@@ -1,5 +1,4 @@
 ---
-import ChevronIcon from "@/components/icons/ChevronIcon.astro";
 import { LANGUAGES } from "../i18n/ui";
 import {
   getRouteFromUrl,
@@ -11,42 +10,234 @@ const route = getRouteFromUrl(Astro.url);
 const lang = getLangFromUrl(Astro.url);
 const translatePath = useTranslatedPath(lang);
 
-const currentLocaleData = LANGUAGES[lang];
-const otherLocales = Object.values(LANGUAGES).filter(
-  (locale) => locale.code !== lang,
-);
+const esLocale = LANGUAGES["es"];
+const enLocale = LANGUAGES["en"];
+
+const isEnglishActive = lang === "en";
 ---
 
-<div class="relative inline-block text-left">
-  <div
-    class="group text-white rounded-md text-xs font-semibold bg-black/30 hover:bg-black/70 transition-all"
-  >
-    <button
-      type="button"
-      class="inline-flex justify-start items-center w-full gap-x-2 px-3 py-2"
-      aria-expanded="true"
-      aria-haspopup="true"
-    >
-      <currentLocaleData.flag />
-      {currentLocaleData.name}
-      <ChevronIcon />
-    </button>
-    <ul
-      class="group-hover:block group-hover:animate-fade-down group-hover:animate-duration-200 hidden pt-0.5 absolute w-full"
-    >
-      {
-        otherLocales.map((locale) => (
-          <li class="py-[2px]">
-            <a
-              class="rounded-md bg-black/30 hover:bg-black/70 whitespace-no-wrap inline-flex justify-start items-center w-full gap-x-2 px-3 py-2"
-              href={translatePath(`/${route ? route : ""}`, locale.code)}
-            >
-              <locale.flag />
-              {locale.name}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
+<div class="language-selector relative">
+  <!-- Flag Switch -->
+  <div class="flag-switch">
+    <!-- Toggle Switch with Flags -->
+    <div class="toggle-switch">
+      <input
+        type="checkbox"
+        id="language-toggle"
+        class="toggle-checkbox"
+        checked={isEnglishActive}
+      />
+      <label for="language-toggle" class="toggle-label">
+        <span class="sr-only">
+          {isEnglishActive ? "Switch to Spanish" : "Cambiar a inglés"}
+        </span>
+
+        <!-- Spanish Flag (inside the toggle) -->
+        <div class="flag es-flag">
+          <esLocale.flag />
+        </div>
+
+        <!-- English Flag (inside the toggle) -->
+        <div class="flag en-flag">
+          <enLocale.flag />
+        </div>
+      </label>
+
+      <!-- Mini Loader -->
+      <div id="language-mini-loader" class="mini-loader hidden">
+        <div class="mini-spinner"></div>
+      </div>
+    </div>
   </div>
 </div>
+
+<script define:vars={{ translatePath, route, lang }}>
+  document.addEventListener("astro:page-load", () => {
+    const toggle = document.getElementById("language-toggle");
+    const loader = document.getElementById("language-mini-loader");
+
+    // Función de cambio de idioma
+    const changeLanguage = (newLang) => {
+      // Mostrar el mini loader
+      if (loader) {
+        loader.classList.remove("hidden");
+      }
+
+      // Deshabilitar los controles durante la transición
+      if (toggle) toggle.disabled = true;
+
+      // Esperar a que termine la animación antes de redirigir
+      setTimeout(() => {
+        // Obtener la URL actual
+        const currentPath = window.location.pathname;
+
+        // Extraer la parte de la ruta después del idioma actual
+        let pathWithoutLang = currentPath;
+        if (currentPath.startsWith(`/${lang}/`)) {
+          pathWithoutLang = currentPath.substring(lang.length + 2); // +2 por los dos '/'
+        } else if (currentPath === `/${lang}`) {
+          pathWithoutLang = "/";
+        } else if (currentPath.startsWith(`/${lang}`)) {
+          pathWithoutLang = currentPath.substring(lang.length + 1); // +1 por un '/'
+        }
+
+        // Construir la nueva URL con el nuevo idioma
+        let newUrl;
+        if (pathWithoutLang === "/" || pathWithoutLang === "") {
+          newUrl = newLang === "es" ? "/" : `/${newLang}`;
+        } else {
+          newUrl = `/${newLang}${pathWithoutLang}`;
+        }
+
+        // Redirigir a la nueva URL
+        window.location.href = newUrl;
+      }, 800); // Tiempo de espera para la animación
+    };
+
+    // Evento para el interruptor
+    if (toggle) {
+      toggle.addEventListener("change", (e) => {
+        const isChecked = e.target.checked;
+        const newLang = isChecked ? "en" : "es";
+        changeLanguage(newLang);
+      });
+    }
+  });
+</script>
+
+<style>
+  .language-selector {
+    position: relative;
+    margin-left: 8px;
+  }
+
+  .flag-switch {
+    display: flex;
+    align-items: center;
+  }
+
+  .toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 64px;
+    height: 30px;
+  }
+
+  .toggle-checkbox {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+  }
+
+  .toggle-checkbox:disabled + .toggle-label {
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+
+  .toggle-label {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    transition: 0.4s;
+    overflow: hidden;
+  }
+
+  .toggle-label:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+
+  /* La bolita del switch que contiene las banderas */
+  .toggle-label:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
+    z-index: 1;
+  }
+
+  .toggle-checkbox:checked + .toggle-label:before {
+    transform: translateX(34px);
+  }
+
+  .toggle-checkbox:checked + .toggle-label {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+
+  /* Estilos para las banderas dentro del switch */
+  .flag {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    z-index: 2;
+    transition: 0.4s;
+    overflow: hidden;
+  }
+
+  .es-flag {
+    left: 5px;
+    bottom: 5px;
+    opacity: 0.4;
+  }
+
+  .en-flag {
+    right: 5px;
+    bottom: 5px;
+    opacity: 0.4;
+  }
+
+  /* Mostrar la bandera correspondiente según el estado del switch */
+  .toggle-checkbox:not(:checked) + .toggle-label .es-flag {
+    opacity: 1;
+  }
+
+  .toggle-checkbox:checked + .toggle-label .en-flag {
+    opacity: 1;
+  }
+
+  .flag :global(svg) {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  /* Mini Loader */
+  .mini-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+  }
+
+  .mini-loader.hidden {
+    display: none;
+  }
+
+  .mini-spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+</style>

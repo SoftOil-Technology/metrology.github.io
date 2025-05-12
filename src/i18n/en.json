@@ -13,7 +13,8 @@
   "HEADER": {
     "OPEN_MENU": "Open Main Menu",
     "CLOSE_MENU": "Close Menu",
-    "LOGO_ALT": "Kepler Metrology Logo"
+    "LOGO_ALT": "Kepler Metrology Logo",
+    "COLOR_THEME": "#fffff"
   },
   "HERO": {
     "TITLE": "Calibration Laboratory",
