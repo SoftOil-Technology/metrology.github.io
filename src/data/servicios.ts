@@ -24,7 +24,7 @@ interface ServicioTraducciones {
 export const SERVICIOS: (Servicio & ServicioTraducciones)[] = [
   {
     id: "presion",
-    imagen: "/images/presion.avif",
+    imagen: "/images/servicios/presion.jpg",
     es: {
       titulo: "Presión",
       descripcion: "Calibración de instrumentos de medición de presión con trazabilidad al CENAM.",
@@ -56,7 +56,7 @@ export const SERVICIOS: (Servicio & ServicioTraducciones)[] = [
   },
   {
     id: "temperatura",
-    imagen: "/images/temperatura.avif",
+    imagen: "/images/servicios/temperatura.jpg",
     es: {
       titulo: "Temperatura",
       descripcion: "Servicios de calibración para equipos de medición de temperatura.",
@@ -88,7 +88,7 @@ export const SERVICIOS: (Servicio & ServicioTraducciones)[] = [
   },
   {
     id: "flujo",
-    imagen: "/images/flujo.avif",
+    imagen: "/images/servicios/flujo.webp",
     es: {
       titulo: "Flujo",
       descripcion: "Calibración de medidores de flujo para aplicaciones en el sector Oil & Gas.",
@@ -120,7 +120,7 @@ export const SERVICIOS: (Servicio & ServicioTraducciones)[] = [
   },
   {
     id: "volumen",
-    imagen: "/images/volumen.avif",
+    imagen: "/images/servicios/volumen.png",
     es: {
       titulo: "Volumen",
       descripcion: "Calibración de instrumentos volumétricos con precisión certificada.",
@@ -152,7 +152,7 @@ export const SERVICIOS: (Servicio & ServicioTraducciones)[] = [
   },
   {
     id: "dimensional",
-    imagen: "/images/dimensional.avif",
+    imagen: "/images/servicios/dimensional.jpg",
     es: {
       titulo: "Dimensional",
       descripcion: "Calibración de medidores de nivel y otros instrumentos dimensionales.",
@@ -184,7 +184,7 @@ export const SERVICIOS: (Servicio & ServicioTraducciones)[] = [
   },
   {
     id: "masa",
-    imagen: "/images/masa.avif",
+    imagen: "/images/servicios/masa.jpg",
     es: {
       titulo: "Masa",
       descripcion: "Servicios de calibración para instrumentos de pesaje y medición de masa.",
@@ -213,6 +213,271 @@ export const SERVICIOS: (Servicio & ServicioTraducciones)[] = [
         "Calibration of platform scales",
         "Range: 1 mg to 500 kg",
         "Uncertainty: Consult according to instrument"
+      ]
+    }
+  },
+  {
+    id: "par-torsional",
+    imagen: "/images/servicios/par-torsional.jpg",
+    es: {
+      titulo: "Par Torsional",
+      descripcion: "Calibración de instrumentos para la medición de par torsional o torque.",
+      servicio: "Servicios de calibración para llaves dinamométricas, torquímetros y otros instrumentos de par."
+    },
+    en: {
+      titulo: "Torque",
+      descripcion: "Calibration of instruments for measuring torque.",
+      servicio: "Calibration services for torque wrenches, torque meters and other torque instruments."
+    },
+    detalles: {
+      es: [
+        "Por definir"
+      ],
+      en: [
+        "To be defined"
+      ]
+    }
+  },
+  {
+    id: "fuerza",
+    imagen: "/images/servicios/fuerza.png",
+    es: {
+      titulo: "Fuerza",
+      descripcion: "Servicios de calibración para instrumentos de medición de fuerza.",
+      servicio: "Calibración de celdas de carga, dinamómetros y otros instrumentos de medición de fuerza."
+    },
+    en: {
+      titulo: "Force",
+      descripcion: "Calibration services for force measuring instruments.",
+      servicio: "Calibration of load cells, dynamometers and other force measuring instruments."
+    },
+    detalles: {
+      es: [
+        "Por definir"
+      ],
+      en: [
+        "To be defined"
+      ]
+    }
+  },
+  {
+    id: "densidad",
+    imagen: "/images/servicios/densidad.jpg",
+    es: {
+      titulo: "Densidad",
+      descripcion: "Calibración de instrumentos para la medición de densidad de líquidos y gases.",
+      servicio: "Servicios para la calibración de densímetros y otros instrumentos de medición de densidad."
+    },
+    en: {
+      titulo: "Density",
+      descripcion: "Calibration of instruments for measuring the density of liquids and gases.",
+      servicio: "Services for the calibration of densimeters and other density measuring instruments."
+    },
+    detalles: {
+      es: [
+        "Por definir"
+      ],
+      en: [
+        "To be defined"
+      ]
+    }
+  },
+  {
+    id: "placa-orificio",
+    imagen: "/images/servicios/placa-orificio.webp",
+    es: {
+      titulo: "Verificación de Placa de Orificio",
+      descripcion: "Servicios de verificación y calibración de placas de orificio para medición de flujo.",
+      servicio: "Verificación dimensional y certificación de placas de orificio según estándares internacionales."
+    },
+    en: {
+      titulo: "Orifice Plate Verification",
+      descripcion: "Verification and calibration services for orifice plates used in flow measurement.",
+      servicio: "Dimensional verification and certification of orifice plates according to international standards."
+    },
+    detalles: {
+      es: [
+        "Por definir"
+      ],
+      en: [
+        "To be defined"
+      ]
+    }
+  },
+  {
+    id: "electrica",
+    imagen: "/images/servicios/electrica.jpg",
+    es: {
+      titulo: "Eléctrica",
+      descripcion: "Calibración de instrumentos de medición de parámetros eléctricos.",
+      servicio: "Servicios para la calibración de multímetros, megóhmetros y otros instrumentos eléctricos."
+    },
+    en: {
+      titulo: "Electrical",
+      descripcion: "Calibration of instruments for measuring electrical parameters.",
+      servicio: "Services for the calibration of multimeters, megohmeters and other electrical instruments."
+    },
+    detalles: {
+      es: [
+        "Por definir"
+      ],
+      en: [
+        "To be defined"
+      ]
+    }
+  },
+  {
+    id: "humedad",
+    imagen: "/images/servicios/humedad.jpg",
+    es: {
+      titulo: "Humedad",
+      descripcion: "Calibración de instrumentos para la medición de humedad relativa y absoluta.",
+      servicio: "Servicios para la calibración de higrómetros y otros instrumentos de medición de humedad."
+    },
+    en: {
+      titulo: "Humidity",
+      descripcion: "Calibration of instruments for measuring relative and absolute humidity.",
+      servicio: "Services for the calibration of hygrometers and other humidity measuring instruments."
+    },
+    detalles: {
+      es: [
+        "Por definir"
+      ],
+      en: [
+        "To be defined"
+      ]
+    }
+  },
+  //Mediciones Especiales
+  {
+    id: "calibracion",
+    imagen: "/images/servicios/calibracion.jpg",
+    es: {
+      titulo: "Calibración",
+      descripcion: "Servicios generales de calibración para todo tipo de instrumentos de medición.",
+      servicio: "Calibración de instrumentos con trazabilidad a patrones nacionales e internacionales."
+    },
+    en: {
+      titulo: "Calibration",
+      descripcion: "General calibration services for all types of measuring instruments.",
+      servicio: "Calibration of instruments with traceability to national and international standards."
+    },
+    detalles: {
+      es: [
+        "Por definir"
+      ],
+      en: [
+        "To be defined"
+      ]
+    }
+  },
+  {
+    id: "medicion",
+    imagen: "/images/servicios/medicion.webp",
+    es: {
+      titulo: "Medición",
+      descripcion: "Servicios de medición en campo y laboratorio para variables físicas y químicas.",
+      servicio: "Mediciones precisas con equipos de última generación y personal especializado."
+    },
+    en: {
+      titulo: "Measurement",
+      descripcion: "Field and laboratory measurement services for physical and chemical variables.",
+      servicio: "Precise measurements with state-of-the-art equipment and specialized personnel."
+    },
+    detalles: {
+      es: [
+        "Por definir"
+      ],
+      en: [
+        "To be defined"
+      ]
+    }
+  },
+  {
+    id: "reparacion",
+    imagen: "/images/servicios/reparacion.webp",
+    es: {
+      titulo: "Reparación",
+      descripcion: "Servicios de reparación y mantenimiento de instrumentos de medición y control.",
+      servicio: "Reparación especializada de equipos de medición y calibración con garantía de servicio."
+    },
+    en: {
+      titulo: "Repair",
+      descripcion: "Repair and maintenance services for measurement and control instruments.",
+      servicio: "Specialized repair of measurement and calibration equipment with service guarantee."
+    },
+    detalles: {
+      es: [
+        "Por definir"
+      ],
+      en: [
+        "To be defined"
+      ]
+    }
+  },
+  {
+    id: "cromatografia",
+    imagen: "/images/servicios/cromatografia.png",
+    es: {
+      titulo: "Cromatografía",
+      descripcion: "Servicios relacionados con equipos de cromatografía para análisis químico.",
+      servicio: "Calibración, mantenimiento y verificación de cromatógrafos de gases y líquidos."
+    },
+    en: {
+      titulo: "Chromatography",
+      descripcion: "Services related to chromatography equipment for chemical analysis.",
+      servicio: "Calibration, maintenance and verification of gas and liquid chromatographs."
+    },
+    detalles: {
+      es: [
+        "Por definir"
+      ],
+      en: [
+        "To be defined"
+      ]
+    }
+  },
+  {
+    id: "hermeticidad",
+    imagen: "/images/servicios/hermeticidad.jpg",
+    es: {
+      titulo: "Hermeticidad",
+      descripcion: "Pruebas de hermeticidad para sistemas de contención y almacenamiento.",
+      servicio: "Verificación de fugas y pruebas de presión para garantizar la hermeticidad de sistemas."
+    },
+    en: {
+      titulo: "Hermeticity",
+      descripcion: "Hermeticity tests for containment and storage systems.",
+      servicio: "Leak verification and pressure tests to ensure system hermeticity."
+    },
+    detalles: {
+      es: [
+        "Por definir"
+      ],
+      en: [
+        "To be defined"
+      ]
+    }
+  },
+  {
+    id: "valvulas-psv",
+    imagen: "/images/servicios/valvulas-psv.jpeg",
+    es: {
+      titulo: "Válvulas PSV",
+      descripcion: "Calibración y certificación de válvulas de seguridad y alivio de presión.",
+      servicio: "Servicios para la calibración, mantenimiento y certificación de válvulas PSV según normas."
+    },
+    en: {
+      titulo: "PSV Valves",
+      descripcion: "Calibration and certification of safety and pressure relief valves.",
+      servicio: "Services for the calibration, maintenance and certification of PSV valves according to standards."
+    },
+    detalles: {
+      es: [
+        "Por definir"
+      ],
+      en: [
+        "To be defined"
       ]
     }
   },
