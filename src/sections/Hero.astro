@@ -19,9 +19,11 @@ const HERO_IMAGES = [
 <section
   class="relative h-[100vh] w-full flex flex-col items-center justify-center overflow-hidden"
 >
-  <div class="absolute inset-0 bg-white/60 md:bg-white/40 z-10"/>
+  <div class="absolute inset-0 bg-white/60 md:bg-white/40 z-10"></div>
 
-  <div class="relative w-full h-screen flex items-center justify-center mt-0 md:mt-10">
+  <div
+    class="relative w-full h-screen flex items-center justify-center mt-0 md:mt-10"
+  >
     {
       HERO_IMAGES.map((image, index) => (
         <div
@@ -46,7 +48,7 @@ const HERO_IMAGES = [
         <img
           src="/logo-kepler-metrology.png"
           alt="Kepler Metrology"
-          class="h-16 sm:h-20 md:h-24  drop-shadow-2xl drop-shadow-secondary/50"
+          class="h-16 sm:h-20 md:h-24 drop-shadow-2xl drop-shadow-secondary/50"
         />
       </div>
 
@@ -54,9 +56,7 @@ const HERO_IMAGES = [
         class="text-5xl md:text-5xl lg:text-6xl font-extrabold mb-3 sm:mb-4 md:mb-6 tracking-tight leading-tight md:mt-0 mt-8 max-w-lg text-neutral-700"
       >
         <span class="">{i18n.HERO.TITLE}</span>
-        <span class="block text-secondary"
-          >{i18n.HERO.SUBTITLE}
-        </span>
+        <span class="block text-secondary">{i18n.HERO.SUBTITLE} </span>
       </h1>
 
       <p
@@ -70,13 +70,13 @@ const HERO_IMAGES = [
       >
         <a
           href="#servicios"
-          class="bg-neutral-100 border border-neutral-500 text-primary font-bold py-3 sm:py-4 px-6 sm:px-8 md:px-10 rounded-lg hover:scale-105 transition-all duration-300 text-base sm:text-lg font-expansiva"
+          class="bg-neutral-100 border border-neutral-500 text-primary font-bold py-3 sm:py-4 px-6 sm:px-8 md:px-10 rounded-xl hover:scale-105 transition-all duration-300 text-base sm:text-lg font-expansiva"
         >
           {i18n.HERO.SERVICES_BUTTON}
         </a>
         <a
           href="#contacto"
-          class="bg-secondary text-white font-bold py-3 sm:py-4 px-6 sm:px-8 md:px-10 rounded-lg hover:scale-105 transition-all duration-300 text-base sm:text-lg font-expansiva"
+          class="bg-secondary text-white font-bold py-3 sm:py-4 px-6 sm:px-8 md:px-10 rounded-xl hover:scale-105 transition-all duration-300 text-base sm:text-lg font-expansiva"
         >
           {i18n.HERO.CONTACT_BUTTON}
         </a>
