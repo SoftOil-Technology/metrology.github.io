@@ -29,7 +29,7 @@ const { servicio } = Astro.props;
         src={servicio.imagen}
         alt={`${servicio[lang].titulo}`}
         class="w-full h-auto max-h-[30vh] object-cover"
-        transition:name={servicio.imagen}
+        transition:name={servicio.id}
       />
       <div class="bg-primary text-white py-4 px-6">
         <h1

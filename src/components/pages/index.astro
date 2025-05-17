@@ -7,15 +7,19 @@ import PoliticaLaboratorio from "@/sections/PoliticaLaboratorio.astro";
 import Galeria from "@/sections/Galeria.astro";
 import Marketplace from "@/sections/Marketplace.astro";
 import Contacto from "@/sections/Contacto.astro";
-import Industrias from "@/sections/Industrias.astro";
 import Certificaciones from "@/sections/Certificaciones.astro";
 import VideoInstitucional from "@/sections/VideoInstitucional.astro";
+
+import { MarqueeDemo } from "@/sections/Industrias";
+import Section from "../Section.astro";
 ---
 
 <MainLayout>
 	<Hero />
 	<Servicios />
-	<Industrias/>
+	<Section widthFull noPadding title="Enfocados en la industria">
+		<MarqueeDemo />
+	</Section>
 	<Marketplace />
 	<PoliticaLaboratorio />
 	<Certificaciones />

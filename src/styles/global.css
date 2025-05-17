@@ -15,6 +15,20 @@
   --font-expansiva: "Expansiva", sans-serif;
 }
 
+@theme inline {
+  --animate-marquee: marquee var(--duration) infinite linear;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+}
+
 @font-face {
   font-family: "Expansiva";
   src: url("/fonts/expansiva-bold.woff2") format("woff2");

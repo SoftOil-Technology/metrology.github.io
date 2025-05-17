@@ -24,6 +24,7 @@ const translatePath = useTranslatedPath(lang);
           <div class="relative h-32 overflow-hidden">
             <img
               src={servicio.imagen}
+              transition:name={servicio.id}
               alt={servicio[lang].titulo}
               class="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 group-hover:saturate-100 saturate-0 "
             />
