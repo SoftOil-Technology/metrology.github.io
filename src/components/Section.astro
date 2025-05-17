@@ -32,7 +32,9 @@ const titleClasses = `text-2xl sm:text-4xl font-bold text-primary mb-2 text-cent
     {
       title && (
         <div>
-          <h2 class={titleClasses}>{title}</h2>
+          <h2 transition:name={title} class={titleClasses}>
+            {title}
+          </h2>
           <div class="w-36 sm:w-64 h-1.5 bg-secondary mx-auto mb-8 sm:mb-12" />
         </div>
       )

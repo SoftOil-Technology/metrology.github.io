@@ -26,6 +26,10 @@ import ArrowIcon from "@/components/icons/ArrowIcon.astro";
     align-items: center;
     justify-content: center;
   }
+
+  :global(html.scroll-smooth-temporary) {
+    scroll-behavior: smooth;
+  }
 </style>
 
 <script>
@@ -33,6 +37,7 @@ import ArrowIcon from "@/components/icons/ArrowIcon.astro";
     const manageBackToTopButton = () => {
       const button = document.getElementById("back-to-top");
       const observerTarget = document.getElementById("scroll-observer");
+      const html = document.documentElement;
 
       if (!button || !observerTarget) return;
 
@@ -53,6 +58,18 @@ import ArrowIcon from "@/components/icons/ArrowIcon.astro";
           }
         });
       };
+
+      button.addEventListener("click", (e) => {
+        e.preventDefault();
+        html.classList.add("scroll-smooth-temporary");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+
+        // Remove the class after the scroll animation is complete
+        const scrollDuration = 500; // Adjust this value based on your needs
+        setTimeout(() => {
+          html.classList.remove("scroll-smooth-temporary");
+        }, scrollDuration);
+      });
 
       const observer = new IntersectionObserver(
         (entries) => {
