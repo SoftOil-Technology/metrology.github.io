@@ -1,6 +1,7 @@
-import { Marquee } from "@/components/Marquee";
+import { cn } from "@/lib/utils";
+import { Marquee } from "../components/Marquee";
 
-const images = [
+const reviews = [
   {
     img: "/images/industrias/aeroespacial.webp",
     alt: "Industria Aeroespacial",
@@ -43,32 +44,33 @@ const images = [
   },
 ];
 
-const firstRow = images.slice(0, images.length / 2);
-const secondRow = images.slice(images.length / 2);
+
+const firstRow = reviews.slice(0, reviews.length / 2);
+const secondRow = reviews.slice(reviews.length / 2);
 
 export function MarqueeDemo() {
   return (
     <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
       <Marquee className="[--duration:60s]">
-        {firstRow.map((item) => (
-          <div className="md:h-[400px] h-[250px] cursor-pointer p-4 transition-all duration-300 rounded-2xl overflow-hidden">
-            <img
-              className="h-full w-full object-contain rounded-2xl scale-105"
-              alt={item.alt}
-              src={item.img}
-            />
-          </div>
+        {firstRow.map((review) => (
+          <figure
+            className={cn(
+              "relative h-full w-64 cursor-pointer overflow-hidden rounded-xl",
+            )}
+          >
+            <img className="w-full h-full" alt="" src={review.img} />
+          </figure>
         ))}
       </Marquee>
       <Marquee reverse className="[--duration:60s]">
-        {secondRow.map((item) => (
-          <div className="md:h-[400px] h-[250px] cursor-pointer p-4 transition-all duration-300 rounded-2xl overflow-hidden">
-            <img
-              className="h-full w-full object-contain rounded-2xl scale-105"
-              alt={item.alt}
-              src={item.img}
-            />
-          </div>
+        {secondRow.map((review) => (
+          <figure
+            className={cn(
+              "relative h-full w-64 cursor-pointer overflow-hidden rounded-xl",
+            )}
+          >
+            <img className="w-full h-full" alt="" src={review.img} />
+          </figure>
         ))}
       </Marquee>
       <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background"></div>
