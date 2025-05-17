@@ -21,11 +21,6 @@ interface MarqueeProps extends ComponentPropsWithoutRef<"div"> {
    */
   children: React.ReactNode;
   /**
-   * Whether to animate vertically instead of horizontally
-   * @default false
-   */
-  vertical?: boolean;
-  /**
    * Number of times to repeat the content
    * @default 4
    */
@@ -37,7 +32,6 @@ export function Marquee({
   reverse = false,
   pauseOnHover = false,
   children,
-  vertical = false,
   repeat = 4,
   ...props
 }: MarqueeProps) {
@@ -45,11 +39,7 @@ export function Marquee({
     <div
       {...props}
       className={cn(
-        "group flex overflow-hidden p-2 [--duration:40s] [--gap:1rem] [gap:var(--gap)]",
-        {
-          "flex-row": !vertical,
-          "flex-col": vertical,
-        },
+        "group flex overflow-hidden p-2 [--duration:40s] [--gap:1rem] [gap:var(--gap)] flex-row",
         className,
       )}
     >
@@ -59,8 +49,7 @@ export function Marquee({
           <div
             key={i}
             className={cn("flex shrink-0 justify-around [gap:var(--gap)]", {
-              "animate-marquee flex-row": !vertical,
-              "animate-marquee-vertical flex-col": vertical,
+              "animate-marquee flex-row": true,
               "group-hover:[animation-play-state:paused]": pauseOnHover,
               "[animation-direction:reverse]": reverse,
             })}
