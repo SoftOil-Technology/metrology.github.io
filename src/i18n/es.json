@@ -69,10 +69,8 @@
     "PHONE_TITLE": "Teléfono",
     "PHONE": "+52 (55) 1234 5678",
     "FORM": {
-      "NAME": "Nombre",
-      "NAME_PLACEHOLDER": "Juan",
-      "LAST_NAME": "Apellidos",
-      "LAST_NAME_PLACEHOLDER": "Pérez García",
+      "NAME": "Nombre Completo",
+      "NAME_PLACEHOLDER": "Juan Pérez García",
       "EMAIL": "Correo electrónico",
       "EMAIL_PLACEHOLDER": "juan.perez@empresa.com",
       "PHONE": "Teléfono",

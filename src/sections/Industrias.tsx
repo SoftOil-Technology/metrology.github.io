@@ -50,6 +50,7 @@ export function MarqueeDemo() {
       <Marquee className="[--duration:60s]">
         {images.map((review) => (
           <figure
+            key={review.alt}
             className={cn(
               "relative h-full w-64 cursor-pointer overflow-hidden rounded-xl",
             )}

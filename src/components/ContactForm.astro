@@ -6,12 +6,19 @@ import Button from "@/components/forms/Button.astro";
 
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
+
+const FORMSPREE_ID = "xblobkdz";
 ---
 
 <div
   class="bg-white rounded-xl shadow-lg overflow-hidden border border-neutral-300"
 >
-  <form class="p-6" id="contact-form">
+  <form
+    class="p-6"
+    id="contact-form"
+    action={`https://formspree.io/f/${FORMSPREE_ID}`}
+    method="POST"
+  >
     <div
       id="form-status"
       class="hidden mb-6 p-4 rounded-xl text-sm font-medium"
@@ -19,27 +26,14 @@ const i18n = getI18N({ currentLocale });
     </div>
 
     <div class="space-y-5">
-      <div class="grid grid-cols-2 gap-4">
-        <InputField
-          id="nombre"
-          name="nombre"
-          type="text"
-          label={i18n.CONTACT.FORM.NAME}
-          required={true}
-          iconName="user"
-          placeholder={i18n.CONTACT.FORM.NAME_PLACEHOLDER}
-        />
-
-        <InputField
-          id="apellidos"
-          name="apellidos"
-          type="text"
-          label={i18n.CONTACT.FORM.LAST_NAME}
-          required={true}
-          iconName="user"
-          placeholder={i18n.CONTACT.FORM.LAST_NAME_PLACEHOLDER}
-        />
-      </div>
+      <InputField
+        id="nombre"
+        name="nombre"
+        type="text"
+        label={i18n.CONTACT.FORM.NAME}
+        required={true}
+        iconName="user"
+      />
 
       <InputField
         id="email"
@@ -48,7 +42,6 @@ const i18n = getI18N({ currentLocale });
         label={i18n.CONTACT.FORM.EMAIL}
         required={true}
         iconName="email"
-        placeholder={i18n.CONTACT.FORM.EMAIL_PLACEHOLDER}
       />
 
       <InputField
@@ -57,7 +50,7 @@ const i18n = getI18N({ currentLocale });
         type="tel"
         label={i18n.CONTACT.FORM.PHONE}
         iconName="phone"
-        placeholder={i18n.CONTACT.FORM.PHONE_PLACEHOLDER}
+        maxlength={10}
       />
 
       <TextareaField
@@ -71,6 +64,7 @@ const i18n = getI18N({ currentLocale });
 
       <div class="pt-3">
         <Button
+          id="submit-button"
           type="submit"
           text={i18n.CONTACT.FORM.SUBMIT}
           variant="primary"
@@ -85,28 +79,68 @@ const i18n = getI18N({ currentLocale });
   document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("contact-form");
     const statusDiv = document.getElementById("form-status");
+    const submitButton = document.getElementById("submit-button");
 
-    if (!form || !statusDiv || !(form instanceof HTMLFormElement)) return;
+    if (
+      !form ||
+      !statusDiv ||
+      !(form instanceof HTMLFormElement) ||
+      !submitButton
+    )
+      return;
 
-    form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      // Get form data
-      const formData = new FormData(form);
-      const formValues = Object.fromEntries(formData.entries());
+      try {
+        // Mostrar estado de carga
+        submitButton.setAttribute("disabled", "true");
+        submitButton.textContent = "Enviando...";
 
-      // Log form data to console
-      console.log("Form submitted with values:", formValues);
+        // Get form data
+        const formData = new FormData(form);
 
-      // Show success message
-      statusDiv.classList.remove("hidden", "bg-red-100", "text-red-700");
-      statusDiv.classList.add("bg-green-100", "text-green-700");
+        // Enviar datos usando fetch a Formspree
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: formData,
+          headers: {
+            Accept: "application/json",
+          },
+        });
 
-      // Show success message
-      statusDiv.textContent = i18n.CONTACT.FORM.SUCCESS;
+        if (response.ok) {
+          // Mostrar mensaje de éxito
+          statusDiv.classList.remove("hidden", "bg-red-100", "text-red-700");
+          statusDiv.classList.add("bg-green-100", "text-green-700");
+          statusDiv.textContent = i18n.CONTACT.FORM.SUCCESS;
 
-      // Reset form
-      form.reset();
+          // Resetear el formulario
+          form.reset();
+        } else {
+          // Manejar errores
+          const data = await response.json();
+          throw new Error(data.error || "Error al enviar el formulario");
+        }
+      } catch (error) {
+        // Mostrar error
+        statusDiv.classList.remove("hidden", "bg-green-100", "text-green-700");
+        statusDiv.classList.add("bg-red-100", "text-red-700");
+        statusDiv.textContent =
+          error.message ||
+          i18n.CONTACT.FORM.ERROR ||
+          "Ocurrió un error al enviar el formulario. Inténtalo de nuevo.";
+      } finally {
+        // Restaurar botón
+        submitButton.removeAttribute("disabled");
+        submitButton.textContent = i18n.CONTACT.FORM.SUBMIT;
+
+        // Mostrar mensaje de estado
+        statusDiv.classList.remove("hidden");
+
+        // Hacer scroll al mensaje de estado
+        statusDiv.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
     });
   });
 </script>
