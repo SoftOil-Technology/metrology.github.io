@@ -22,11 +22,11 @@ export const showDefaultLang = false;
 
 export const ui = {
   es: {
-    'nav.home.title': 'Inicio',
-    'nav.services.title': 'Servicios',
-    'nav.about.title': 'Nosotros',
-    'nav.contact.title': 'Contacto',
-    'nav.team.title': 'Nuestro Equipo',
+    'nav.home': 'Inicio',
+    'nav.services': 'Servicios',
+    'nav.about': 'Nosotros',
+    'nav.contact': 'Contacto',
+    'nav.team': 'Nuestro Equipo',
 
     'nav.home.href': '/#top',
     'nav.services.href': '/#servicios',
@@ -35,11 +35,11 @@ export const ui = {
     'nav.team.href': '/equipo',
   },
   en: {
-    'nav.home.title': 'Home',
-    'nav.services.title': 'Services',
-    'nav.about.title': 'About Us',
-    'nav.contact.title': 'Contact',
-    'nav.team.title': 'Our Team',
+    'nav.home': 'Home',
+    'nav.services': 'Services',
+    'nav.about': 'About Us',
+    'nav.contact': 'Contact',
+    'nav.team': 'Our Team',
 
     'nav.home.href': '/#top',
     'nav.services.href': '/#services',
@@ -51,10 +51,16 @@ export const ui = {
 
 export const routes = {
   es: {
+    servicios: '#servicios',
+    nosotros: '#nosotros',
+    contacto: '#contacto',
     equipo: 'equipo',
     marketplace: 'marketplace',
   },
   en: {
+    servicios: '#services',
+    nosotros: '#about',
+    contacto: '#contact',
     equipo: 'team',
     marketplace: 'marketplace',
   },

@@ -16,14 +16,14 @@ const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 
 const NAVIGATION_LINKS = [
-  { href: translatePath(t("nav.home.href")), text: t("nav.home.title") },
+  { href: translatePath(t("nav.home.href")), text: t("nav.home") },
   {
     href: translatePath(t("nav.services.href")),
-    text: t("nav.services.title"),
+    text: t("nav.services"),
   },
-  { href: translatePath(t("nav.about.href")), text: t("nav.about.title") },
-  { href: translatePath(t("nav.contact.href")), text: t("nav.contact.title") },
-  { href: translatePath(t("nav.team.href")), text: t("nav.team.title") },
+  { href: translatePath(t("nav.about.href")), text: t("nav.about") },
+  { href: translatePath(t("nav.contact.href")), text: t("nav.contact") },
+  { href: translatePath(t("nav.team.href")), text: t("nav.team") },
   { href: "https://kepler-marketplace.vercel.app/", text: "Marketplace" },
 ];
 ---
