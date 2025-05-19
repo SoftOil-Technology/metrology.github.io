@@ -52,22 +52,10 @@ export const ui = {
 export const routes = {
   es: {
     equipo: 'equipo',
-    presion: 'presion',
-    temperatura: 'temperatura',
-    flujo: 'flujo',
-    volumen: 'volumen',
-    dimensional: 'dimensional',
-    masa: 'masa',
     marketplace: 'marketplace',
   },
   en: {
-    equipo: 'equipo',
-    presion: 'presion',
-    temperatura: 'temperatura',
-    flujo: 'flujo',
-    volumen: 'volumen',
-    dimensional: 'dimensional',
-    masa: 'masa',
+    equipo: 'team',
     marketplace: 'marketplace',
   },
 };

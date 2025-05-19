@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { Marquee } from "../components/Marquee";
 
-const reviews = [
+const images = [
   {
     img: "/images/industrias/aeroespacial.webp",
     alt: "Industria Aeroespacial",
@@ -44,26 +44,11 @@ const reviews = [
   },
 ];
 
-
-const firstRow = reviews.slice(0, reviews.length / 2);
-const secondRow = reviews.slice(reviews.length / 2);
-
 export function MarqueeDemo() {
   return (
     <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
       <Marquee className="[--duration:60s]">
-        {firstRow.map((review) => (
-          <figure
-            className={cn(
-              "relative h-full w-64 cursor-pointer overflow-hidden rounded-xl",
-            )}
-          >
-            <img className="w-full h-full" alt="" src={review.img} />
-          </figure>
-        ))}
-      </Marquee>
-      <Marquee reverse className="[--duration:60s]">
-        {secondRow.map((review) => (
+        {images.map((review) => (
           <figure
             className={cn(
               "relative h-full w-64 cursor-pointer overflow-hidden rounded-xl",
