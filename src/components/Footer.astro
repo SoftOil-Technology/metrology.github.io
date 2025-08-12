@@ -2,6 +2,8 @@
 import EmailIcon from "./icons/EmailIcon.astro";
 import FacebookIcon from "./icons/FacebookIcon.astro";
 import LinkedInIcon from "./icons/LinkedInIcon.astro";
+import PhoneIcon from "./icons/PhoneIcon.astro";
+
 import { getI18N } from "@/i18n";
 import Logo from "./Logo.astro";
 
@@ -12,8 +14,14 @@ const currentYear = new Date().getFullYear();
 
 const CONTACT_EMAILS = [
   {
-    email: "contacto@kepler-metrology.com.mx",
+    email: "lider.comercial@kepler-metrology.com.mx",
     icon: EmailIcon,
+  },
+];
+const CONTACT_PHONES = [
+  {
+    phone: "(442) 821 4067",
+    icon: PhoneIcon,
   },
 ];
 
@@ -64,6 +72,17 @@ const LEGAL_LINKS = [
               >
                 <Icon class="h-5 w-5 mr-2" />
                 <span>{email}</span>
+              </a>
+            ))
+          }
+          {
+            CONTACT_PHONES.map(({ phone, icon: Icon }) => (
+              <a
+                href={`tel:${phone}`}
+                class="flex items-center text-gray-300 hover:text-white hover:bg-gray-700 p-2 rounded"
+              >
+                <Icon class="h-5 w-5 mr-2" />
+                <span>{phone}</span>
               </a>
             ))
           }

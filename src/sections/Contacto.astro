@@ -4,6 +4,7 @@ import ContactForm from "@/components/ContactForm.astro";
 import LocationIcon from "@/components/icons/LocationIcon.astro";
 import EmailIcon from "@/components/icons/EmailIcon.astro";
 import { getI18N } from "@/i18n";
+import PhoneIcon from "@/components/icons/PhoneIcon.astro";
 
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
@@ -21,7 +22,7 @@ const i18n = getI18N({ currentLocale });
         class="bg-white rounded-xl shadow-lg overflow-hidden border border-neutral-300"
       >
         <div class="p-6 space-y-6">
-          <div class="flex items-start gap-4">
+          <div class="flex items-start gap-4 p-2">
             <div
               class="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center shrink-0"
             >
@@ -37,7 +38,10 @@ const i18n = getI18N({ currentLocale });
             </div>
           </div>
 
-          <div class="flex items-start gap-4">
+          <a
+            href="mailto:lider.comercial@kepler-metrology.com.mx"
+            class="flex items-start gap-4 hover:bg-neutral-100 cursor-pointer rounded-md p-2"
+          >
             <div
               class="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center shrink-0"
             >
@@ -51,7 +55,21 @@ const i18n = getI18N({ currentLocale });
                 {i18n.CONTACT.EMAIL}
               </p>
             </div>
-          </div>
+          </a>
+
+          <a href="tel:4428214067" class="flex items-start gap-4 hover:bg-neutral-100 cursor-pointer rounded-md p-2">
+            <div
+              class="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center shrink-0"
+            >
+              <PhoneIcon class="h-6 w-6 text-primary" />
+            </div>
+            <div>
+              <h4 class="text-lg font-semibold text-gray-800">
+                {i18n.CONTACT.PHONE_TITLE}
+              </h4>
+              <p class="text-gray-600 mt-1">(442) 821 4067</p>
+            </div>
+          </a>
         </div>
       </div>
 
