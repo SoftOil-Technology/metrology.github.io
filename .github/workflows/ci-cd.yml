@@ -16,14 +16,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      # 1. Instalar pnpm primero
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8 # O la versión que uses localmente
+
+      # 2. Configurar Node con cache de pnpm
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
-      - run: npm install
-      - run: npx astro check
-      - run: npm run build
+          cache: 'pnpm' # <--- Ahora sí encontrará el pnpm-lock.yaml
+
+      # 3. Usar comandos de pnpm
+      - run: pnpm install
+      - run: pnpm astro check
+      - run: pnpm build
 
   build-and-push:
     needs: validate
