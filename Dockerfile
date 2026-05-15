@@ -1,24 +1,28 @@
-# 1. Etapa de dependencias
-FROM node:20-slim AS base
-ENV PNPM_HOME="/pnpm"
-ENV PATH="$PNPM_HOME:$PATH"
-RUN corepack enable
-COPY . /app
+# --- Etapa de Construcción ---
+FROM node:20-alpine AS build
+
+# Instalamos pnpm
+RUN npm install -g pnpm
+
 WORKDIR /app
 
-# 2. Etapa de construcción
-FROM base AS build
-RUN pnpm install --frozen-lockfile
+# Copiamos archivos de dependencias
+COPY package.json pnpm-lock.yaml ./
+
+# Instalamos dependencias (sin el flag frozen para evitar el error de lockfile)
+RUN pnpm install
+
+# Copiamos el resto y construimos
+COPY . .
 RUN pnpm run build
 
-# 3. Etapa de producción (servidor ligero)
-FROM base AS runtime
-COPY --from=build /app/node_modules /app/node_modules
-COPY --from=build /app/dist /app/dist
+# --- Etapa de Producción (Servidor Web Nginx) ---
+FROM nginx:alpine AS runtime
 
-ENV HOST=0.0.0.0
-ENV PORT=4321
-EXPOSE 4321
+# Copiamos los archivos estáticos de Astro a la carpeta de Nginx
+COPY --from=build /app/dist /usr/share/nginx/html
 
-# Comando para arrancar Astro (ajusta si usas SSR o SSG)
-CMD ["node", "./dist/server/entry.mjs"]
+# Exponemos el puerto 80
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
